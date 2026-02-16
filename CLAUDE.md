@@ -73,5 +73,5 @@ Signals (100%) + Near-misses (80%+) → Stress test → Analysis report
 - Sector exemptions: `PB_EXEMPT_SECTORS` (Technology, Communication Services), `DE_EXEMPT_SECTORS` (Financial Services)
 
 **stress_test.txt** - Hedge fund stress test prompt:
-- 5-question template: Falling Knife, 20-Year Survival, Moat Check, Valuation Trap, Verdict
+- 8-question template: Falling Knife, 20-Year Survival, Moat Check, Valuation Trap, Cash Flow Reality, Insider/Smart Money, Catalyst, Verdict
 - Must be run on every signal stock before including in the report

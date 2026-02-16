@@ -25,7 +25,7 @@ For each signal stock:
 1. Read `stress_test.txt` for the prompt template
 2. Replace `[TICKER]` with the stock symbol
 3. Research the stock using current news, financials, and competitive landscape
-4. Answer all 5 questions with data and specifics
+4. Answer all 8 questions with data and specifics
 5. Assign a verdict: **Golden Opportunity**, **Value Trap**, or **Wait & See** with a confidence score
 
 When using an LLM: run all signal stocks in parallel (one agent per stock) for speed.
@@ -71,7 +71,7 @@ The scanner signals when **ALL applicable criteria** are met:
 
 ## Stress Test (stress_test.txt)
 
-After the scanner identifies a dip, each signal is stress-tested with 5 questions:
+After the scanner identifies a dip, each signal is stress-tested with 8 questions:
 
 | # | Test | Question |
 |---|------|----------|
@@ -79,7 +79,10 @@ After the scanner identifies a dip, each signal is stress-tested with 5 question
 | 2 | 20-Year Survival | Write a pre-mortem: how does this company die by 2046? |
 | 3 | Moat Check | If they raised prices 10%, would customers stay or leave? |
 | 4 | Valuation Trap | Is the P/E low because earnings are about to collapse? |
-| 5 | Verdict | Golden Opportunity / Value Trap / Wait & See + confidence % |
+| 5 | Cash Flow Reality | Is FCF backing up reported earnings, or are profits a mirage? |
+| 6 | Insider / Smart Money | Are insiders and institutions buying or selling this dip? |
+| 7 | Catalyst | Name ONE specific event in 3-12 months that re-rates the stock |
+| 8 | Verdict | Golden Opportunity / Value Trap / Wait & See + confidence % |
 
 ---
 
