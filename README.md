@@ -19,11 +19,11 @@ This scans all 417 stocks and outputs which ones pass ALL criteria (100% score),
 
 ### Step 2: Stress Test Every Signal
 
-For **each stock that triggered a signal** (100% score), run the 5-question stress test from `stress_test.txt`. This is a ruthless hedge fund manager evaluation designed to find reasons NOT to buy.
+Stress test ALL stocks missing at most 1 criterion (`criteria_total - criteria_passed <= 1`). Even if no stock hits 100%, the near-misses are the most promising and must be evaluated. Use the count of missed criteria, not the percentage — because different sectors have different numbers of applicable criteria.
 
-For each signal stock:
+For each stock:
 1. Read `stress_test.txt` for the prompt template
-2. Replace `[TICKER]` with the stock symbol
+2. Fill in `[TICKER]`, `[COMPANY_NAME]`, `[SECTOR]`, `[PRICE]`
 3. Research the stock using current news, financials, and competitive landscape
 4. Answer all 8 questions with data and specifics
 5. Assign a verdict: **Golden Opportunity**, **Value Trap**, or **Wait & See** with a confidence score

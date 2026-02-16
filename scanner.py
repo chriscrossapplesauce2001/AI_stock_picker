@@ -394,12 +394,12 @@ def main():
     else:
         print("\n✨ No signals today. Waiting for better value opportunities!")
 
-    # Show near-misses (high score but not 100%)
-    near_misses = [r for r in all_results if not r["signal"] and r["score_pct"] >= 80]
+    # Show near-misses (missed at most 1 criterion)
+    near_misses = [r for r in all_results if not r["signal"] and (r["criteria_total"] - r["criteria_passed"]) <= 1]
     if near_misses:
-        print(f"\n👀 NEAR MISSES ({len(near_misses)} stocks at 80%+ score):")
+        print(f"\n👀 NEAR MISSES ({len(near_misses)} stocks missing 1 criterion):")
         for s in near_misses:
-            print(f"   • {s['symbol']} @ ${s['price']:.2f} [{s['criteria_passed']}/{s['criteria_total']} = {s['score_pct']:.0f}%]")
+            print(f"   • {s['symbol']} @ ${s['price']:.2f} [{s['criteria_passed']}/{s['criteria_total']}]")
             print(f"     Failed: {', '.join(s['failed_reasons'])}")
 
     return len(signals)
