@@ -5,8 +5,8 @@ Personal Hedge Fund Scanner
 Buffett-Style Value Investing + RSI Dip Detection
 
 Scans blue-chip stocks for 'Buy the Dip' opportunities using:
-1. Technical: RSI(14) < 30 (oversold)
-2. Value: Forward P/E, P/B, ROE, Debt/Equity filters
+1. Technical: RSI(14) < 30 (oversold) + 200-day MA trend filter
+2. Value: Trailing P/E, P/B (sector-aware), ROE, Debt/Equity (sector-aware)
 """
 
 import os
@@ -24,11 +24,13 @@ from config import (
     WATCHLIST,
     RSI_PERIOD,
     RSI_OVERSOLD,
-    MAX_FORWARD_PE,
+    MAX_TRAILING_PE,
     MAX_PRICE_TO_BOOK,
     MIN_ROE,
     MIN_REVENUE_GROWTH,
     MAX_DEBT_TO_EQUITY,
+    PB_EXEMPT_SECTORS,
+    DE_EXEMPT_SECTORS,
     EMAIL_SUBJECT,
 )
 
@@ -55,12 +57,12 @@ def get_fundamentals(ticker: yf.Ticker) -> dict:
     """
     Fetch fundamental data from yfinance.
 
-    Returns dict with: forwardPE, priceToBook, returnOnEquity, debtToEquity
+    Returns dict with: trailingPE, priceToBook, returnOnEquity, debtToEquity
     """
     try:
         info = ticker.info
         return {
-            "forwardPE": info.get("forwardPE"),
+            "trailingPE": info.get("trailingPE"),
             "priceToBook": info.get("priceToBook"),
             "returnOnEquity": info.get("returnOnEquity"),
             "revenueGrowth": info.get("revenueGrowth"),
@@ -82,54 +84,82 @@ def format_value(value, fmt=".2f", suffix="", prefix=""):
     return f"{prefix}{value:{fmt}}{suffix}"
 
 
-def check_criteria(rsi: float, fundamentals: dict) -> tuple[bool, list[str]]:
+def check_criteria(rsi: float, fundamentals: dict, above_200d_ma: bool = True) -> tuple[bool, list[str], int, int]:
     """
     Check if stock meets all criteria.
+    Sector-aware: skips P/B for tech/comms, skips D/E for financials.
 
     Returns:
-        Tuple of (passed: bool, failed_reasons: list)
+        Tuple of (passed: bool, failed_reasons: list, criteria_passed: int, criteria_total: int)
     """
     reasons = []
+    sector = fundamentals.get("sector", "N/A")
+    passed_count = 0
+    total_count = 0
 
     # RSI Check
-    if rsi >= RSI_OVERSOLD:
+    total_count += 1
+    if rsi < RSI_OVERSOLD:
+        passed_count += 1
+    else:
         reasons.append(f"RSI {rsi:.1f} >= {RSI_OVERSOLD}")
 
-    # Forward P/E Check
-    pe = fundamentals.get("forwardPE")
+    # 200-Day MA Check (trend context)
+    total_count += 1
+    if above_200d_ma:
+        passed_count += 1
+    else:
+        reasons.append("Price BELOW 200-day MA (falling knife risk)")
+
+    # Trailing P/E Check
+    total_count += 1
+    pe = fundamentals.get("trailingPE")
     if pe is None:
         reasons.append("No P/E data")
-    elif pe > MAX_FORWARD_PE:
-        reasons.append(f"P/E {pe:.1f} > {MAX_FORWARD_PE}")
+    elif pe > MAX_TRAILING_PE:
+        reasons.append(f"P/E {pe:.1f} > {MAX_TRAILING_PE}")
+    else:
+        passed_count += 1
 
-    # Price-to-Book Check
-    pb = fundamentals.get("priceToBook")
-    if pb is None:
-        reasons.append("No P/B data")
-    elif pb > MAX_PRICE_TO_BOOK:
-        reasons.append(f"P/B {pb:.1f} > {MAX_PRICE_TO_BOOK}")
+    # Price-to-Book Check (skipped for tech/comms — their value is in IP)
+    if sector not in PB_EXEMPT_SECTORS:
+        total_count += 1
+        pb = fundamentals.get("priceToBook")
+        if pb is None:
+            reasons.append("No P/B data")
+        elif pb > MAX_PRICE_TO_BOOK:
+            reasons.append(f"P/B {pb:.1f} > {MAX_PRICE_TO_BOOK}")
+        else:
+            passed_count += 1
 
     # ROE OR Revenue Growth Check (quality OR growth)
+    total_count += 1
     roe = fundamentals.get("returnOnEquity")
     rev_growth = fundamentals.get("revenueGrowth")
 
     roe_pass = roe is not None and roe >= MIN_ROE
     growth_pass = rev_growth is not None and rev_growth >= MIN_REVENUE_GROWTH
 
-    if not roe_pass and not growth_pass:
+    if roe_pass or growth_pass:
+        passed_count += 1
+    else:
         roe_str = f"{roe*100:.1f}%" if roe else "N/A"
         growth_str = f"{rev_growth*100:.1f}%" if rev_growth else "N/A"
         reasons.append(f"ROE {roe_str} < {MIN_ROE*100:.0f}% AND Growth {growth_str} < {MIN_REVENUE_GROWTH*100:.0f}%")
 
-    # Debt-to-Equity Check
-    de = fundamentals.get("debtToEquity")
-    if de is None:
-        # Some companies (especially financials) may not have this
-        pass  # Don't fail on missing D/E
-    elif de > MAX_DEBT_TO_EQUITY * 100:  # yfinance returns as percentage
-        reasons.append(f"D/E {de:.0f}% > {MAX_DEBT_TO_EQUITY*100:.0f}%")
+    # Debt-to-Equity Check (skipped for financials — leverage is their business)
+    if sector not in DE_EXEMPT_SECTORS:
+        total_count += 1
+        de = fundamentals.get("debtToEquity")
+        if de is None:
+            passed_count += 1  # Don't penalize missing D/E
+        elif de > MAX_DEBT_TO_EQUITY * 100:  # yfinance returns as percentage
+            reasons.append(f"D/E {de:.0f}% > {MAX_DEBT_TO_EQUITY*100:.0f}%")
+        else:
+            passed_count += 1
 
-    return len(reasons) == 0, reasons
+    all_passed = len(reasons) == 0
+    return all_passed, reasons, passed_count, total_count
 
 
 def analyze_stock(symbol: str) -> Optional[dict]:
@@ -141,8 +171,8 @@ def analyze_stock(symbol: str) -> Optional[dict]:
     try:
         ticker = yf.Ticker(symbol)
 
-        # Fetch price history for RSI
-        hist = ticker.history(period="1mo")
+        # Fetch 1-year price history for RSI + 200-day MA
+        hist = ticker.history(period="1y")
 
         if hist.empty or len(hist) < RSI_PERIOD:
             print(f"  ⚠️  Insufficient price data for {symbol}")
@@ -155,46 +185,65 @@ def analyze_stock(symbol: str) -> Optional[dict]:
         rsi_series = calculate_rsi(close, RSI_PERIOD)
         current_rsi = rsi_series.iloc[-1]
 
+        # Calculate 200-day MA trend context
+        if len(close) >= 200:
+            ma_200 = close.rolling(window=200).mean().iloc[-1]
+            above_200d_ma = current_price > ma_200
+        else:
+            # Not enough data for 200-day MA, use what we have
+            ma_200 = close.mean()
+            above_200d_ma = current_price > ma_200
+
         # Get fundamentals
         fundamentals = get_fundamentals(ticker)
+        sector = fundamentals.get("sector", "N/A")
 
         # Display metrics
         print(f"  {fundamentals.get('shortName', symbol)}")
+        print(f"  Sector: {sector}")
         print(f"  Price: ${current_price:.2f}")
+        print(f"  200-day MA: ${ma_200:.2f} ({'ABOVE' if above_200d_ma else 'BELOW'})")
         print(f"  RSI(14): {current_rsi:.2f}")
-        print(f"  Forward P/E: {format_value(fundamentals.get('forwardPE'))}")
-        print(f"  Price/Book: {format_value(fundamentals.get('priceToBook'))}")
+        print(f"  Trailing P/E: {format_value(fundamentals.get('trailingPE'))}")
+        print(f"  Price/Book: {format_value(fundamentals.get('priceToBook'))}{' [exempt]' if sector in PB_EXEMPT_SECTORS else ''}")
         print(f"  ROE: {format_value(fundamentals.get('returnOnEquity'), '.1%')}")
         print(f"  Revenue Growth: {format_value(fundamentals.get('revenueGrowth'), '.1%')}")
-        print(f"  Debt/Equity: {format_value(fundamentals.get('debtToEquity'), '.0f', '%')}")
+        print(f"  Debt/Equity: {format_value(fundamentals.get('debtToEquity'), '.0f', '%')}{' [exempt]' if sector in DE_EXEMPT_SECTORS else ''}")
 
         # Check criteria
-        passed, reasons = check_criteria(current_rsi, fundamentals)
+        passed, reasons, criteria_passed, criteria_total = check_criteria(current_rsi, fundamentals, above_200d_ma)
+        score_pct = (criteria_passed / criteria_total * 100) if criteria_total > 0 else 0
+
+        # Calculate FCF Yield if available
+        fcf = fundamentals.get("freeCashflow")
+        mcap = fundamentals.get("marketCap")
+        fcf_yield = (fcf / mcap * 100) if fcf and mcap else None
 
         if passed:
-            print(f"  ✅ SIGNAL TRIGGERED!")
-
-            # Calculate FCF Yield if available
-            fcf = fundamentals.get("freeCashflow")
-            mcap = fundamentals.get("marketCap")
-            fcf_yield = (fcf / mcap * 100) if fcf and mcap else None
-
-            return {
-                "symbol": symbol,
-                "name": fundamentals.get("shortName", symbol),
-                "sector": fundamentals.get("sector", "N/A"),
-                "price": current_price,
-                "rsi": current_rsi,
-                "forward_pe": fundamentals.get("forwardPE"),
-                "price_to_book": fundamentals.get("priceToBook"),
-                "roe": fundamentals.get("returnOnEquity"),
-                "revenue_growth": fundamentals.get("revenueGrowth"),
-                "debt_to_equity": fundamentals.get("debtToEquity"),
-                "fcf_yield": fcf_yield,
-            }
+            print(f"  ✅ SIGNAL TRIGGERED! Score: {criteria_passed}/{criteria_total} (100%)")
         else:
-            print(f"  ❌ No signal: {', '.join(reasons)}")
-            return None
+            print(f"  ❌ No signal ({criteria_passed}/{criteria_total} = {score_pct:.0f}%): {', '.join(reasons)}")
+
+        return {
+            "symbol": symbol,
+            "name": fundamentals.get("shortName", symbol),
+            "sector": fundamentals.get("sector", "N/A"),
+            "price": current_price,
+            "rsi": current_rsi,
+            "ma_200": ma_200,
+            "above_200d_ma": above_200d_ma,
+            "trailing_pe": fundamentals.get("trailingPE"),
+            "price_to_book": fundamentals.get("priceToBook"),
+            "roe": fundamentals.get("returnOnEquity"),
+            "revenue_growth": fundamentals.get("revenueGrowth"),
+            "debt_to_equity": fundamentals.get("debtToEquity"),
+            "fcf_yield": fcf_yield,
+            "criteria_passed": criteria_passed,
+            "criteria_total": criteria_total,
+            "score_pct": score_pct,
+            "signal": passed,
+            "failed_reasons": reasons,
+        }
 
     except Exception as e:
         print(f"  ⚠️  Error analyzing {symbol}: {e}")
@@ -214,10 +263,11 @@ Scan Time: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}
 
 Criteria:
 • RSI(14) < {RSI_OVERSOLD} (Oversold - The Dip)
-• Forward P/E < {MAX_FORWARD_PE} (Earnings Value)
-• Price/Book < {MAX_PRICE_TO_BOOK} (Asset Value)
+• Price ABOVE 200-day MA (Uptrend confirmation)
+• Trailing P/E < {MAX_TRAILING_PE} (Earnings Value - real numbers)
+• Price/Book < {MAX_PRICE_TO_BOOK} (Asset Value - skipped for Tech/Comms)
 • ROE > {MIN_ROE*100:.0f}% OR Revenue Growth > {MIN_REVENUE_GROWTH*100:.0f}% (Quality or Growth)
-• Debt/Equity < {MAX_DEBT_TO_EQUITY*100:.0f}% (Conservative)
+• Debt/Equity < {MAX_DEBT_TO_EQUITY*100:.0f}% (Conservative - skipped for Financials)
 
 ---
 """
@@ -228,6 +278,10 @@ Criteria:
         de_str = f"{signal['debt_to_equity']:.0f}%" if signal['debt_to_equity'] else "N/A"
         fcf_str = f"{signal['fcf_yield']:.1f}%" if signal['fcf_yield'] else "N/A"
 
+        ma_str = "ABOVE" if signal['above_200d_ma'] else "BELOW"
+        pb_str = f"{signal['price_to_book']:.2f}" if signal['price_to_book'] else "N/A"
+        pe_str = f"{signal['trailing_pe']:.2f}" if signal['trailing_pe'] else "N/A"
+
         body += f"""
 📊 {signal['symbol']} - {signal['name']}
    Sector: {signal['sector']}
@@ -235,10 +289,11 @@ Criteria:
 
    Technical:
    • RSI(14): {signal['rsi']:.2f}
+   • 200-day MA: ${signal['ma_200']:.2f} ({ma_str})
 
    Value Metrics:
-   • Forward P/E: {signal['forward_pe']:.2f}
-   • Price/Book: {signal['price_to_book']:.2f}
+   • Trailing P/E: {pe_str}
+   • Price/Book: {pb_str}
    • ROE: {roe_str}
    • Revenue Growth: {growth_str}
    • Debt/Equity: {de_str}
@@ -298,37 +353,54 @@ def main():
     print(f"\nWatchlist: {', '.join(WATCHLIST)}")
     print(f"\nCriteria:")
     print(f"  • RSI(14) < {RSI_OVERSOLD}")
-    print(f"  • Forward P/E < {MAX_FORWARD_PE}")
-    print(f"  • Price/Book < {MAX_PRICE_TO_BOOK}")
+    print(f"  • Price ABOVE 200-day MA")
+    print(f"  • Trailing P/E < {MAX_TRAILING_PE}")
+    print(f"  • Price/Book < {MAX_PRICE_TO_BOOK} (skipped for Tech/Comms)")
     print(f"  • ROE > {MIN_ROE*100:.0f}% OR Revenue Growth > {MIN_REVENUE_GROWTH*100:.0f}%")
-    print(f"  • Debt/Equity < {MAX_DEBT_TO_EQUITY*100:.0f}%")
+    print(f"  • Debt/Equity < {MAX_DEBT_TO_EQUITY*100:.0f}% (skipped for Financials)")
     print("-" * 60)
 
-    signals = []
+    all_results = []
 
     for symbol in WATCHLIST:
         result = analyze_stock(symbol)
         if result:
-            signals.append(result)
+            all_results.append(result)
         print()
+
+    # Separate perfect signals from partial matches
+    signals = [r for r in all_results if r["signal"]]
+    # Sort all results by score percentage (highest first)
+    all_results.sort(key=lambda r: r["score_pct"], reverse=True)
 
     print("=" * 60)
     print(f"SUMMARY: {len(signals)} signal(s) out of {len(WATCHLIST)} stocks")
     print("=" * 60)
 
     if signals:
-        print("\n🚨 SIGNALS TRIGGERED:")
-        for signal in signals:
-            roe_str = f"{signal['roe']*100:.1f}%" if signal['roe'] else "N/A"
-            growth_str = f"{signal['revenue_growth']*100:.1f}%" if signal['revenue_growth'] else "N/A"
-            de_str = f"{signal['debt_to_equity']:.0f}%" if signal['debt_to_equity'] else "N/A"
-            print(f"   • {signal['symbol']} @ ${signal['price']:.2f}")
-            print(f"     RSI: {signal['rsi']:.1f} | P/E: {signal['forward_pe']:.1f} | P/B: {signal['price_to_book']:.1f}")
+        print("\n🚨 SIGNALS TRIGGERED (100% score):")
+        for s in signals:
+            roe_str = f"{s['roe']*100:.1f}%" if s['roe'] else "N/A"
+            growth_str = f"{s['revenue_growth']*100:.1f}%" if s['revenue_growth'] else "N/A"
+            de_str = f"{s['debt_to_equity']:.0f}%" if s['debt_to_equity'] else "N/A"
+            pe_str = f"{s['trailing_pe']:.1f}" if s['trailing_pe'] else "N/A"
+            pb_str = f"{s['price_to_book']:.1f}" if s['price_to_book'] else "N/A"
+            ma_str = "ABOVE" if s['above_200d_ma'] else "BELOW"
+            print(f"   • {s['symbol']} @ ${s['price']:.2f} [{s['criteria_passed']}/{s['criteria_total']}]")
+            print(f"     200d MA: {ma_str} | RSI: {s['rsi']:.1f} | P/E: {pe_str} | P/B: {pb_str}")
             print(f"     ROE: {roe_str} | Growth: {growth_str} | D/E: {de_str}")
 
         send_email(signals)
     else:
         print("\n✨ No signals today. Waiting for better value opportunities!")
+
+    # Show near-misses (high score but not 100%)
+    near_misses = [r for r in all_results if not r["signal"] and r["score_pct"] >= 80]
+    if near_misses:
+        print(f"\n👀 NEAR MISSES ({len(near_misses)} stocks at 80%+ score):")
+        for s in near_misses:
+            print(f"   • {s['symbol']} @ ${s['price']:.2f} [{s['criteria_passed']}/{s['criteria_total']} = {s['score_pct']:.0f}%]")
+            print(f"     Failed: {', '.join(s['failed_reasons'])}")
 
     return len(signals)
 

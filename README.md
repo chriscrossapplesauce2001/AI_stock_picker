@@ -1,33 +1,85 @@
-# Personal Hedge Fund Bot 🤖📈
+# Personal Hedge Fund Bot
 
-A stock scanner monitoring **417 global stocks** across 16 markets for "Buy the Dip" opportunities using Buffett-style value investing.
+A stock scanner monitoring **417 global stocks** across 16 markets for "Buy the Dip" opportunities using Buffett-style value investing with sector-aware filtering.
 
 ---
 
-## Quick Start
+## How to Run a Full Analysis
+
+> **IMPORTANT: A complete analysis is NOT just running the scanner. It is a 3-step process. All 3 steps must be completed to produce a useful report.**
+
+### Step 1: Run the Scanner
 
 ```bash
-# 1. Install dependencies
 pip install -r requirements.txt
-
-# 2. Run the scanner
 python3 scanner.py
 ```
+
+This scans all 417 stocks and outputs which ones pass ALL criteria (100% score), plus near-misses (80%+ score). Each stock gets a **percentage score** relative to the number of criteria that apply to its sector (e.g. 6/6 = 100% for a tech stock is equal to 7/7 = 100% for a consumer stock).
+
+### Step 2: Stress Test Every Signal
+
+For **each stock that triggered a signal** (100% score), run the 5-question stress test from `stress_test.txt`. This is a ruthless hedge fund manager evaluation designed to find reasons NOT to buy.
+
+For each signal stock:
+1. Read `stress_test.txt` for the prompt template
+2. Replace `[TICKER]` with the stock symbol
+3. Research the stock using current news, financials, and competitive landscape
+4. Answer all 5 questions with data and specifics
+5. Assign a verdict: **Golden Opportunity**, **Value Trap**, or **Wait & See** with a confidence score
+
+When using an LLM: run all signal stocks in parallel (one agent per stock) for speed.
+
+### Step 3: Generate the Analysis Report
+
+Create a file named `ANALYSIS_YYYY-MM-DD.md` with this structure:
+
+```
+1. TL;DR section (TOP of the report)
+   - Day-over-day changes vs previous report (if one exists)
+   - Stress test scorecard table (all signals with verdict + confidence + thesis killer)
+   - Recommendations split into AVOID (value traps) and WATCHLIST (wait & see)
+   - "If forced to pick one" assessment
+
+2. Full Scanner Data (below the TL;DR)
+   - All 417 stocks grouped by score percentage (100%, 80%+, 60%+, etc.)
+   - Tables with all metrics: RSI, 200d MA, Trailing P/E, P/B, ROE, Growth, D/E
+   - Sector and price for each stock
+```
+
+The TL;DR with stress test verdicts is the most important part of the report. Without it, the scanner data is just numbers without context.
 
 ---
 
 ## Strategy
 
-The bot signals when **ALL criteria** are met:
+The scanner signals when **ALL applicable criteria** are met:
 
-| Indicator | Threshold | Purpose |
-|-----------|-----------|---------|
-| RSI(14) | < 30 | Identifies oversold stocks (the dip) |
-| Forward P/E | < 25 | Reasonable earnings valuation |
-| Price/Book | < 3 | Not overpaying for assets |
-| ROE | > 10% | Quality business |
-| Revenue Growth | > 5% | *OR* Growth alternative to ROE |
-| Debt/Equity | < 100% | Conservative balance sheet |
+| Indicator | Threshold | Purpose | Sector Exemptions |
+|-----------|-----------|---------|-------------------|
+| RSI(14) | < 30 | Identifies oversold stocks (the dip) | None |
+| 200-day MA | Price above | Confirms uptrend (filters falling knives) | None |
+| Trailing P/E | < 25 | Reasonable earnings valuation (real numbers) | None |
+| Price/Book | < 3 | Not overpaying for assets | Skipped for Technology & Communication Services |
+| ROE | > 10% | Quality business | None |
+| Revenue Growth | > 5% | *OR* alternative to ROE for growth companies | None |
+| Debt/Equity | < 100% | Conservative balance sheet | Skipped for Financial Services |
+
+**Scoring:** Each stock is scored as `criteria_passed / criteria_applicable`. A tech stock with 6 applicable criteria passing 6/6 = 100% is equivalent to a consumer stock passing 7/7 = 100%.
+
+---
+
+## Stress Test (stress_test.txt)
+
+After the scanner identifies a dip, each signal is stress-tested with 5 questions:
+
+| # | Test | Question |
+|---|------|----------|
+| 1 | Falling Knife | Is this structural decline (Kodak) or temporary (COVID dip)? |
+| 2 | 20-Year Survival | Write a pre-mortem: how does this company die by 2046? |
+| 3 | Moat Check | If they raised prices 10%, would customers stay or leave? |
+| 4 | Valuation Trap | Is the P/E low because earnings are about to collapse? |
+| 5 | Verdict | Golden Opportunity / Value Trap / Wait & See + confidence % |
 
 ---
 
@@ -35,146 +87,41 @@ The bot signals when **ALL criteria** are met:
 
 | Market | Count | Examples |
 |--------|-------|----------|
-| 🇺🇸 S&P 500 | 107 | AAPL, MSFT, GOOGL, AMZN, META, NVDA, TSLA, JPM, V, JNJ... |
-| 🇩🇪 DAX | 36 | SAP, Siemens, Allianz, Mercedes, BMW, Porsche, Rheinmetall... |
-| 🇩🇪 MDAX/SDAX | 30 | Carl Zeiss, Puma, Hugo Boss, Delivery Hero, Aixtron... |
-| 🇫🇷 CAC 40 | 23 | LVMH, L'Oreal, Hermes, Kering, TotalEnergies, Sanofi... |
-| 🇬🇧 FTSE 100 | 25 | Shell, AstraZeneca, HSBC, Unilever, BP, Rolls-Royce... |
-| 🇳🇱 AEX | 15 | ASML, Heineken, ING, Philips, Akzo Nobel... |
-| 🇨🇭 SMI | 15 | Nestle, Novartis, Roche, UBS, Richemont, Sika... |
-| 🇯🇵 Nikkei | 30 | Toyota, Sony, Nintendo, Keyence, SoftBank, Honda... |
-| 🇰🇷 KOSPI | 15 | Samsung, SK Hynix, Hyundai, Naver, Kakao, LG Chem... |
-| 🇨🇳 China/HK | 35 | Alibaba, Tencent, BYD, PDD, JD, Xiaomi, Meituan... |
-| 🇦🇺 ASX | 15 | BHP, Commonwealth Bank, CSL, Rio Tinto, Fortescue... |
-| 🇮🇳 India ADRs | 9 | Infosys, HDFC Bank, ICICI, Tata Motors, Wipro... |
-| 🇸🇪🇩🇰🇳🇴🇫🇮 Nordic | 23 | Novo Nordisk, Ericsson, Volvo, Maersk, Equinor, Nokia... |
-| 🇪🇸🇮🇹 Southern EU | 16 | Santander, Inditex, Ferrari, Enel, UniCredit... |
-| 🇨🇦 TSX | 15 | Royal Bank, TD, Shopify, Enbridge, CN Railway... |
+| S&P 500 | 107 | AAPL, MSFT, GOOGL, AMZN, META, NVDA, TSLA, JPM, V, JNJ... |
+| DAX | 36 | SAP, Siemens, Allianz, Mercedes, BMW, Porsche, Rheinmetall... |
+| MDAX/SDAX | 30 | Carl Zeiss, Puma, Hugo Boss, Delivery Hero, Aixtron... |
+| CAC 40 | 23 | LVMH, L'Oreal, Hermes, Kering, TotalEnergies, Sanofi... |
+| FTSE 100 | 25 | Shell, AstraZeneca, HSBC, Unilever, BP, Rolls-Royce... |
+| AEX | 15 | ASML, Heineken, ING, Philips, Akzo Nobel... |
+| SMI | 15 | Nestle, Novartis, Roche, UBS, Richemont, Sika... |
+| Nikkei | 30 | Toyota, Sony, Nintendo, Keyence, SoftBank, Honda... |
+| KOSPI | 15 | Samsung, SK Hynix, Hyundai, Naver, Kakao, LG Chem... |
+| China/HK | 35 | Alibaba, Tencent, BYD, PDD, JD, Xiaomi, Meituan... |
+| ASX | 15 | BHP, Commonwealth Bank, CSL, Rio Tinto, Fortescue... |
+| India ADRs | 9 | Infosys, HDFC Bank, ICICI, Tata Motors, Wipro... |
+| Nordic | 23 | Novo Nordisk, Ericsson, Volvo, Maersk, Equinor, Nokia... |
+| Southern EU | 16 | Santander, Inditex, Ferrari, Enel, UniCredit... |
+| TSX | 15 | Royal Bank, TD, Shopify, Enbridge, CN Railway... |
 
 Edit `config.py` to customize your watchlist.
 
 ---
 
-## Output
-
-The scanner generates a table with color-coded indicators:
-
-| Symbol | Meaning |
-|--------|---------|
-| 🟢 | Good — passes threshold |
-| 🟠 | Borderline — close to threshold |
-| 🔴 | Bad — fails threshold |
-
-Example output:
-```
-🚨 SIGNALS TRIGGERED:
-   • AFX.DE @ €28.00
-     RSI: 17.6 | P/E: 13.0 | P/B: 1.2
-     ROE: 6.8% | Growth: 8.3% | D/E: 25%
-   • PDD @ €85.25
-     RSI: 24.2 | P/E: 8.1 | P/B: 2.5
-     ROE: 30.5% | Growth: 9.0% | D/E: 3%
-```
-
----
-
-## 🔥 Hedge Fund Stress Test
-
-**After the scanner identifies a dip, run each signal through this brutal 5-question test.**
-
-Play the role of a cynical, ruthless hedge fund manager. Your job is capital preservation. Stress-test every trade before buying.
-
-### 1. The "Falling Knife" Test (Structural vs. Cyclical)
-
-> *"Is the stock down because of a temporary macro issue (e.g., interest rates, supply chain) or a permanent structural problem (e.g., nobody buys this product anymore)?"*
-
-**Ask yourself:**
-- Is this a Nokia/Kodak situation where the core business is dying?
-- Or is it a temporary setback like COVID supply chains or interest rate sensitivity?
-- If there's even a 10% chance this is structural decline, **walk away**.
-
-### 2. The "20-Year Survival" Stress Test
-
-> *"Imagine it is the year 2046. This company has gone bankrupt. Write a pre-mortem explaining exactly HOW it died."*
-
-**Consider:**
-- What competitor could kill them? (e.g., Amazon killed retail)
-- What technology shift could make them obsolete? (e.g., EVs killed combustion)
-- What lawsuit or regulation could destroy them? (e.g., tobacco litigation)
-- Be creative and specific about the killer.
-
-### 3. The "Moat" Integrity Check
-
-> *"Does this company still have pricing power? If they raised prices by 10% tomorrow, would customers stay or leave?"*
-
-**Compare to top 2 competitors:**
-- Can they raise prices without losing customers?
-- Do they have brand loyalty, network effects, or switching costs?
-- Or are they competing purely on price (commodity business)?
-
-### 4. The Valuation Trap
-
-> *"Is the stock actually 'cheap' relative to its own 10-year history, or is the 'E' in P/E about to collapse?"*
-
-**Check:**
-- Is the low P/E because earnings are about to crater?
-- Are margins compressing?
-- Is revenue declining?
-- A stock can look cheap right before it gets cheaper.
-
-### 5. The Verdict
-
-> *"Based only on the risks above, rate this dip:"*
-
-| Rating | Meaning |
-|--------|---------|
-| **A) Golden Opportunity** | Market is wrong, business is fundamentally sound |
-| **B) Value Trap** | Stock is cheap for a good reason — stay away |
-| **C) Wait & See** | Too much uncertainty, let the dust settle |
-
-**Include a confidence score (0-100%).**
-
----
-
-## Workflow
-
-```
-┌─────────────────────────────────────────────────────────┐
-│  1. RUN SCANNER                                         │
-│     python3 scanner.py                                  │
-│     → Generates list of stocks meeting criteria         │
-├─────────────────────────────────────────────────────────┤
-│  2. REVIEW SIGNALS                                      │
-│     → Check RSI, P/E, P/B, ROE, Growth, D/E            │
-│     → Sort by most green indicators                     │
-├─────────────────────────────────────────────────────────┤
-│  3. STRESS TEST (for each signal)                       │
-│     → Falling Knife Test: Structural or cyclical?       │
-│     → 20-Year Survival: How could it die?               │
-│     → Moat Check: Does it have pricing power?           │
-│     → Valuation Trap: Is the "E" collapsing?            │
-│     → Verdict: A, B, or C?                              │
-├─────────────────────────────────────────────────────────┤
-│  4. DECISION                                            │
-│     → Only buy "A" rated opportunities                  │
-│     → Position size based on confidence score           │
-└─────────────────────────────────────────────────────────┘
-```
-
----
-
 ## Customization
 
-Edit `config.py` to adjust:
+Edit `config.py` to adjust thresholds:
 
 ```python
-# Thresholds
 RSI_OVERSOLD = 30           # Lower = stricter dip detection
-MAX_FORWARD_PE = 25         # Lower = cheaper stocks only
+MAX_TRAILING_PE = 25        # Lower = cheaper stocks only
 MAX_PRICE_TO_BOOK = 3       # Lower = more asset-focused
 MIN_ROE = 0.10              # Higher = quality only
 MIN_REVENUE_GROWTH = 0.05   # Higher = growth only
 MAX_DEBT_TO_EQUITY = 1.0    # Lower = safer balance sheets
+
+# Sectors where specific criteria are skipped
+PB_EXEMPT_SECTORS = {"Technology", "Communication Services"}
+DE_EXEMPT_SECTORS = {"Financial Services"}
 ```
 
 ---
@@ -184,9 +131,11 @@ MAX_DEBT_TO_EQUITY = 1.0    # Lower = safer balance sheets
 ```
 .
 ├── config.py             # Watchlist (417 stocks) & strategy parameters
-├── scanner.py            # Main scanning logic
-├── manager.txt           # Hedge fund stress test questions
+├── scanner.py            # Main scanning logic (RSI, 200d MA, sector-aware filters)
+├── stress_test.txt       # Hedge fund stress test prompt (5 questions)
 ├── requirements.txt      # Python dependencies
+├── ANALYSIS_*.md         # Generated analysis reports
+├── CLAUDE.md             # Instructions for Claude Code
 └── README.md
 ```
 
@@ -203,17 +152,6 @@ python3 scanner.py
 
 ---
 
-## Optional: GitHub Actions (Automated Daily Scans)
-
-The `.github/workflows/scan.yml` file can run the scanner automatically Monday-Friday at 21:00 UTC.
-
-To enable:
-1. Push to GitHub
-2. Add secrets: `EMAIL_SENDER`, `EMAIL_PASSWORD`, `EMAIL_RECEIVER`
-3. Enable Actions in your repo settings
-
----
-
 ## Disclaimer
 
-⚠️ **This is not financial advice.** This bot is for educational purposes only. Always do your own research before making investment decisions. Past performance does not guarantee future results.
+This is not financial advice. This bot is for educational purposes only. Always do your own research before making investment decisions.

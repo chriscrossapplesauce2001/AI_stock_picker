@@ -6,21 +6,42 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal Hedge Fund Bot - An automated stock scanner that monitors 417 global blue-chip stocks across 16 international markets for "Buy the Dip" opportunities using Buffett-style value investing combined with RSI-based technical analysis.
 
-## Commands
+## Full Analysis Workflow
+
+> **When asked to "run the analysis", "generate a report", or "do the full analysis", you MUST complete ALL 3 steps below. The scanner alone is not a complete analysis.**
+
+### Step 1: Run the Scanner
 
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the scanner
-python3 scanner.py
-
-# Run with email notifications (optional)
-export EMAIL_SENDER="your-gmail@gmail.com"
-export EMAIL_PASSWORD="your-app-password"
-export EMAIL_RECEIVER="receiver@email.com"
 python3 scanner.py
 ```
+
+Captures the output. Every stock gets a percentage score (`criteria_passed / criteria_applicable`). Stocks at 100% are signals.
+
+### Step 2: Stress Test Every Signal
+
+For each stock that triggered a signal (100% score):
+1. Read `stress_test.txt` for the 5-question prompt template
+2. Research the stock using web search (current news, financials, competitive landscape)
+3. Answer all 5 questions with data and brutal honesty
+4. Assign a verdict: **Golden Opportunity**, **Value Trap**, or **Wait & See** + confidence score (0-100%)
+
+**Run all signal stocks in parallel** (one agent per stock) for speed.
+
+### Step 3: Generate the Analysis Report
+
+Create `ANALYSIS_YYYY-MM-DD.md` with this structure:
+
+**TOP: TL;DR section**
+- Day-over-day changes vs previous report (compare with most recent `ANALYSIS_*.md`)
+- Stress test scorecard table: all signals with Stock | Price | Verdict | Confidence | Core Thesis Killer
+- Recommendations split into: AVOID (value traps) and WATCHLIST (wait & see, with catalysts to watch)
+- "If forced to pick one right now" assessment
+- Individual stress test reports in collapsible `<details>` tags
+
+**BOTTOM: Full Scanner Data**
+- All 417 stocks grouped by score percentage (100%, 80%+, 60%+, etc.)
+- Tables with all metrics: RSI, 200d MA, Trailing P/E, P/B, ROE, Growth, D/E, Sector, Price
 
 ## Architecture
 
@@ -29,12 +50,12 @@ python3 scanner.py
 config.py (417 stocks from 16 markets)
     ↓
 scanner.py main loop (per symbol)
-    ├─ Fetch 1-month price history via yfinance
-    ├─ Calculate RSI(14)
-    ├─ Fetch fundamentals (P/E, P/B, ROE, D/E, growth)
-    └─ Apply 6 criteria filters
+    ├─ Fetch 1-year price history via yfinance
+    ├─ Calculate RSI(14) + 200-day MA
+    ├─ Fetch fundamentals (Trailing P/E, P/B, ROE, D/E, growth)
+    └─ Apply sector-aware criteria filters + percentage scoring
     ↓
-Accumulate passing signals → Output + optional email
+Signals (100%) + Near-misses (80%+) → Stress test → Analysis report
 ```
 
 ### Key Modules
@@ -42,20 +63,15 @@ Accumulate passing signals → Output + optional email
 **scanner.py** - Core scanning logic:
 - `calculate_rsi()` - RSI(14) using exponential moving average
 - `get_fundamentals()` - Fetches yfinance ticker data
-- `check_criteria()` - Validates against all filters (RSI<30, P/E<25, P/B<3, ROE>10% OR Growth>5%, D/E<100%)
-- `analyze_stock()` - Full analysis of single stock
-- `main()` - Entry point orchestrating the scan
+- `check_criteria()` - Sector-aware filters returning (passed, reasons, criteria_passed, criteria_total)
+- `analyze_stock()` - Full analysis returning all metrics + score percentage for every stock
+- `main()` - Entry point: scans all stocks, shows signals + near-misses
 
 **config.py** - Watchlist and strategy parameters:
 - 15 regional market lists combined into deduped `WATCHLIST`
-- All thresholds configurable: `RSI_OVERSOLD`, `MAX_FORWARD_PE`, `MAX_PRICE_TO_BOOK`, `MIN_ROE`, `MIN_REVENUE_GROWTH`, `MAX_DEBT_TO_EQUITY`
+- All thresholds configurable: `RSI_OVERSOLD`, `MAX_TRAILING_PE`, `MAX_PRICE_TO_BOOK`, `MIN_ROE`, `MIN_REVENUE_GROWTH`, `MAX_DEBT_TO_EQUITY`
+- Sector exemptions: `PB_EXEMPT_SECTORS` (Technology, Communication Services), `DE_EXEMPT_SECTORS` (Financial Services)
 
-**manager.txt** - Stress-testing framework:
-- 5-question investment decision template designed to be fed to Claude
-- Used for due diligence on triggered signals before entry
-
-### Automation
-
-GitHub Actions workflow (`.github/workflows/scan.yml`):
-- Runs Monday-Friday at 21:00 UTC (post-US market close)
-- Requires repository secrets: `EMAIL_SENDER`, `EMAIL_PASSWORD`, `EMAIL_RECEIVER`
+**stress_test.txt** - Hedge fund stress test prompt:
+- 5-question template: Falling Knife, 20-Year Survival, Moat Check, Valuation Trap, Verdict
+- Must be run on every signal stock before including in the report

@@ -551,11 +551,16 @@ RSI_PERIOD = 14
 RSI_OVERSOLD = 30           # Buy signal when RSI drops below this
 
 # Buffett-Style Value Filters
-MAX_FORWARD_PE = 25         # Reasonable earnings valuation
-MAX_PRICE_TO_BOOK = 3       # Not overpaying for assets
+MAX_TRAILING_PE = 25        # Reasonable earnings valuation (trailing = real numbers)
+MAX_PRICE_TO_BOOK = 3       # Not overpaying for assets (skipped for tech/comms)
 MIN_ROE = 0.10              # 10% - Quality business (OR revenue growth)
 MIN_REVENUE_GROWTH = 0.05   # 5% - Alternative to ROE for growth companies
-MAX_DEBT_TO_EQUITY = 1.0    # Conservative balance sheet
+MAX_DEBT_TO_EQUITY = 1.0    # Conservative balance sheet (skipped for financials)
+
+# Sector-Aware Exemptions
+# These sectors get specific criteria skipped because the metric is meaningless for them
+PB_EXEMPT_SECTORS = {"Technology", "Communication Services"}  # Value is in IP, not book assets
+DE_EXEMPT_SECTORS = {"Financial Services"}                    # Leverage IS their business model
 
 # Email Settings
 EMAIL_SUBJECT = "🚨 Buy the Dip Alert - Personal Hedge Fund"
