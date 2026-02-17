@@ -16,15 +16,15 @@ Personal Hedge Fund Bot - An automated stock scanner that monitors 417 global bl
 python3 scanner.py
 ```
 
-Captures the output. Every stock gets a percentage score (`criteria_passed / criteria_applicable`). Stocks at 100% are signals.
+Captures the output. Every stock gets a `criteria_missed` count (number of failed criteria). Stocks with 0 missed are signals.
 
 ### Step 2: Stress Test the Most Promising Stocks
 
-Stress test ALL stocks that are missing at most 1 criterion (`criteria_total - criteria_passed <= 1`). This includes:
-- 100% signals (if any)
-- Stocks missing exactly 1 criterion (e.g., 5/6, 6/7, 4/5 — regardless of percentage)
+Stress test ALL stocks that missed at most 1 criterion (`criteria_missed <= 1`). This includes:
+- Signals (missed 0)
+- Near-misses (missed 1) — regardless of how many total criteria applied
 
-Even if no stock hits 100%, the near-misses are the most promising and MUST be stress tested. Never skip the stress test just because nothing scored 100%.
+Even if no stock missed 0, the near-misses (missed 1) are the most promising and MUST be stress tested. Never skip the stress test just because nothing was a perfect signal.
 
 For each stock:
 1. Read `stress_test.txt` for the 8-question prompt template
@@ -47,7 +47,7 @@ Create `ANALYSIS_YYYY-MM-DD.md` with this structure:
 - Individual stress test reports in collapsible `<details>` tags
 
 **BOTTOM: Full Scanner Data**
-- All 417 stocks grouped by score percentage (100%, 80%+, 60%+, etc.)
+- All 417 stocks grouped by missed count (missed 0, missed 1, missed 2, etc.)
 - Tables with all metrics: RSI, 200d MA, Trailing P/E, P/B, ROE, Growth, D/E, Sector, Price
 - Traffic light indicators for each metric value: 🟢 passes threshold, 🟠 borderline, 🔴 fails threshold
 
@@ -61,9 +61,9 @@ scanner.py main loop (per symbol)
     ├─ Fetch 1-year price history via yfinance
     ├─ Calculate RSI(14) + 200-day MA
     ├─ Fetch fundamentals (Trailing P/E, P/B, ROE, D/E, growth)
-    └─ Apply sector-aware criteria filters + percentage scoring
+    └─ Apply sector-aware criteria filters + missed-count scoring
     ↓
-Signals (100%) + Near-misses (80%+) → Stress test → Analysis report
+Signals (missed 0) + Near-misses (missed 1) → Stress test → Analysis report
 ```
 
 ### Key Modules
@@ -71,8 +71,8 @@ Signals (100%) + Near-misses (80%+) → Stress test → Analysis report
 **scanner.py** - Core scanning logic:
 - `calculate_rsi()` - RSI(14) using exponential moving average
 - `get_fundamentals()` - Fetches yfinance ticker data
-- `check_criteria()` - Sector-aware filters returning (passed, reasons, criteria_passed, criteria_total)
-- `analyze_stock()` - Full analysis returning all metrics + score percentage for every stock
+- `check_criteria()` - Sector-aware filters returning (passed, reasons, criteria_missed, criteria_total)
+- `analyze_stock()` - Full analysis returning all metrics + criteria_missed count for every stock
 - `main()` - Entry point: scans all stocks, shows signals + near-misses
 
 **config.py** - Watchlist and strategy parameters:
@@ -81,5 +81,5 @@ Signals (100%) + Near-misses (80%+) → Stress test → Analysis report
 - Sector exemptions: `PB_EXEMPT_SECTORS` (Technology, Communication Services), `DE_EXEMPT_SECTORS` (Financial Services)
 
 **stress_test.txt** - Hedge fund stress test prompt:
-- 8-question template: Falling Knife, 20-Year Survival, Moat Check, Valuation Trap, Cash Flow Reality, Insider/Smart Money, Catalyst, Verdict
+- 9-question template: Falling Knife, 20-Year Survival, Moat Check, Valuation Trap, Cash Flow Reality, Insider/Smart Money, Catalyst, Bear Case, Verdict
 - Must be run on every signal stock before including in the report

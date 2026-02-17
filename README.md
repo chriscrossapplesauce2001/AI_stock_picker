@@ -15,11 +15,11 @@ pip install -r requirements.txt
 python3 scanner.py
 ```
 
-This scans all 417 stocks and outputs which ones pass ALL criteria (100% score), plus near-misses (80%+ score). Each stock gets a **percentage score** relative to the number of criteria that apply to its sector (e.g. 6/6 = 100% for a tech stock is equal to 7/7 = 100% for a consumer stock).
+This scans all 417 stocks and outputs which ones pass ALL criteria (missed 0), plus near-misses (missed 1). Each stock gets a **criteria_missed** count — the number of criteria it failed. This makes comparison fair across sectors regardless of how many criteria apply.
 
 ### Step 2: Stress Test Every Signal
 
-Stress test ALL stocks missing at most 1 criterion (`criteria_total - criteria_passed <= 1`). Even if no stock hits 100%, the near-misses are the most promising and must be evaluated. Use the count of missed criteria, not the percentage — because different sectors have different numbers of applicable criteria.
+Stress test ALL stocks that missed at most 1 criterion (`criteria_missed <= 1`). Even if no stock missed 0, the near-misses (missed 1) are the most promising and must be evaluated.
 
 For each stock:
 1. Read `stress_test.txt` for the prompt template
@@ -65,7 +65,7 @@ The scanner signals when **ALL applicable criteria** are met:
 | Revenue Growth | > 5% | *OR* alternative to ROE for growth companies | None |
 | Debt/Equity | < 100% | Conservative balance sheet | Skipped for Financial Services |
 
-**Scoring:** Each stock is scored as `criteria_passed / criteria_applicable`. A tech stock with 6 applicable criteria passing 6/6 = 100% is equivalent to a consumer stock passing 7/7 = 100%.
+**Scoring:** Each stock is scored by `criteria_missed` — the number of criteria it failed. A stock that missed 0 is a signal. A stock that missed 1 is a near-miss. This makes comparison fair across sectors with different numbers of applicable criteria.
 
 ---
 

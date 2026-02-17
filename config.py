@@ -557,6 +557,14 @@ MIN_ROE = 0.10              # 10% - Quality business (OR revenue growth)
 MIN_REVENUE_GROWTH = 0.05   # 5% - Alternative to ROE for growth companies
 MAX_DEBT_TO_EQUITY = 1.0    # Conservative balance sheet (skipped for financials)
 
+# Criterion Toggles (True = active, False = skipped)
+ENABLE_RSI = True
+ENABLE_200D_MA = False
+ENABLE_PE = True
+ENABLE_PB = True
+ENABLE_ROE_GROWTH = True
+ENABLE_DE = True
+
 # Sector-Aware Exemptions
 # These sectors get specific criteria skipped because the metric is meaningless for them
 PB_EXEMPT_SECTORS = {"Technology", "Communication Services"}  # Value is in IP, not book assets

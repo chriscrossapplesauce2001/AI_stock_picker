@@ -32,6 +32,12 @@ from config import (
     PB_EXEMPT_SECTORS,
     DE_EXEMPT_SECTORS,
     EMAIL_SUBJECT,
+    ENABLE_RSI,
+    ENABLE_200D_MA,
+    ENABLE_PE,
+    ENABLE_PB,
+    ENABLE_ROE_GROWTH,
+    ENABLE_DE,
 )
 
 
@@ -90,76 +96,85 @@ def check_criteria(rsi: float, fundamentals: dict, above_200d_ma: bool = True) -
     Sector-aware: skips P/B for tech/comms, skips D/E for financials.
 
     Returns:
-        Tuple of (passed: bool, failed_reasons: list, criteria_passed: int, criteria_total: int)
+        Tuple of (passed: bool, failed_reasons: list, criteria_missed: int, criteria_total: int)
     """
     reasons = []
     sector = fundamentals.get("sector", "N/A")
-    passed_count = 0
     total_count = 0
+    missed_count = 0
 
     # RSI Check
-    total_count += 1
-    if rsi < RSI_OVERSOLD:
-        passed_count += 1
-    else:
-        reasons.append(f"RSI {rsi:.1f} >= {RSI_OVERSOLD}")
+    if ENABLE_RSI:
+        total_count += 1
+        if rsi >= RSI_OVERSOLD:
+            missed_count += 1
+            reasons.append(f"RSI {rsi:.1f} >= {RSI_OVERSOLD}")
 
     # 200-Day MA Check (trend context)
-    total_count += 1
-    if above_200d_ma:
-        passed_count += 1
-    else:
-        reasons.append("Price BELOW 200-day MA (falling knife risk)")
+    if ENABLE_200D_MA:
+        total_count += 1
+        if not above_200d_ma:
+            missed_count += 1
+            reasons.append("Price BELOW 200-day MA (falling knife risk)")
 
     # Trailing P/E Check
-    total_count += 1
-    pe = fundamentals.get("trailingPE")
-    if pe is None:
-        reasons.append("No P/E data")
-    elif pe > MAX_TRAILING_PE:
-        reasons.append(f"P/E {pe:.1f} > {MAX_TRAILING_PE}")
-    else:
-        passed_count += 1
+    if ENABLE_PE:
+        total_count += 1
+        pe = fundamentals.get("trailingPE")
+        if pe is None:
+            missed_count += 1
+            reasons.append("No P/E data")
+        elif pe > MAX_TRAILING_PE:
+            missed_count += 1
+            reasons.append(f"P/E {pe:.1f} > {MAX_TRAILING_PE}")
 
     # Price-to-Book Check (skipped for tech/comms — their value is in IP)
-    if sector not in PB_EXEMPT_SECTORS:
-        total_count += 1
-        pb = fundamentals.get("priceToBook")
-        if pb is None:
-            reasons.append("No P/B data")
-        elif pb > MAX_PRICE_TO_BOOK:
-            reasons.append(f"P/B {pb:.1f} > {MAX_PRICE_TO_BOOK}")
-        else:
-            passed_count += 1
+    if ENABLE_PB:
+        if sector not in PB_EXEMPT_SECTORS:
+            total_count += 1
+            pb = fundamentals.get("priceToBook")
+            if pb is None:
+                missed_count += 1
+                reasons.append("No P/B data")
+            elif pb > MAX_PRICE_TO_BOOK:
+                missed_count += 1
+                reasons.append(f"P/B {pb:.1f} > {MAX_PRICE_TO_BOOK}")
 
     # ROE OR Revenue Growth Check (quality OR growth)
-    total_count += 1
-    roe = fundamentals.get("returnOnEquity")
-    rev_growth = fundamentals.get("revenueGrowth")
+    if ENABLE_ROE_GROWTH:
+        total_count += 1
+        roe = fundamentals.get("returnOnEquity")
+        rev_growth = fundamentals.get("revenueGrowth")
 
-    roe_pass = roe is not None and roe >= MIN_ROE
-    growth_pass = rev_growth is not None and rev_growth >= MIN_REVENUE_GROWTH
+        roe_pass = roe is not None and roe >= MIN_ROE
+        growth_pass = rev_growth is not None and rev_growth >= MIN_REVENUE_GROWTH
 
-    if roe_pass or growth_pass:
-        passed_count += 1
-    else:
-        roe_str = f"{roe*100:.1f}%" if roe else "N/A"
-        growth_str = f"{rev_growth*100:.1f}%" if rev_growth else "N/A"
-        reasons.append(f"ROE {roe_str} < {MIN_ROE*100:.0f}% AND Growth {growth_str} < {MIN_REVENUE_GROWTH*100:.0f}%")
+        if not (roe_pass or growth_pass):
+            missed_count += 1
+            roe_str = f"{roe*100:.1f}%" if roe else "N/A"
+            growth_str = f"{rev_growth*100:.1f}%" if rev_growth else "N/A"
+            reasons.append(f"ROE {roe_str} < {MIN_ROE*100:.0f}% AND Growth {growth_str} < {MIN_REVENUE_GROWTH*100:.0f}%")
 
     # Debt-to-Equity Check (skipped for financials — leverage is their business)
-    if sector not in DE_EXEMPT_SECTORS:
-        total_count += 1
-        de = fundamentals.get("debtToEquity")
-        if de is None:
-            passed_count += 1  # Don't penalize missing D/E
-        elif de > MAX_DEBT_TO_EQUITY * 100:  # yfinance returns as percentage
-            reasons.append(f"D/E {de:.0f}% > {MAX_DEBT_TO_EQUITY*100:.0f}%")
-        else:
-            passed_count += 1
+    if ENABLE_DE:
+        if sector not in DE_EXEMPT_SECTORS:
+            total_count += 1
+            de = fundamentals.get("debtToEquity")
+            if de is None:
+                missed_count += 1
+                reasons.append("No D/E data")
+            elif de > MAX_DEBT_TO_EQUITY * 100:  # yfinance returns as percentage
+                missed_count += 1
+                reasons.append(f"D/E {de:.0f}% > {MAX_DEBT_TO_EQUITY*100:.0f}%")
 
-    all_passed = len(reasons) == 0
-    return all_passed, reasons, passed_count, total_count
+    # Minimum criteria floor — need at least 3 active criteria for a meaningful signal
+    if total_count < 3:
+        all_passed = False
+        reasons.append(f"Too few active criteria ({total_count})")
+    else:
+        all_passed = missed_count == 0
+
+    return all_passed, reasons, missed_count, total_count
 
 
 def analyze_stock(symbol: str) -> Optional[dict]:
@@ -211,18 +226,17 @@ def analyze_stock(symbol: str) -> Optional[dict]:
         print(f"  Debt/Equity: {format_value(fundamentals.get('debtToEquity'), '.0f', '%')}{' [exempt]' if sector in DE_EXEMPT_SECTORS else ''}")
 
         # Check criteria
-        passed, reasons, criteria_passed, criteria_total = check_criteria(current_rsi, fundamentals, above_200d_ma)
-        score_pct = (criteria_passed / criteria_total * 100) if criteria_total > 0 else 0
+        passed, reasons, criteria_missed, criteria_total = check_criteria(current_rsi, fundamentals, above_200d_ma)
 
         # Calculate FCF Yield if available
         fcf = fundamentals.get("freeCashflow")
         mcap = fundamentals.get("marketCap")
-        fcf_yield = (fcf / mcap * 100) if fcf and mcap else None
+        fcf_yield = (fcf / mcap * 100) if fcf is not None and mcap not in (None, 0) else None
 
         if passed:
-            print(f"  ✅ SIGNAL TRIGGERED! Score: {criteria_passed}/{criteria_total} (100%)")
+            print(f"  ✅ SIGNAL TRIGGERED! Missed: 0/{criteria_total}")
         else:
-            print(f"  ❌ No signal ({criteria_passed}/{criteria_total} = {score_pct:.0f}%): {', '.join(reasons)}")
+            print(f"  ❌ No signal (missed {criteria_missed}/{criteria_total}): {', '.join(reasons)}")
 
         return {
             "symbol": symbol,
@@ -238,9 +252,8 @@ def analyze_stock(symbol: str) -> Optional[dict]:
             "revenue_growth": fundamentals.get("revenueGrowth"),
             "debt_to_equity": fundamentals.get("debtToEquity"),
             "fcf_yield": fcf_yield,
-            "criteria_passed": criteria_passed,
+            "criteria_missed": criteria_missed,
             "criteria_total": criteria_total,
-            "score_pct": score_pct,
             "signal": passed,
             "failed_reasons": reasons,
         }
@@ -262,12 +275,12 @@ Scan Time: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}
 {len(signals)} stock(s) triggered the Buffett-Style Value Dip criteria:
 
 Criteria:
-• RSI(14) < {RSI_OVERSOLD} (Oversold - The Dip)
-• Price ABOVE 200-day MA (Uptrend confirmation)
-• Trailing P/E < {MAX_TRAILING_PE} (Earnings Value - real numbers)
-• Price/Book < {MAX_PRICE_TO_BOOK} (Asset Value - skipped for Tech/Comms)
-• ROE > {MIN_ROE*100:.0f}% OR Revenue Growth > {MIN_REVENUE_GROWTH*100:.0f}% (Quality or Growth)
-• Debt/Equity < {MAX_DEBT_TO_EQUITY*100:.0f}% (Conservative - skipped for Financials)
+• RSI(14) < {RSI_OVERSOLD} (Oversold - The Dip){'' if ENABLE_RSI else ' [OFF]'}
+• Price ABOVE 200-day MA (Uptrend confirmation){'' if ENABLE_200D_MA else ' [OFF]'}
+• Trailing P/E < {MAX_TRAILING_PE} (Earnings Value - real numbers){'' if ENABLE_PE else ' [OFF]'}
+• Price/Book < {MAX_PRICE_TO_BOOK} (Asset Value - skipped for Tech/Comms){'' if ENABLE_PB else ' [OFF]'}
+• ROE > {MIN_ROE*100:.0f}% OR Revenue Growth > {MIN_REVENUE_GROWTH*100:.0f}% (Quality or Growth){'' if ENABLE_ROE_GROWTH else ' [OFF]'}
+• Debt/Equity < {MAX_DEBT_TO_EQUITY*100:.0f}% (Conservative - skipped for Financials){'' if ENABLE_DE else ' [OFF]'}
 
 ---
 """
@@ -352,12 +365,12 @@ def main():
     print("=" * 60)
     print(f"\nWatchlist: {', '.join(WATCHLIST)}")
     print(f"\nCriteria:")
-    print(f"  • RSI(14) < {RSI_OVERSOLD}")
-    print(f"  • Price ABOVE 200-day MA")
-    print(f"  • Trailing P/E < {MAX_TRAILING_PE}")
-    print(f"  • Price/Book < {MAX_PRICE_TO_BOOK} (skipped for Tech/Comms)")
-    print(f"  • ROE > {MIN_ROE*100:.0f}% OR Revenue Growth > {MIN_REVENUE_GROWTH*100:.0f}%")
-    print(f"  • Debt/Equity < {MAX_DEBT_TO_EQUITY*100:.0f}% (skipped for Financials)")
+    print(f"  • RSI(14) < {RSI_OVERSOLD}{'' if ENABLE_RSI else ' [OFF]'}")
+    print(f"  • Price ABOVE 200-day MA{'' if ENABLE_200D_MA else ' [OFF]'}")
+    print(f"  • Trailing P/E < {MAX_TRAILING_PE}{'' if ENABLE_PE else ' [OFF]'}")
+    print(f"  • Price/Book < {MAX_PRICE_TO_BOOK} (skipped for Tech/Comms){'' if ENABLE_PB else ' [OFF]'}")
+    print(f"  • ROE > {MIN_ROE*100:.0f}% OR Revenue Growth > {MIN_REVENUE_GROWTH*100:.0f}%{'' if ENABLE_ROE_GROWTH else ' [OFF]'}")
+    print(f"  • Debt/Equity < {MAX_DEBT_TO_EQUITY*100:.0f}% (skipped for Financials){'' if ENABLE_DE else ' [OFF]'}")
     print("-" * 60)
 
     all_results = []
@@ -370,15 +383,15 @@ def main():
 
     # Separate perfect signals from partial matches
     signals = [r for r in all_results if r["signal"]]
-    # Sort all results by score percentage (highest first)
-    all_results.sort(key=lambda r: r["score_pct"], reverse=True)
+    # Sort all results by fewest missed criteria (best first)
+    all_results.sort(key=lambda r: r["criteria_missed"])
 
     print("=" * 60)
     print(f"SUMMARY: {len(signals)} signal(s) out of {len(WATCHLIST)} stocks")
     print("=" * 60)
 
     if signals:
-        print("\n🚨 SIGNALS TRIGGERED (100% score):")
+        print("\n🚨 SIGNALS TRIGGERED (missed 0):")
         for s in signals:
             roe_str = f"{s['roe']*100:.1f}%" if s['roe'] else "N/A"
             growth_str = f"{s['revenue_growth']*100:.1f}%" if s['revenue_growth'] else "N/A"
@@ -386,7 +399,7 @@ def main():
             pe_str = f"{s['trailing_pe']:.1f}" if s['trailing_pe'] else "N/A"
             pb_str = f"{s['price_to_book']:.1f}" if s['price_to_book'] else "N/A"
             ma_str = "ABOVE" if s['above_200d_ma'] else "BELOW"
-            print(f"   • {s['symbol']} @ ${s['price']:.2f} [{s['criteria_passed']}/{s['criteria_total']}]")
+            print(f"   • {s['symbol']} @ ${s['price']:.2f} [missed 0/{s['criteria_total']}]")
             print(f"     200d MA: {ma_str} | RSI: {s['rsi']:.1f} | P/E: {pe_str} | P/B: {pb_str}")
             print(f"     ROE: {roe_str} | Growth: {growth_str} | D/E: {de_str}")
 
@@ -394,12 +407,12 @@ def main():
     else:
         print("\n✨ No signals today. Waiting for better value opportunities!")
 
-    # Show near-misses (missed at most 1 criterion)
-    near_misses = [r for r in all_results if not r["signal"] and (r["criteria_total"] - r["criteria_passed"]) <= 1]
+    # Show near-misses (missed exactly 1 criterion)
+    near_misses = [r for r in all_results if not r["signal"] and r["criteria_missed"] == 1]
     if near_misses:
-        print(f"\n👀 NEAR MISSES ({len(near_misses)} stocks missing 1 criterion):")
+        print(f"\n👀 NEAR MISSES ({len(near_misses)} stocks missed 1 criterion):")
         for s in near_misses:
-            print(f"   • {s['symbol']} @ ${s['price']:.2f} [{s['criteria_passed']}/{s['criteria_total']}]")
+            print(f"   • {s['symbol']} @ ${s['price']:.2f} [missed 1/{s['criteria_total']}]")
             print(f"     Failed: {', '.join(s['failed_reasons'])}")
 
     return len(signals)
