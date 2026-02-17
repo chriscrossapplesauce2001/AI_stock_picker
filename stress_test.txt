@@ -36,7 +36,11 @@ ANSWER THE FOLLOWING 8 QUESTIONS WITH DATA AND BRUTAL HONESTY:
 
     "Name ONE specific event in the next 3-12 months that could re-rate this stock upward. An earnings date, a product launch, a regulatory decision, a contract renewal — something concrete with a date. If you cannot name a single catalyst, this is dead money regardless of how 'cheap' it looks."
 
-8. The Verdict (Buy, Watch, or Short)
+8. The Bear Case (Devil's Advocate)
+
+    "Forget everything bullish you just wrote. You are now the short seller betting AGAINST this company. Make the strongest possible 3-sentence pitch for why this stock is going LOWER from here. What is the single most dangerous risk the market is underpricing? If you cannot make a compelling bear case, say so — but try hard."
+
+9. The Verdict (Buy, Watch, or Short)
 
     "Based only on the risks above, rate this dip:
 
