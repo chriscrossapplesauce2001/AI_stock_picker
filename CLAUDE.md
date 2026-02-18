@@ -27,11 +27,11 @@ Stress test ALL stocks that missed at most 1 criterion (`criteria_missed <= 1`).
 Even if no stock missed 0, the near-misses (missed 1) are the most promising and MUST be stress tested. Never skip the stress test just because nothing was a perfect signal.
 
 For each stock:
-1. Read `stress_test.txt` for the 8-question prompt template
+1. Read `stress_test_based.txt` for the 9-question prompt template
 2. Fill in placeholders: [TICKER], [COMPANY_NAME], [SECTOR], [PRICE]
 3. Research the stock using web search (current news, financials, competitive landscape)
-4. Answer all 8 questions with data and brutal honesty
-5. Assign a verdict: **Golden Opportunity**, **Value Trap**, or **Wait & See** + confidence score (0-100%)
+4. Answer all 9 questions with data and brutal objectivity
+5. Assign a verdict: **Asymmetric Opportunity**, **Value Trap**, or **Wait & See** + confidence score (0-100%)
 
 **Run all stocks in parallel** (one agent per stock) for speed.
 
@@ -80,6 +80,6 @@ Signals (missed 0) + Near-misses (missed 1) → Stress test → Analysis report
 - All thresholds configurable: `RSI_OVERSOLD`, `MAX_TRAILING_PE`, `MAX_PRICE_TO_BOOK`, `MIN_ROE`, `MIN_REVENUE_GROWTH`, `MAX_DEBT_TO_EQUITY`
 - Sector exemptions: `PB_EXEMPT_SECTORS` (Technology, Communication Services), `DE_EXEMPT_SECTORS` (Financial Services)
 
-**stress_test.txt** - Hedge fund stress test prompt:
-- 9-question template: Falling Knife, 20-Year Survival, Moat Check, Valuation Trap, Cash Flow Reality, Insider/Smart Money, Catalyst, Bear Case, Verdict
+**stress_test_based.txt** - Balanced hedge fund stress test prompt:
+- 9-question template: Falling Knife vs Mispricing, Tail-Risk Stress Test, Moat Integrity, Valuation Reality, Cash Flow Autopsy, Smart Money, Catalyst Calendar, Synthesis, Verdict
 - Must be run on every signal stock before including in the report

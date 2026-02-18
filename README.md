@@ -22,11 +22,11 @@ This scans all 417 stocks and outputs which ones pass ALL criteria (missed 0), p
 Stress test ALL stocks that missed at most 1 criterion (`criteria_missed <= 1`). Even if no stock missed 0, the near-misses (missed 1) are the most promising and must be evaluated.
 
 For each stock:
-1. Read `stress_test.txt` for the prompt template
+1. Read `stress_test_based.txt` for the prompt template
 2. Fill in `[TICKER]`, `[COMPANY_NAME]`, `[SECTOR]`, `[PRICE]`
 3. Research the stock using current news, financials, and competitive landscape
-4. Answer all 8 questions with data and specifics
-5. Assign a verdict: **Golden Opportunity**, **Value Trap**, or **Wait & See** with a confidence score
+4. Answer all 9 questions with data and specifics
+5. Assign a verdict: **Asymmetric Opportunity**, **Value Trap**, or **Wait & See** with a confidence score
 
 When using an LLM: run all signal stocks in parallel (one agent per stock) for speed.
 
@@ -69,20 +69,21 @@ The scanner signals when **ALL applicable criteria** are met:
 
 ---
 
-## Stress Test (stress_test.txt)
+## Stress Test (stress_test_based.txt)
 
-After the scanner identifies a dip, each signal is stress-tested with 8 questions:
+After the scanner identifies a dip, each signal is stress-tested with 9 questions using the "based" (balanced, objective) prompt:
 
 | # | Test | Question |
 |---|------|----------|
-| 1 | Falling Knife | Is this structural decline (Kodak) or temporary (COVID dip)? |
-| 2 | 20-Year Survival | Write a pre-mortem: how does this company die by 2046? |
-| 3 | Moat Check | If they raised prices 10%, would customers stay or leave? |
-| 4 | Valuation Trap | Is the P/E low because earnings are about to collapse? |
-| 5 | Cash Flow Reality | Is FCF backing up reported earnings, or are profits a mirage? |
-| 6 | Insider / Smart Money | Are insiders and institutions buying or selling this dip? |
-| 7 | Catalyst | Name ONE specific event in 3-12 months that re-rates the stock |
-| 8 | Verdict | Golden Opportunity / Value Trap / Wait & See + confidence % |
+| 1 | Falling Knife vs. Mispricing | Temporary macro headwind or permanent structural impairment? Assign probabilities. |
+| 2 | Tail-Risk Stress Test | 10-year pre-mortem (how it dies) + post-mortem (how it multi-bags). Which is more probable? |
+| 3 | Moat Integrity Check | If they raised prices 10%, would customers stay? Compare to top 2 competitors. |
+| 4 | Valuation Reality | Cheap vs own 10-year history and peers? Is the "E" sustainable, expanding, or deteriorating? |
+| 5 | Cash Flow Autopsy | FCF vs net income over 3 years. Is cash conversion strong or leaking? |
+| 6 | Smart Money Test | Insider buying/selling in past 6 months? Institutional accumulation or dumping? |
+| 7 | Catalyst Calendar | 1-2 specific events in 3-12 months that could re-rate the stock. |
+| 8 | Synthesis | Strongest short-seller pitch vs strongest activist pitch. Which has stronger structural backing? |
+| 9 | Verdict | Asymmetric Opportunity / Value Trap / Wait & See + confidence % |
 
 ---
 
@@ -135,7 +136,8 @@ DE_EXEMPT_SECTORS = {"Financial Services"}
 .
 ├── config.py             # Watchlist (417 stocks) & strategy parameters
 ├── scanner.py            # Main scanning logic (RSI, 200d MA, sector-aware filters)
-├── stress_test.txt       # Hedge fund stress test prompt (5 questions)
+├── stress_test_based.txt  # Balanced hedge fund stress test prompt (9 questions)
+├── stress_test_pessimist.txt # Bearish/cynical stress test prompt (9 questions)
 ├── requirements.txt      # Python dependencies
 ├── ANALYSIS_*.md         # Generated analysis reports
 ├── CLAUDE.md             # Instructions for Claude Code
