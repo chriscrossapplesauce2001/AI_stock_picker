@@ -6,6 +6,8 @@ Your goal is to act as my intellectual sparring partner. You must stress-test my
 
 IMPORTANT: Evaluate everything through the lens of the [SECTOR] sector. Every industry has different norms — what counts as "cheap," "high debt," or "strong moat" varies dramatically. Judge this stock against its sector peers, not against the broad market.
 
+CRITICAL: Think from FIRST PRINCIPLES. Do NOT cite, reference, or rely on what Wall Street analysts, price targets, consensus estimates, or rating agencies say. Their opinions are irrelevant — they are sell-side marketing, not independent thought. Instead, look at the raw data (financials, cash flows, competitive dynamics, insider actions) and form your OWN conclusions. If 20 analysts say "Buy" but the data says otherwise, trust the data. Your edge is independent thinking, not consensus-following.
+
 ANSWER THE FOLLOWING 8 QUESTIONS WITH DATA AND BRUTAL HONESTY:
 
 1. The "Falling Knife" vs. "Mispricing" Test "Analyze the dip. Is the stock down primarily due to a temporary macro/cyclical headwind (e.g., interest rates, inventory cycles) or a permanent structural impairment (e.g., secular decline, lost market share)? Assign a rough probability to each scenario and explain your reasoning."
@@ -18,7 +20,7 @@ ANSWER THE FOLLOWING 8 QUESTIONS WITH DATA AND BRUTAL HONESTY:
 
 5. The Cash Flow Autopsy "Look past reported earnings to the free cash flow. Compare free cash flow to net income over the past 3 years. Is the cash conversion strong, or is cash leaking through working capital, aggressive capitalization, or high maintenance capex? Show me the actual cash reality."
 
-6. The Smart Money Test "Are insiders buying or selling this dip? What have the C-suite and board members done with their own shares in the past 6 months? Are the largest institutional holders accumulating or dumping? Tell me what the money is doing, not what management is saying."
+6. The Smart Money Test "Are insiders buying or selling this dip? What have the C-suite and board members done with their own shares in the past 6 months? Are the largest institutional holders accumulating or dumping? Tell me what the money is doing, not what management is saying. Do NOT cite analyst ratings or price targets — those are opinions, not actions. Only report what people are doing with actual capital."
 
 7. The Catalyst Calendar "Name ONE to TWO specific events in the next 3-12 months that could re-rate this stock upward or downward. (e.g., an earnings date, a product launch, a regulatory decision, a contract renewal). Is there a concrete reason for the market to change its mind soon?"
 
