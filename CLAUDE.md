@@ -39,12 +39,15 @@ For each stock:
 
 Create `ANALYSIS_YYYY-MM-DD.md` with this structure:
 
-**TOP: TL;DR section**
-- Day-over-day changes vs previous report (compare with most recent `ANALYSIS_*.md`)
-- Stress test scorecard table: all stress-tested stocks with Stock | Price | Verdict | Confidence | Core Thesis Killer
-- Recommendations split into: AVOID (value traps) and WATCHLIST (wait & see, with catalysts to watch)
-- "If forced to pick one right now" assessment
-- Individual stress test reports in collapsible `<details>` tags
+**TOP: Action-First section**
+1. **Header** — date, signal/near-miss counts (3 lines max)
+2. **SCORECARD TABLE** — immediately after header (Stock | Price | Verdict | Confidence | One-Line Reason)
+3. **THE PICK + AVOID + WATCHLIST**
+   - "If forced to pick one right now" — 3 bullets max, not a full essay
+   - AVOID list (value traps) — one-liner per stock
+   - WATCHLIST — table with catalyst date to watch
+4. **Individual stress test reports** in collapsible `<details>` tags
+5. **What Changed** — short diff table vs previous report (compare with most recent `ANALYSIS_*.md`). Keep this compact — no narrative paragraphs, no signal composition breakdown.
 
 **BOTTOM: Full Scanner Data**
 - All 417 stocks grouped by missed count (missed 0, missed 1, missed 2, etc.)
