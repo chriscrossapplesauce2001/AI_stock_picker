@@ -30,6 +30,7 @@ SP500 = [
     "NOW",      # ServiceNow
     "INTU",     # Intuit
     "AMAT",     # Applied Materials
+    "ALAB",     # Astera Labs
 
     # Finance
     "BRK-B",    # Berkshire Hathaway
@@ -69,6 +70,8 @@ SP500 = [
     "ZTS",      # Zoetis
     "CI",       # Cigna
     "ELV",      # Elevance Health
+    "HIMS",     # Hims & Hers Health
+    "NRXP",     # NRX Pharmaceuticals
 
     # Consumer
     "PG",       # Procter & Gamble
@@ -212,6 +215,7 @@ SDAX = [
     "S92.DE",       # SMA Solar
     "BNR.DE",       # Brenntag
     "SZG.DE",       # Salzgitter
+    "OHB.DE",       # OHB SE
 ]
 
 # CAC 40 (French Large Caps)

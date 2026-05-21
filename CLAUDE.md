@@ -47,7 +47,6 @@ Create `ANALYSIS_YYYY-MM-DD.md` with this structure:
    - AVOID list (value traps) — one-liner per stock
    - WATCHLIST — table with catalyst date to watch
 4. **Individual stress test reports** in collapsible `<details>` tags
-5. **What Changed** — short diff table vs previous report (compare with most recent `ANALYSIS_*.md`). Keep this compact — no narrative paragraphs, no signal composition breakdown.
 
 **BOTTOM: Full Scanner Data**
 - All 417 stocks grouped by missed count (missed 0, missed 1, missed 2, etc.)
