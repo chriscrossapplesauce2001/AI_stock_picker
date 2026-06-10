@@ -193,7 +193,10 @@ def analyze_stock(symbol: str) -> Optional[dict]:
             print(f"  ⚠️  Insufficient price data for {symbol}")
             return None
 
-        close = hist["Close"]
+        close = hist["Close"].dropna()
+        if close.empty or len(close) < RSI_PERIOD:
+            print(f"  ⚠️  Insufficient price data for {symbol}")
+            return None
         current_price = close.iloc[-1]
 
         # Calculate RSI
