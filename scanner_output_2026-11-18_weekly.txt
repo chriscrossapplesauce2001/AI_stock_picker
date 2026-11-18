@@ -1,0 +1,5686 @@
+C:\Users\cwilsch\projects\AI_stock_picker\scanner.py:367: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(f"Scan Time: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}")
+============================================================
+Personal Hedge Fund Scanner (Buffett Edition)
+Scan Time: 2026-11-18 14:01 UTC
+============================================================
+
+Watchlist: AAPL, MSFT, GOOGL, AMZN, META, NVDA, TSLA, AVGO, ORCL, CRM, ADBE, AMD, INTC, CSCO, IBM, QCOM, TXN, NOW, INTU, AMAT, ALAB, BRK-B, JPM, V, MA, BAC, WFC, GS, MS, BLK, SCHW, AXP, C, USB, PNC, TFC, JNJ, UNH, PFE, ABBV, MRK, LLY, TMO, ABT, DHR, BMY, AMGN, GILD, ISRG, VRTX, REGN, MDT, SYK, ZTS, CI, ELV, HIMS, NRXP, PG, KO, PEP, COST, WMT, HD, MCD, NKE, SBUX, TGT, LOW, TJX, EL, CL, KMB, GIS, K, HSY, MDLZ, KHC, CAT, DE, UNP, RTX, HON, BA, LMT, GE, MMM, UPS, FDX, EMR, ITW, ETN, PH, XOM, CVX, COP, SLB, EOG, PSX, VLO, MPC, OXY, HAL, DIS, NFLX, CMCSA, WBD, PARA, EA, TTWO, T, VZ, TMUS, SAP.DE, SIE.DE, ALV.DE, DTE.DE, MBG.DE, BMW.DE, BAS.DE, MUV2.DE, ADS.DE, DB1.DE, VOW3.DE, IFX.DE, DHL.DE, AIR.DE, SHL.DE, RWE.DE, BAYN.DE, HEN3.DE, CON.DE, HEI.DE, FRE.DE, MTX.DE, ENR.DE, SY1.DE, QIA.DE, MRK.DE, BEI.DE, VNA.DE, 1COV.DE, ZAL.DE, PAH3.DE, P911.DE, RHM.DE, HNR1.DE, CBK.DE, DBK.DE, AFX.DE, PUM.DE, LEG.DE, EVK.DE, FME.DE, TLX.DE, GXI.DE, BOSS.DE, RAA.DE, KGX.DE, NDA.DE, WAF.DE, EVD.DE, AIXA.DE, LXS.DE, TEG.DE, DEQ.DE, HAG.DE, G1A.DE, DUE.DE, NEM.DE, BC8.DE, FNTN.DE, JEN.DE, SFQ.DE, HHFA.DE, DHER.DE, S92.DE, BNR.DE, SZG.DE, OHB.DE, MC.PA, OR.PA, TTE.PA, SAN.PA, AI.PA, SU.PA, BN.PA, KER.PA, RMS.PA, AIR.PA, CS.PA, BNP.PA, GLE.PA, CA.PA, CAP.PA, EN.PA, RI.PA, VIV.PA, ORA.PA, PUB.PA, DSY.PA, STM.PA, SGO.PA, SHEL.L, AZN.L, HSBA.L, ULVR.L, BP.L, GSK.L, RIO.L, DGE.L, BATS.L, REL.L, LSEG.L, LLOY.L, BARC.L, VOD.L, NG.L, RKT.L, PRU.L, AAL.L, BT-A.L, BA.L, RR.L, IMB.L, ANTO.L, CPG.L, EXPN.L, ASML.AS, SHELL.AS, UNA.AS, PRX.AS, HEIA.AS, INGA.AS, AD.AS, DSM.AS, PHIA.AS, WKL.AS, ASM.AS, RAND.AS, ABN.AS, KPN.AS, AKZA.AS, NESN.SW, NOVN.SW, ROG.SW, UBSG.SW, CSGN.SW, ABBN.SW, ZURN.SW, SREN.SW, LONN.SW, GIVN.SW, SIKA.SW, CFR.SW, GEBN.SW, SLHN.SW, SCMN.SW, 7203.T, 6758.T, 9984.T, 6861.T, 8306.T, 6501.T, 7267.T, 4502.T, 9433.T, 6902.T, 6098.T, 4063.T, 8035.T, 6367.T, 6954.T, 7741.T, 4519.T, 6273.T, 7751.T, 4661.T, 9432.T, 6594.T, 8001.T, 8058.T, 8031.T, 6981.T, 7974.T, 6762.T, 4543.T, 6971.T, 005930.KS, 000660.KS, 207940.KS, 005380.KS, 051910.KS, 006400.KS, 035420.KS, 035720.KS, 068270.KS, 003670.KS, 105560.KS, 055550.KS, 012330.KS, 028260.KS, 000270.KS, BABA, JD, PDD, BIDU, NIO, XPEV, LI, NTES, TME, BILI, TAL, ZTO, YUMC, MNSO, FUTU, 0700.HK, 9988.HK, 3690.HK, 1211.HK, 2318.HK, 0941.HK, 1398.HK, 3988.HK, 0939.HK, 2628.HK, 0883.HK, 1810.HK, 9618.HK, 9999.HK, 2020.HK, 9888.HK, 1024.HK, 0388.HK, 0005.HK, 0011.HK, BHP.AX, CBA.AX, CSL.AX, NAB.AX, WBC.AX, ANZ.AX, WES.AX, MQG.AX, WDS.AX, TLS.AX, RIO.AX, FMG.AX, WOW.AX, ALL.AX, TCL.AX, INFY, WIT, HDB, IBN, SIFY, TTM, RDY, VEDL, WNS, ERIC-B.ST, VOLV-B.ST, ATCO-B.ST, INVE-B.ST, SEB-A.ST, SAND.ST, HM-B.ST, ABB.ST, SWED-A.ST, ALFA.ST, NOVO-B.CO, MAERSK-B.CO, DSV.CO, CARL-B.CO, VWS.CO, ORSTED.CO, COLO-B.CO, DEMANT.CO, EQNR.OL, DNB.OL, TEL.OL, MOWI.OL, YAR.OL, NOKIA.HE, FORTUM.HE, NESTE.HE, UPM.HE, STERV.HE, SAN.MC, BBVA.MC, ITX.MC, IBE.MC, TEF.MC, REP.MC, CABK.MC, FER.MC, ENI.MI, ENEL.MI, ISP.MI, UCG.MI, G.MI, STM.MI, RACE.MI, LUX.MI, RY.TO, TD.TO, BNS.TO, ENB.TO, CNR.TO, CP.TO, BMO.TO, SU.TO, TRP.TO, BCE.TO, CNQ.TO, SHOP.TO, MFC.TO, ATD.TO, NTR.TO
+
+Criteria:
+  • RSI(14) < 30
+  • Price ABOVE 200-day MA [OFF]
+  • Trailing P/E < 25
+  • Price/Book < 3 (skipped for Tech/Comms)
+  • ROE > 10% OR Revenue Growth > 5%
+  • Debt/Equity < 100% (skipped for Financials)
+------------------------------------------------------------
+Analyzing AAPL...
+  Apple Inc.
+  Sector: Technology
+  Price: $351.91
+  200-day MA: $301.66 (ABOVE)
+  RSI(14): 56.32
+  Trailing P/E: 39.19
+  Price/Book: 45.63 [exempt]
+  ROE: 142.3%
+  Revenue Growth: 11.7%
+  Debt/Equity: 84%
+  ❌ No signal (missed 2/4): RSI 56.3 >= 30, P/E 39.2 > 25
+
+Analyzing MSFT...
+  Microsoft Corporation
+  Sector: Technology
+  Price: $506.24
+  200-day MA: $441.37 (ABOVE)
+  RSI(14): 41.86
+  Trailing P/E: 26.42
+  Price/Book: 7.99 [exempt]
+  ROE: 34.2%
+  Revenue Growth: 18.8%
+  Debt/Equity: 28%
+  ❌ No signal (missed 2/4): RSI 41.9 >= 30, P/E 26.4 > 25
+
+Analyzing GOOGL...
+  Alphabet Inc.
+  Sector: Communication Services
+  Price: $280.20
+  200-day MA: $337.62 (BELOW)
+  RSI(14): 32.89
+  Trailing P/E: 14.63
+  Price/Book: 5.22 [exempt]
+  ROE: 44.3%
+  Revenue Growth: 24.7%
+  Debt/Equity: 22%
+  ❌ No signal (missed 1/4): RSI 32.9 >= 30
+
+Analyzing AMZN...
+  Amazon.com, Inc.
+  Sector: Consumer Cyclical
+  Price: $257.89
+  200-day MA: $244.76 (ABOVE)
+  RSI(14): 49.75
+  Trailing P/E: 20.85
+  Price/Book: 4.54
+  ROE: 27.4%
+  Revenue Growth: 12.1%
+  Debt/Equity: 50%
+  ❌ No signal (missed 2/5): RSI 49.7 >= 30, P/B 4.5 > 3
+
+Analyzing META...
+  Meta Platforms, Inc.
+  Sector: Communication Services
+  Price: $618.87
+  200-day MA: $629.15 (BELOW)
+  RSI(14): 42.05
+  Trailing P/E: 21.11
+  Price/Book: 5.81 [exempt]
+  ROE: 32.3%
+  Revenue Growth: 26.1%
+  Debt/Equity: 42%
+  ❌ No signal (missed 1/4): RSI 42.0 >= 30
+
+Analyzing NVDA...
+  NVIDIA Corporation
+  Sector: Technology
+  Price: $155.46
+  200-day MA: $203.60 (BELOW)
+  RSI(14): 22.50
+  Trailing P/E: 19.65
+  Price/Book: 24.02 [exempt]
+  ROE: 117.2%
+  Revenue Growth: 105.9%
+  Debt/Equity: 17%
+  ✅ SIGNAL TRIGGERED! Missed: 0/4
+
+Analyzing TSLA...
+  Tesla, Inc.
+  Sector: Consumer Cyclical
+  Price: $380.11
+  200-day MA: $382.27 (BELOW)
+  RSI(14): 49.61
+  Trailing P/E: 417.70
+  Price/Book: 16.83
+  ROE: 3.8%
+  Revenue Growth: -0.2%
+  Debt/Equity: 18%
+  ❌ No signal (missed 4/5): RSI 49.6 >= 30, P/E 417.7 > 25, P/B 16.8 > 3, ROE 3.8% < 10% AND Growth -0.2% < 5%
+
+Analyzing AVGO...
+  Broadcom Inc.
+  Sector: Technology
+  Price: $341.60
+  200-day MA: $366.56 (BELOW)
+  RSI(14): 51.42
+  Trailing P/E: 43.63
+  Price/Book: 16.36 [exempt]
+  ROE: 44.2%
+  Revenue Growth: 85.5%
+  Debt/Equity: 60%
+  ❌ No signal (missed 2/4): RSI 51.4 >= 30, P/E 43.6 > 25
+
+Analyzing ORCL...
+  Oracle Corporation
+  Sector: Technology
+  Price: $115.00
+  200-day MA: $152.73 (BELOW)
+  RSI(14): 40.04
+  Trailing P/E: 18.03
+  Price/Book: 5.63 [exempt]
+  ROE: 41.2%
+  Revenue Growth: 29.6%
+  Debt/Equity: 252%
+  ❌ No signal (missed 2/4): RSI 40.0 >= 30, D/E 252% > 100%
+
+Analyzing CRM...
+  Salesforce, Inc.
+  Sector: Technology
+  Price: $194.52
+  200-day MA: $197.34 (BELOW)
+  RSI(14): 25.74
+  Trailing P/E: 17.80
+  Price/Book: 4.17 [exempt]
+  ROE: 19.4%
+  Revenue Growth: 10.8%
+  Debt/Equity: 110%
+  ❌ No signal (missed 1/4): D/E 110% > 100%
+
+Analyzing ADBE...
+  Adobe Inc.
+  Sector: Technology
+  Price: $235.55
+  200-day MA: $247.14 (BELOW)
+  RSI(14): 41.46
+  Trailing P/E: 13.15
+  Price/Book: 7.83 [exempt]
+  ROE: 61.9%
+  Revenue Growth: 12.9%
+  Debt/Equity: 58%
+  ❌ No signal (missed 1/4): RSI 41.5 >= 30
+
+Analyzing AMD...
+  Advanced Micro Devices, Inc.
+  Sector: Technology
+  Price: $503.41
+  200-day MA: $425.74 (ABOVE)
+  RSI(14): 46.63
+  Trailing P/E: 107.57
+  Price/Book: 12.07 [exempt]
+  ROE: 12.0%
+  Revenue Growth: 44.7%
+  Debt/Equity: 13%
+  ❌ No signal (missed 2/4): RSI 46.6 >= 30, P/E 107.6 > 25
+
+Analyzing INTC...
+  Intel Corporation
+  Sector: Technology
+  Price: $55.17
+  200-day MA: $87.48 (BELOW)
+  RSI(14): 29.69
+  Trailing P/E: N/A
+  Price/Book: 2.55 [exempt]
+  ROE: -9.6%
+  Revenue Growth: 20.9%
+  Debt/Equity: 38%
+  ❌ No signal (missed 1/4): No P/E data
+
+Analyzing CSCO...
+  Cisco Systems, Inc.
+  Sector: Technology
+  Price: $95.11
+  200-day MA: $101.90 (BELOW)
+  RSI(14): 37.09
+  Trailing P/E: 25.30
+  Price/Book: 7.28 [exempt]
+  ROE: 30.4%
+  Revenue Growth: 24.4%
+  Debt/Equity: 58%
+  ❌ No signal (missed 2/4): RSI 37.1 >= 30, P/E 25.3 > 25
+
+Analyzing IBM...
+  International Business Machines
+  Sector: Technology
+  Price: $231.09
+  200-day MA: $242.54 (BELOW)
+  RSI(14): 38.55
+  Trailing P/E: 19.72
+  Price/Book: 6.15 [exempt]
+  ROE: 34.8%
+  Revenue Growth: 4.7%
+  Debt/Equity: 185%
+  ❌ No signal (missed 2/4): RSI 38.6 >= 30, D/E 185% > 100%
+
+Analyzing QCOM...
+  QUALCOMM Incorporated
+  Sector: Technology
+  Price: $166.67
+  200-day MA: $169.35 (BELOW)
+  RSI(14): 44.68
+  Trailing P/E: 13.12
+  Price/Book: 5.88 [exempt]
+  ROE: 52.8%
+  Revenue Growth: -8.4%
+  Debt/Equity: 53%
+  ❌ No signal (missed 1/4): RSI 44.7 >= 30
+
+Analyzing TXN...
+  Texas Instruments Incorporated
+  Sector: Technology
+  Price: $295.86
+  200-day MA: $263.18 (ABOVE)
+  RSI(14): 50.97
+  Trailing P/E: 38.37
+  Price/Book: 14.10 [exempt]
+  ROE: 39.7%
+  Revenue Growth: 27.7%
+  Debt/Equity: 71%
+  ❌ No signal (missed 2/4): RSI 51.0 >= 30, P/E 38.4 > 25
+
+Analyzing NOW...
+  ServiceNow, Inc.
+  Sector: Technology
+  Price: $92.90
+  200-day MA: $113.53 (BELOW)
+  RSI(14): 26.70
+  Trailing P/E: 66.83
+  Price/Book: 7.36 [exempt]
+  ROE: 11.8%
+  Revenue Growth: 20.5%
+  Debt/Equity: 64%
+  ❌ No signal (missed 1/4): P/E 66.8 > 25
+
+Analyzing INTU...
+  Intuit Inc.
+  Sector: Technology
+  Price: $320.79
+  200-day MA: $346.59 (BELOW)
+  RSI(14): 43.26
+  Trailing P/E: 19.49
+  Price/Book: 4.53 [exempt]
+  ROE: 23.6%
+  Revenue Growth: 13.7%
+  Debt/Equity: 44%
+  ❌ No signal (missed 1/4): RSI 43.3 >= 30
+
+Analyzing AMAT...
+  Applied Materials, Inc.
+  Sector: Technology
+  Price: $349.23
+  200-day MA: $446.26 (BELOW)
+  RSI(14): 38.60
+  Trailing P/E: 27.67
+  Price/Book: 10.61 [exempt]
+  ROE: 43.4%
+  Revenue Growth: 53.1%
+  Debt/Equity: 25%
+  ❌ No signal (missed 2/4): RSI 38.6 >= 30, P/E 27.7 > 25
+
+Analyzing ALAB...
+  Astera Labs, Inc.
+  Sector: Technology
+  Price: $211.60
+  200-day MA: $258.02 (BELOW)
+  RSI(14): 38.95
+  Trailing P/E: 83.64
+  Price/Book: 18.49 [exempt]
+  ROE: 28.2%
+  Revenue Growth: 153.7%
+  Debt/Equity: 2%
+  ❌ No signal (missed 2/4): RSI 38.9 >= 30, P/E 83.6 > 25
+
+Analyzing BRK-B...
+  Berkshire Hathaway Inc. New
+  Sector: Financial Services
+  Price: $586.76
+  200-day MA: $501.49 (ABOVE)
+  RSI(14): 73.09
+  Trailing P/E: 16.42
+  Price/Book: 0.00
+  ROE: 10.6%
+  Revenue Growth: 11.2%
+  Debt/Equity: 17% [exempt]
+  ❌ No signal (missed 1/4): RSI 73.1 >= 30
+
+Analyzing JPM...
+  JP Morgan Chase & Co.
+  Sector: Financial Services
+  Price: $329.96
+  200-day MA: $322.75 (ABOVE)
+  RSI(14): 42.10
+  Trailing P/E: 13.84
+  Price/Book: 2.49
+  ROE: 18.0%
+  Revenue Growth: 10.2%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 42.1 >= 30
+
+Analyzing V...
+  Visa Inc.
+  Sector: Financial Services
+  Price: $416.77
+  200-day MA: $346.75 (ABOVE)
+  RSI(14): 54.76
+  Trailing P/E: 33.83
+  Price/Book: 21.74
+  ROE: 63.5%
+  Revenue Growth: 13.2%
+  Debt/Equity: 64% [exempt]
+  ❌ No signal (missed 3/4): RSI 54.8 >= 30, P/E 33.8 > 25, P/B 21.7 > 3
+
+Analyzing MA...
+  Mastercard Incorporated
+  Sector: Financial Services
+  Price: $645.73
+  200-day MA: $541.78 (ABOVE)
+  RSI(14): 55.44
+  Trailing P/E: 33.79
+  Price/Book: 83.40
+  ROE: 231.4%
+  Revenue Growth: 14.0%
+  Debt/Equity: 355% [exempt]
+  ❌ No signal (missed 3/4): RSI 55.4 >= 30, P/E 33.8 > 25, P/B 83.4 > 3
+
+Analyzing BAC...
+  Bank of America Corporation
+  Sector: Financial Services
+  Price: $49.44
+  200-day MA: $54.47 (BELOW)
+  RSI(14): 37.56
+  Trailing P/E: 11.80
+  Price/Book: 1.26
+  ROE: 10.7%
+  Revenue Growth: 3.4%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 37.6 >= 30
+
+Analyzing WFC...
+  Wells Fargo & Company
+  Sector: Financial Services
+  Price: $82.69
+  200-day MA: $82.46 (ABOVE)
+  RSI(14): 44.65
+  Trailing P/E: 11.66
+  Price/Book: 1.56
+  ROE: 12.9%
+  Revenue Growth: 0.4%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 44.6 >= 30
+
+Analyzing GS...
+  Goldman Sachs Group, Inc. (The)
+  Sector: Financial Services
+  Price: $877.52
+  200-day MA: $949.78 (BELOW)
+  RSI(14): 43.34
+  Trailing P/E: 12.62
+  Price/Book: 2.39
+  ROE: 17.7%
+  Revenue Growth: 23.3%
+  Debt/Equity: 756% [exempt]
+  ❌ No signal (missed 1/4): RSI 43.3 >= 30
+
+Analyzing MS...
+  Morgan Stanley
+  Sector: Financial Services
+  Price: $183.53
+  200-day MA: $192.51 (BELOW)
+  RSI(14): 45.06
+  Trailing P/E: 14.55
+  Price/Book: 2.68
+  ROE: 18.0%
+  Revenue Growth: 10.8%
+  Debt/Equity: 490% [exempt]
+  ❌ No signal (missed 1/4): RSI 45.1 >= 30
+
+Analyzing BLK...
+  BlackRock, Inc.
+  Sector: Financial Services
+  Price: $1180.67
+  200-day MA: $1060.76 (ABOVE)
+  RSI(14): 53.25
+  Trailing P/E: 26.88
+  Price/Book: 3.14
+  ROE: 11.6%
+  Revenue Growth: 19.1%
+  Debt/Equity: 22% [exempt]
+  ❌ No signal (missed 3/4): RSI 53.2 >= 30, P/E 26.9 > 25, P/B 3.1 > 3
+
+Analyzing SCHW...
+  Charles Schwab Corporation (The
+  Sector: Financial Services
+  Price: $91.84
+  200-day MA: $96.25 (BELOW)
+  RSI(14): 46.62
+  Trailing P/E: 15.70
+  Price/Book: 3.50
+  ROE: 21.1%
+  Revenue Growth: 16.9%
+  Debt/Equity: 151% [exempt]
+  ❌ No signal (missed 2/4): RSI 46.6 >= 30, P/B 3.5 > 3
+
+Analyzing AXP...
+  American Express Company
+  Sector: Financial Services
+  Price: $315.78
+  200-day MA: $322.40 (BELOW)
+  RSI(14): 46.19
+  Trailing P/E: 17.79
+  Price/Book: 5.92
+  ROE: 35.9%
+  Revenue Growth: 11.3%
+  Debt/Equity: 168% [exempt]
+  ❌ No signal (missed 2/4): RSI 46.2 >= 30, P/B 5.9 > 3
+
+Analyzing C...
+  Citigroup, Inc.
+  Sector: Financial Services
+  Price: $119.94
+  200-day MA: $125.77 (BELOW)
+  RSI(14): 41.76
+  Trailing P/E: 11.69
+  Price/Book: 1.04
+  ROE: 9.4%
+  Revenue Growth: 8.0%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 41.8 >= 30
+
+Analyzing USB...
+  U.S. Bancorp
+  Sector: Financial Services
+  Price: $59.18
+  200-day MA: $57.54 (ABOVE)
+  RSI(14): 46.46
+  Trailing P/E: 11.51
+  Price/Book: 1.55
+  ROE: 12.8%
+  Revenue Growth: 8.4%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 46.5 >= 30
+
+Analyzing PNC...
+  PNC Financial Services Group, I
+  Sector: Financial Services
+  Price: $224.33
+  200-day MA: $226.19 (BELOW)
+  RSI(14): 44.87
+  Trailing P/E: 11.95
+  Price/Book: 1.58
+  ROE: 13.1%
+  Revenue Growth: 10.9%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 44.9 >= 30
+
+Analyzing TFC...
+  Truist Financial Corporation
+  Sector: Financial Services
+  Price: $48.45
+  200-day MA: $48.45 (ABOVE)
+  RSI(14): 49.01
+  Trailing P/E: 12.49
+  Price/Book: 1.04
+  ROE: 8.2%
+  Revenue Growth: -15.8%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 2/4): RSI 49.0 >= 30, ROE 8.2% < 10% AND Growth -15.8% < 5%
+
+Analyzing JNJ...
+  Johnson & Johnson
+  Sector: Healthcare
+  Price: $278.70
+  200-day MA: $248.86 (ABOVE)
+  RSI(14): 56.45
+  Trailing P/E: 42.29
+  Price/Book: 8.23
+  ROE: 20.0%
+  Revenue Growth: 5.9%
+  Debt/Equity: 55%
+  ❌ No signal (missed 3/5): RSI 56.4 >= 30, P/E 42.3 > 25, P/B 8.2 > 3
+
+Analyzing UNH...
+  UnitedHealth Group Incorporated
+  Sector: Healthcare
+  Price: $389.68
+  200-day MA: $364.81 (ABOVE)
+  RSI(14): 42.97
+  Trailing P/E: 22.24
+  Price/Book: 3.56
+  ROE: 15.8%
+  Revenue Growth: -0.4%
+  Debt/Equity: 70%
+  ❌ No signal (missed 2/5): RSI 43.0 >= 30, P/B 3.6 > 3
+
+Analyzing PFE...
+  Pfizer, Inc.
+  Sector: Healthcare
+  Price: $28.47
+  200-day MA: $26.23 (ABOVE)
+  RSI(14): 43.24
+  Trailing P/E: 40.67
+  Price/Book: 1.82
+  ROE: 4.5%
+  Revenue Growth: -0.4%
+  Debt/Equity: 71%
+  ❌ No signal (missed 3/5): RSI 43.2 >= 30, P/E 40.7 > 25, ROE 4.5% < 10% AND Growth -0.4% < 5%
+
+Analyzing ABBV...
+  AbbVie Inc.
+  Sector: Healthcare
+  Price: $292.82
+  200-day MA: $238.92 (ABOVE)
+  RSI(14): 59.06
+  Trailing P/E: 50.31
+  Price/Book: -112.93
+  ROE: N/A
+  Revenue Growth: 10.3%
+  Debt/Equity: N/A
+  ❌ No signal (missed 3/5): RSI 59.1 >= 30, P/E 50.3 > 25, No D/E data
+
+Analyzing MRK...
+  Merck & Company, Inc.
+  Sector: Healthcare
+  Price: $143.37
+  200-day MA: $127.91 (ABOVE)
+  RSI(14): 45.01
+  Trailing P/E: 144.82
+  Price/Book: 7.88
+  ROE: 5.1%
+  Revenue Growth: 4.7%
+  Debt/Equity: 120%
+  ❌ No signal (missed 5/5): RSI 45.0 >= 30, P/E 144.8 > 25, P/B 7.9 > 3, ROE 5.1% < 10% AND Growth 4.7% < 5%, D/E 120% > 100%
+
+Analyzing LLY...
+  Eli Lilly and Company
+  Sector: Healthcare
+  Price: $1415.55
+  200-day MA: $1110.17 (ABOVE)
+  RSI(14): 63.21
+  Trailing P/E: 45.94
+  Price/Book: 31.33
+  ROE: 86.0%
+  Revenue Growth: 38.6%
+  Debt/Equity: 123%
+  ❌ No signal (missed 4/5): RSI 63.2 >= 30, P/E 45.9 > 25, P/B 31.3 > 3, D/E 123% > 100%
+
+Analyzing TMO...
+  Thermo Fisher Scientific Inc
+  Sector: Healthcare
+  Price: $686.79
+  200-day MA: $555.86 (ABOVE)
+  RSI(14): 48.97
+  Trailing P/E: 36.22
+  Price/Book: 4.65
+  ROE: 13.4%
+  Revenue Growth: 9.1%
+  Debt/Equity: 75%
+  ❌ No signal (missed 3/5): RSI 49.0 >= 30, P/E 36.2 > 25, P/B 4.6 > 3
+
+Analyzing ABT...
+  Abbott Laboratories
+  Sector: Healthcare
+  Price: $104.71
+  200-day MA: $100.43 (ABOVE)
+  RSI(14): 45.77
+  Trailing P/E: 39.07
+  Price/Book: 3.55
+  ROE: 9.1%
+  Revenue Growth: 14.5%
+  Debt/Equity: 61%
+  ❌ No signal (missed 3/5): RSI 45.8 >= 30, P/E 39.1 > 25, P/B 3.6 > 3
+
+Analyzing DHR...
+  Danaher Corporation
+  Sector: Healthcare
+  Price: $225.77
+  200-day MA: $200.51 (ABOVE)
+  RSI(14): 46.23
+  Trailing P/E: 37.38
+  Price/Book: 2.96
+  ROE: 8.2%
+  Revenue Growth: 8.3%
+  Debt/Equity: 52%
+  ❌ No signal (missed 2/5): RSI 46.2 >= 30, P/E 37.4 > 25
+
+Analyzing BMY...
+  Bristol-Myers Squibb Company
+  Sector: Healthcare
+  Price: $61.35
+  200-day MA: $59.44 (ABOVE)
+  RSI(14): 47.20
+  Trailing P/E: 13.60
+  Price/Book: 5.36
+  ROE: 44.0%
+  Revenue Growth: 6.9%
+  Debt/Equity: 191%
+  ❌ No signal (missed 3/5): RSI 47.2 >= 30, P/B 5.4 > 3, D/E 191% > 100%
+
+Analyzing AMGN...
+  Amgen Inc.
+  Sector: Healthcare
+  Price: $457.93
+  200-day MA: $379.69 (ABOVE)
+  RSI(14): 55.32
+  Trailing P/E: 26.55
+  Price/Book: 17.26
+  ROE: 78.4%
+  Revenue Growth: 8.5%
+  Debt/Equity: 376%
+  ❌ No signal (missed 4/5): RSI 55.3 >= 30, P/E 26.5 > 25, P/B 17.3 > 3, D/E 376% > 100%
+
+Analyzing GILD...
+  Gilead Sciences, Inc.
+  Sector: Healthcare
+  Price: $170.26
+  200-day MA: $140.87 (ABOVE)
+  RSI(14): 61.86
+  Trailing P/E: N/A
+  Price/Book: 16.20
+  ROE: -22.4%
+  Revenue Growth: 6.8%
+  Debt/Equity: 202%
+  ❌ No signal (missed 4/5): RSI 61.9 >= 30, No P/E data, P/B 16.2 > 3, D/E 202% > 100%
+
+Analyzing ISRG...
+  Intuitive Surgical, Inc.
+  Sector: Healthcare
+  Price: $430.53
+  200-day MA: $428.72 (ABOVE)
+  RSI(14): 46.40
+  Trailing P/E: 52.06
+  Price/Book: 9.33
+  ROE: 17.9%
+  Revenue Growth: 21.7%
+  Debt/Equity: N/A
+  ❌ No signal (missed 4/5): RSI 46.4 >= 30, P/E 52.1 > 25, P/B 9.3 > 3, No D/E data
+
+Analyzing VRTX...
+  Vertex Pharmaceuticals Incorpor
+  Sector: Healthcare
+  Price: $534.20
+  200-day MA: $483.99 (ABOVE)
+  RSI(14): 50.38
+  Trailing P/E: 34.38
+  Price/Book: 6.48
+  ROE: 20.8%
+  Revenue Growth: 11.8%
+  Debt/Equity: 31%
+  ❌ No signal (missed 3/5): RSI 50.4 >= 30, P/E 34.4 > 25, P/B 6.5 > 3
+
+Analyzing REGN...
+  Regeneron Pharmaceuticals, Inc.
+  Sector: Healthcare
+  Price: $957.76
+  200-day MA: $747.94 (ABOVE)
+  RSI(14): 68.25
+  Trailing P/E: 21.17
+  Price/Book: 2.87
+  ROE: 14.9%
+  Revenue Growth: 36.3%
+  Debt/Equity: 8%
+  ❌ No signal (missed 1/5): RSI 68.3 >= 30
+
+Analyzing MDT...
+  Medtronic plc.
+  Sector: Healthcare
+  Price: $102.32
+  200-day MA: $87.17 (ABOVE)
+  RSI(14): 61.84
+  Trailing P/E: 25.14
+  Price/Book: 2.61
+  ROE: 10.6%
+  Revenue Growth: 13.7%
+  Debt/Equity: 55%
+  ❌ No signal (missed 2/5): RSI 61.8 >= 30, P/E 25.1 > 25
+
+Analyzing SYK...
+  Stryker Corporation
+  Sector: Healthcare
+  Price: $317.54
+  200-day MA: $319.90 (BELOW)
+  RSI(14): 55.61
+  Trailing P/E: 33.82
+  Price/Book: 5.15
+  ROE: 16.0%
+  Revenue Growth: 7.6%
+  Debt/Equity: 66%
+  ❌ No signal (missed 3/5): RSI 55.6 >= 30, P/E 33.8 > 25, P/B 5.2 > 3
+
+Analyzing ZTS...
+  Zoetis Inc.
+  Sector: Healthcare
+  Price: $83.48
+  200-day MA: $89.96 (BELOW)
+  RSI(14): 57.80
+  Trailing P/E: 14.20
+  Price/Book: 10.30
+  ROE: 57.6%
+  Revenue Growth: -1.3%
+  Debt/Equity: 280%
+  ❌ No signal (missed 3/5): RSI 57.8 >= 30, P/B 10.3 > 3, D/E 280% > 100%
+
+Analyzing CI...
+  The Cigna Group
+  Sector: Healthcare
+  Price: $294.06
+  200-day MA: $281.07 (ABOVE)
+  RSI(14): 48.54
+  Trailing P/E: 12.97
+  Price/Book: 1.79
+  ROE: 15.6%
+  Revenue Growth: 5.6%
+  Debt/Equity: 71%
+  ❌ No signal (missed 1/5): RSI 48.5 >= 30
+
+Analyzing ELV...
+  Elevance Health, Inc.
+  Sector: Healthcare
+  Price: $433.93
+  200-day MA: $374.44 (ABOVE)
+  RSI(14): 55.13
+  Trailing P/E: 18.43
+  Price/Book: 2.10
+  ROE: 11.5%
+  Revenue Growth: 1.4%
+  Debt/Equity: 69%
+  ❌ No signal (missed 1/5): RSI 55.1 >= 30
+
+Analyzing HIMS...
+  Hims & Hers Health, Inc.
+  Sector: Healthcare
+  Price: $17.55
+  200-day MA: $26.59 (BELOW)
+  RSI(14): 29.54
+  Trailing P/E: N/A
+  Price/Book: 11.58
+  ROE: -40.8%
+  Revenue Growth: 48.6%
+  Debt/Equity: 439%
+  ❌ No signal (missed 3/5): No P/E data, P/B 11.6 > 3, D/E 439% > 100%
+
+Analyzing NRXP...
+  NRX Pharmaceuticals, Inc.
+  Sector: Healthcare
+  Price: $2.45
+  200-day MA: $2.98 (BELOW)
+  RSI(14): 48.32
+  Trailing P/E: N/A
+  Price/Book: -4.87
+  ROE: N/A
+  Revenue Growth: 378.9%
+  Debt/Equity: N/A
+  ❌ No signal (missed 3/5): RSI 48.3 >= 30, No P/E data, No D/E data
+
+Analyzing PG...
+  Procter & Gamble Company (The)
+  Sector: Consumer Defensive
+  Price: $171.72
+  200-day MA: $148.23 (ABOVE)
+  RSI(14): 69.32
+  Trailing P/E: 25.86
+  Price/Book: 7.32
+  ROE: 29.6%
+  Revenue Growth: 4.0%
+  Debt/Equity: 70%
+  ❌ No signal (missed 3/5): RSI 69.3 >= 30, P/E 25.9 > 25, P/B 7.3 > 3
+
+Analyzing KO...
+  Coca-Cola Company (The)
+  Sector: Consumer Defensive
+  Price: $98.79
+  200-day MA: $82.92 (ABOVE)
+  RSI(14): 69.63
+  Trailing P/E: 29.14
+  Price/Book: 11.37
+  ROE: 40.6%
+  Revenue Growth: 7.4%
+  Debt/Equity: 107%
+  ❌ No signal (missed 4/5): RSI 69.6 >= 30, P/E 29.1 > 25, P/B 11.4 > 3, D/E 107% > 100%
+
+Analyzing PEP...
+  Pepsico, Inc.
+  Sector: Consumer Defensive
+  Price: $142.02
+  200-day MA: $143.64 (BELOW)
+  RSI(14): 56.78
+  Trailing P/E: 17.86
+  Price/Book: 8.69
+  ROE: 52.2%
+  Revenue Growth: 5.6%
+  Debt/Equity: 231%
+  ❌ No signal (missed 3/5): RSI 56.8 >= 30, P/B 8.7 > 3, D/E 231% > 100%
+
+Analyzing COST...
+  Costco Wholesale Corporation
+  Sector: Consumer Defensive
+  Price: $1110.08
+  200-day MA: $974.56 (ABOVE)
+  RSI(14): 75.44
+  Trailing P/E: 53.47
+  Price/Book: 13.74
+  ROE: 28.4%
+  Revenue Growth: 11.1%
+  Debt/Equity: 28%
+  ❌ No signal (missed 3/5): RSI 75.4 >= 30, P/E 53.5 > 25, P/B 13.7 > 3
+
+Analyzing WMT...
+  Walmart Inc.
+  Sector: Consumer Defensive
+  Price: $127.52
+  200-day MA: $118.68 (ABOVE)
+  RSI(14): 65.21
+  Trailing P/E: 46.20
+  Price/Book: 10.31
+  ROE: 22.3%
+  Revenue Growth: 5.9%
+  Debt/Equity: 72%
+  ❌ No signal (missed 3/5): RSI 65.2 >= 30, P/E 46.2 > 25, P/B 10.3 > 3
+
+Analyzing HD...
+  Home Depot, Inc. (The)
+  Sector: Consumer Cyclical
+  Price: $339.01
+  200-day MA: $329.16 (ABOVE)
+  RSI(14): 55.29
+  Trailing P/E: 23.54
+  Price/Book: 26.35
+  ROE: 94.8%
+  Revenue Growth: 4.9%
+  Debt/Equity: 342%
+  ❌ No signal (missed 3/5): RSI 55.3 >= 30, P/B 26.4 > 3, D/E 342% > 100%
+
+Analyzing MCD...
+  McDonald's Corporation
+  Sector: Consumer Cyclical
+  Price: $275.82
+  200-day MA: $278.52 (BELOW)
+  RSI(14): 64.96
+  Trailing P/E: 21.82
+  Price/Book: -567.53
+  ROE: N/A
+  Revenue Growth: 1.1%
+  Debt/Equity: N/A
+  ❌ No signal (missed 3/5): RSI 65.0 >= 30, ROE N/A < 10% AND Growth 1.1% < 5%, No D/E data
+
+Analyzing NKE...
+  Nike, Inc.
+  Sector: Consumer Cyclical
+  Price: $35.85
+  200-day MA: $43.96 (BELOW)
+  RSI(14): 40.33
+  Trailing P/E: 17.24
+  Price/Book: 3.49
+  ROE: 21.6%
+  Revenue Growth: -4.3%
+  Debt/Equity: 73%
+  ❌ No signal (missed 2/5): RSI 40.3 >= 30, P/B 3.5 > 3
+
+Analyzing SBUX...
+  Starbucks Corporation
+  Sector: Consumer Cyclical
+  Price: $107.49
+  200-day MA: $99.44 (ABOVE)
+  RSI(14): 59.60
+  Trailing P/E: 48.64
+  Price/Book: -15.98
+  ROE: N/A
+  Revenue Growth: -4.5%
+  Debt/Equity: N/A
+  ❌ No signal (missed 4/5): RSI 59.6 >= 30, P/E 48.6 > 25, ROE N/A < 10% AND Growth -4.5% < 5%, No D/E data
+
+Analyzing TGT...
+  Target Corporation
+  Sector: Consumer Defensive
+  Price: $159.53
+  200-day MA: $135.27 (ABOVE)
+  RSI(14): 53.80
+  Trailing P/E: 16.57
+  Price/Book: 4.06
+  ROE: 26.4%
+  Revenue Growth: 5.3%
+  Debt/Equity: 108%
+  ❌ No signal (missed 3/5): RSI 53.8 >= 30, P/B 4.1 > 3, D/E 108% > 100%$K: possibly delisted; no price data found  (period=1y)
+
+
+Analyzing LOW...
+  Lowe's Companies, Inc.
+  Sector: Consumer Cyclical
+  Price: $220.46
+  200-day MA: $220.69 (BELOW)
+  RSI(14): 57.40
+  Trailing P/E: 18.64
+  Price/Book: -16.63
+  ROE: N/A
+  Revenue Growth: 8.3%
+  Debt/Equity: N/A
+  ❌ No signal (missed 2/5): RSI 57.4 >= 30, No D/E data
+
+Analyzing TJX...
+  TJX Companies, Inc. (The)
+  Sector: Consumer Cyclical
+  Price: $129.85
+  200-day MA: $149.23 (BELOW)
+  RSI(14): 36.14
+  Trailing P/E: 24.05
+  Price/Book: 13.43
+  ROE: 62.2%
+  Revenue Growth: 5.4%
+  Debt/Equity: 134%
+  ❌ No signal (missed 3/5): RSI 36.1 >= 30, P/B 13.4 > 3, D/E 134% > 100%
+
+Analyzing EL...
+  Estee Lauder Companies, Inc. (T
+  Sector: Consumer Defensive
+  Price: $104.52
+  200-day MA: $90.78 (ABOVE)
+  RSI(14): 45.89
+  Trailing P/E: 104.52
+  Price/Book: 9.38
+  ROE: 9.3%
+  Revenue Growth: 6.7%
+  Debt/Equity: 228%
+  ❌ No signal (missed 4/5): RSI 45.9 >= 30, P/E 104.5 > 25, P/B 9.4 > 3, D/E 228% > 100%
+
+Analyzing CL...
+  Colgate-Palmolive Company
+  Sector: Consumer Defensive
+  Price: $99.61
+  200-day MA: $89.52 (ABOVE)
+  RSI(14): 62.74
+  Trailing P/E: 38.76
+  Price/Book: 275.17
+  ROE: 231.7%
+  Revenue Growth: 4.6%
+  Debt/Equity: 1206%
+  ❌ No signal (missed 4/5): RSI 62.7 >= 30, P/E 38.8 > 25, P/B 275.2 > 3, D/E 1206% > 100%
+
+Analyzing KMB...
+  Kimberly-Clark Corporation
+  Sector: Consumer Defensive
+  Price: $108.15
+  200-day MA: $101.89 (ABOVE)
+  RSI(14): 51.73
+  Trailing P/E: 20.64
+  Price/Book: 12.27
+  ROE: 78.4%
+  Revenue Growth: -0.4%
+  Debt/Equity: 212%
+  ❌ No signal (missed 3/5): RSI 51.7 >= 30, P/B 12.3 > 3, D/E 212% > 100%
+
+Analyzing GIS...
+  General Mills, Inc.
+  Sector: Consumer Defensive
+  Price: $34.68
+  200-day MA: $35.81 (BELOW)
+  RSI(14): 52.30
+  Trailing P/E: N/A
+  Price/Book: 2.49
+  ROE: -10.5%
+  Revenue Growth: -2.8%
+  Debt/Equity: 182%
+  ❌ No signal (missed 4/5): RSI 52.3 >= 30, No P/E data, ROE -10.5% < 10% AND Growth -2.8% < 5%, D/E 182% > 100%
+
+Analyzing K...
+  ⚠️  Insufficient price data for K
+
+Analyzing HSY...
+  The Hershey Company
+  Sector: Consumer Defensive
+  Price: $173.71
+  200-day MA: $184.50 (BELOW)
+  RSI(14): 55.58
+  Trailing P/E: 19.65
+  Price/Book: 7.16
+  ROE: 38.0%
+  Revenue Growth: 3.0%
+  Debt/Equity: 111%
+  ❌ No signal (missed 3/5): RSI 55.6 >= 30, P/B 7.2 > 3, D/E 111% > 100%
+
+Analyzing MDLZ...
+  Mondelez International, Inc.
+  Sector: Consumer Defensive
+  Price: $66.75
+  200-day MA: $60.13 (ABOVE)
+  RSI(14): 59.55
+  Trailing P/E: 21.06
+  Price/Book: 3.19
+  ROE: 15.5%
+  Revenue Growth: 2.3%
+  Debt/Equity: 84%
+  ❌ No signal (missed 2/5): RSI 59.5 >= 30, P/B 3.2 > 3
+
+Analyzing KHC...
+  The Kraft Heinz Company
+  Sector: Consumer Defensive
+  Price: $25.11
+  200-day MA: $23.46 (ABOVE)
+  RSI(14): 58.76
+  Trailing P/E: N/A
+  Price/Book: 0.83
+  ROE: -9.0%
+  Revenue Growth: -2.0%
+  Debt/Equity: 50%
+  ❌ No signal (missed 3/5): RSI 58.8 >= 30, No P/E data, ROE -9.0% < 10% AND Growth -2.0% < 5%
+
+Analyzing CAT...
+  Caterpillar, Inc.
+  Sector: Industrials
+  Price: $570.79
+  200-day MA: $803.37 (BELOW)
+  RSI(14): 31.53
+  Trailing P/E: 22.40
+  Price/Book: 12.16
+  ROE: 56.1%
+  Revenue Growth: 17.3%
+  Debt/Equity: 210%
+  ❌ No signal (missed 3/5): RSI 31.5 >= 30, P/B 12.2 > 3, D/E 210% > 100%
+
+Analyzing DE...
+  Deere & Company
+  Sector: Industrials
+  Price: $649.23
+  200-day MA: $611.62 (ABOVE)
+  RSI(14): 43.79
+  Trailing P/E: 36.09
+  Price/Book: 6.25
+  ROE: 18.2%
+  Revenue Growth: 4.9%
+  Debt/Equity: 230%
+  ❌ No signal (missed 4/5): RSI 43.8 >= 30, P/E 36.1 > 25, P/B 6.3 > 3, D/E 230% > 100%
+
+Analyzing UNP...
+  Union Pacific Corporation
+  Sector: Industrials
+  Price: $297.03
+  200-day MA: $273.08 (ABOVE)
+  RSI(14): 50.77
+  Trailing P/E: 23.17
+  Price/Book: 8.02
+  ROE: 38.7%
+  Revenue Growth: 15.3%
+  Debt/Equity: 141%
+  ❌ No signal (missed 3/5): RSI 50.8 >= 30, P/B 8.0 > 3, D/E 141% > 100%
+
+Analyzing RTX...
+  RTX Corporation
+  Sector: Industrials
+  Price: $198.00
+  200-day MA: $194.48 (ABOVE)
+  RSI(14): 52.94
+  Trailing P/E: 32.20
+  Price/Book: 3.86
+  ROE: 12.8%
+  Revenue Growth: 11.1%
+  Debt/Equity: 55%
+  ❌ No signal (missed 3/5): RSI 52.9 >= 30, P/E 32.2 > 25, P/B 3.9 > 3
+
+Analyzing HON...
+  Honeywell International Inc.
+  Sector: Industrials
+  Price: $218.96
+  200-day MA: $228.47 (BELOW)
+  RSI(14): 49.89
+  Trailing P/E: 10.86
+  Price/Book: 3.10
+  ROE: 44.4%
+  Revenue Growth: 1.3%
+  Debt/Equity: 76%
+  ❌ No signal (missed 2/5): RSI 49.9 >= 30, P/B 3.1 > 3
+
+Analyzing BA...
+  Boeing Company (The)
+  Sector: Industrials
+  Price: $163.91
+  200-day MA: $212.64 (BELOW)
+  RSI(14): 30.82
+  Trailing P/E: 16.92
+  Price/Book: 19.84
+  ROE: N/A
+  Revenue Growth: 3.9%
+  Debt/Equity: 739%
+  ❌ No signal (missed 4/5): RSI 30.8 >= 30, P/B 19.8 > 3, ROE N/A < 10% AND Growth 3.9% < 5%, D/E 739% > 100%
+
+Analyzing LMT...
+  Lockheed Martin Corporation
+  Sector: Industrials
+  Price: $590.34
+  200-day MA: $564.11 (ABOVE)
+  RSI(14): 51.65
+  Trailing P/E: 20.96
+  Price/Book: 13.49
+  ROE: 80.2%
+  Revenue Growth: 11.3%
+  Debt/Equity: 204%
+  ❌ No signal (missed 3/5): RSI 51.6 >= 30, P/B 13.5 > 3, D/E 204% > 100%
+
+Analyzing GE...
+  GE Aerospace
+  Sector: Industrials
+  Price: $326.40
+  200-day MA: $323.40 (ABOVE)
+  RSI(14): 54.04
+  Trailing P/E: 37.30
+  Price/Book: 19.25
+  ROE: 50.2%
+  Revenue Growth: 15.9%
+  Debt/Equity: 116%
+  ❌ No signal (missed 4/5): RSI 54.0 >= 30, P/E 37.3 > 25, P/B 19.2 > 3, D/E 116% > 100%
+
+Analyzing MMM...
+  3M Company
+  Sector: Industrials
+  Price: $180.88
+  200-day MA: $161.16 (ABOVE)
+  RSI(14): 54.04
+  Trailing P/E: 27.00
+  Price/Book: 22.65
+  ROE: 73.0%
+  Revenue Growth: 1.0%
+  Debt/Equity: 304%
+  ❌ No signal (missed 4/5): RSI 54.0 >= 30, P/E 27.0 > 25, P/B 22.6 > 3, D/E 304% > 100%
+
+Analyzing UPS...
+  United Parcel Service, Inc.
+  Sector: Industrials
+  Price: $110.31
+  200-day MA: $101.51 (ABOVE)
+  RSI(14): 62.11
+  Trailing P/E: 21.25
+  Price/Book: 6.26
+  ROE: 28.6%
+  Revenue Growth: 6.7%
+  Debt/Equity: 203%
+  ❌ No signal (missed 3/5): RSI 62.1 >= 30, P/B 6.3 > 3, D/E 203% > 100%
+
+Analyzing FDX...
+  FedEx Corporation
+  Sector: Industrials
+  Price: $319.94
+  200-day MA: $307.23 (ABOVE)
+  RSI(14): 56.24
+  Trailing P/E: 17.25
+  Price/Book: 2.17
+  ROE: 14.8%
+  Revenue Growth: 11.9%
+  Debt/Equity: 99%
+  ❌ No signal (missed 1/5): RSI 56.2 >= 30
+
+Analyzing EMR...
+  Emerson Electric Company
+  Sector: Industrials
+  Price: $159.15
+  200-day MA: $146.99 (ABOVE)
+  RSI(14): 43.60
+  Trailing P/E: 33.23
+  Price/Book: 4.28
+  ROE: 13.1%
+  Revenue Growth: 7.1%
+  Debt/Equity: 62%
+  ❌ No signal (missed 3/5): RSI 43.6 >= 30, P/E 33.2 > 25, P/B 4.3 > 3
+
+Analyzing ITW...
+  Illinois Tool Works Inc.
+  Sector: Industrials
+  Price: $281.67
+  200-day MA: $269.65 (ABOVE)
+  RSI(14): 51.16
+  Trailing P/E: 25.13
+  Price/Book: 25.49
+  ROE: 101.7%
+  Revenue Growth: 4.4%
+  Debt/Equity: 298%
+  ❌ No signal (missed 4/5): RSI 51.2 >= 30, P/E 25.1 > 25, P/B 25.5 > 3, D/E 298% > 100%
+
+Analyzing ETN...
+  Eaton Corporation, PLC
+  Sector: Industrials
+  Price: $337.11
+  200-day MA: $395.33 (BELOW)
+  RSI(14): 37.84
+  Trailing P/E: 33.68
+  Price/Book: 6.24
+  ROE: 19.5%
+  Revenue Growth: 28.0%
+  Debt/Equity: 100%
+  ❌ No signal (missed 3/5): RSI 37.8 >= 30, P/E 33.7 > 25, P/B 6.2 > 3
+
+Analyzing PH...
+  Parker-Hannifin Corporation
+  Sector: Industrials
+  Price: $920.84
+  200-day MA: $945.15 (BELOW)
+  RSI(14): 46.02
+  Trailing P/E: 31.63
+  Price/Book: 7.27
+  ROE: 25.0%
+  Revenue Growth: 17.9%
+  Debt/Equity: 109%
+  ❌ No signal (missed 4/5): RSI 46.0 >= 30, P/E 31.6 > 25, P/B 7.3 > 3, D/E 109% > 100%
+
+Analyzing XOM...
+  ExxonMobil Holdings Corporation
+  Sector: Energy
+  Price: $167.21
+  200-day MA: $154.62 (ABOVE)
+  RSI(14): 45.04
+  Trailing P/E: 17.20
+  Price/Book: 2.57
+  ROE: 15.5%
+  Revenue Growth: 32.6%
+  Debt/Equity: 13%
+  ❌ No signal (missed 1/5): RSI 45.0 >= 30
+
+Analyzing CVX...
+  Chevron Corporation
+  Sector: Energy
+  Price: $216.13
+  200-day MA: $194.40 (ABOVE)
+  RSI(14): 47.11
+  Trailing P/E: 15.87
+  Price/Book: 2.17
+  ROE: 13.9%
+  Revenue Growth: 34.8%
+  Debt/Equity: 17%
+  ❌ No signal (missed 1/5): RSI 47.1 >= 30
+
+Analyzing COP...
+  ConocoPhillips
+  Sector: Energy
+  Price: $139.48
+  200-day MA: $122.04 (ABOVE)
+  RSI(14): 50.18
+  Trailing P/E: 14.70
+  Price/Book: 2.50
+  ROE: 17.7%
+  Revenue Growth: 29.3%
+  Debt/Equity: 35%
+  ❌ No signal (missed 1/5): RSI 50.2 >= 30
+
+Analyzing SLB...
+  SLB Limited
+  Sector: Energy
+  Price: $48.95
+  200-day MA: $51.28 (BELOW)
+  RSI(14): 40.42
+  Trailing P/E: 23.76
+  Price/Book: 2.77
+  ROE: 11.7%
+  Revenue Growth: 5.8%
+  Debt/Equity: 47%
+  ❌ No signal (missed 1/5): RSI 40.4 >= 30
+
+Analyzing EOG...
+  EOG Resources, Inc.
+  Sector: Energy
+  Price: $154.91
+  200-day MA: $138.09 (ABOVE)
+  RSI(14): 52.40
+  Trailing P/E: 10.00
+  Price/Book: 2.43
+  ROE: 25.8%
+  Revenue Growth: 42.7%
+  Debt/Equity: 25%
+  ❌ No signal (missed 1/5): RSI 52.4 >= 30
+
+Analyzing PSX...
+  Phillips 66
+  Sector: Energy
+  Price: $256.93
+  200-day MA: $204.83 (ABOVE)
+  RSI(14): 43.50
+  Trailing P/E: 8.24
+  Price/Book: 2.92
+  ROE: 39.8%
+  Revenue Growth: 46.4%
+  Debt/Equity: 52%
+  ❌ No signal (missed 1/5): RSI 43.5 >= 30
+
+Analyzing VLO...
+  Valero Energy Corporation
+  Sector: Energy
+  Price: $363.77
+  200-day MA: $295.62 (ABOVE)
+  RSI(14): 41.80
+  Trailing P/E: 8.27
+  Price/Book: 3.63
+  ROE: 46.9%
+  Revenue Growth: 46.5%
+  Debt/Equity: 35%
+  ❌ No signal (missed 2/5): RSI 41.8 >= 30, P/B 3.6 > 3
+
+Analyzing MPC...
+  Marathon Petroleum Corporation
+  Sector: Energy
+  Price: $395.61
+  200-day MA: $303.18 (ABOVE)
+  RSI(14): 41.56
+  Trailing P/E: 7.84
+  Price/Book: 4.69
+  ROE: 60.5%
+  Revenue Growth: 60.9%
+  Debt/Equity: 115%
+  ❌ No signal (missed 3/5): RSI 41.6 >= 30, P/B 4.7 > 3, D/E 115% > 100%
+
+Analyzing OXY...
+  Occidental Petroleum Corporatio
+  Sector: Energy
+  Price: $56.52
+  200-day MA: $56.56 (BELOW)
+  RSI(14): 38.80
+  Trailing P/E: 12.59
+  Price/Book: 1.62
+  ROE: 13.2%
+  Revenue Growth: 19.0%
+  Debt/Equity: 29%
+  ❌ No signal (missed 1/5): RSI 38.8 >= 30
+
+Analyzing HAL...
+  Halliburton Company
+  Sector: Energy
+  Price: $31.97
+  200-day MA: $35.60 (BELOW)
+  RSI(14): 41.48
+  Trailing P/E: 13.43
+  Price/Book: 2.38
+  ROE: 18.8%
+  Revenue Growth: 1.8%
+  Debt/Equity: 73%
+  ❌ No signal (missed 1/5): RSI 41.5 >= 30
+
+Analyzing DIS...
+  Walt Disney Company (The)
+  Sector: Communication Services
+  Price: $116.94
+  200-day MA: $103.46 (ABOVE)
+  RSI(14): 59.03
+  Trailing P/E: 20.77
+  Price/Book: 1.82 [exempt]
+  ROE: 9.1%
+  Revenue Growth: 15.5%
+  Debt/Equity: 37%
+  ❌ No signal (missed 1/4): RSI 59.0 >= 30
+
+Analyzing NFLX...
+  Netflix, Inc.
+  Sector: Communication Services
+  Price: $59.68
+  200-day MA: $80.27 (BELOW)
+  RSI(14): 32.98
+  Trailing P/E: 17.25
+  Price/Book: 8.37 [exempt]
+  ROE: 53.5%
+  Revenue Growth: 11.8%
+  Debt/Equity: 60%
+  ❌ No signal (missed 1/4): RSI 33.0 >= 30
+
+Analyzing CMCSA...
+  Comcast Corporation
+  Sector: Communication Services
+  Price: $25.31
+  200-day MA: $25.23 (ABOVE)
+  RSI(14): 65.96
+  Trailing P/E: 8.01
+  Price/Book: 0.97 [exempt]
+  ROE: 11.4%
+  Revenue Growth: -6.1%
+  Debt/Equity: 94%
+  ❌ No signal (missed 1/4): RSI 66.0 >= 30
+
+Analyzing WBD...
+  ⚠️  Insufficient price data for WBD
+
+Analyzing PARA...
+  Parabolic Technologies, Inc.
+  Sector: Technology
+  Price: $0.07
+  200-day MA: $7.44 (BELOW)
+  RSI(14): 42.40
+  Trailing P/E: N/A
+  Price/Book: 0.00 [exempt]
+  ROE: -250.1%
+  Revenue Growth: 64.7%
+  Debt/Equity: 98%
+  ❌ No signal (missed 2/4): RSI 42.4 >= 30, No P/E data
+
+Analyzing EA...
+  ⚠️  Insufficient price data for EA
+
+Analyzing TTWO...
+  Take-Two Interactive Software, 
+  Sector: Communication Services
+  Price: $203.93
+  200-day MA: $218.30 (BELOW)
+  RSI(14): 45.47
+  Trailing P/E: N/A
+  Price/Book: 10.39 [exempt]
+  ROE: -6.8%
+  Revenue Growth: -15.6%
+  Debt/Equity: 79%
+  ❌ No signal (missed 3/4): RSI 45.5 >= 30, No P/E data, ROE -6.8% < 10% AND Growth -15.6% < 5%
+
+Analyzing T...
+  AT&T Inc.
+  Sector: Communication Services
+  Price: $22.29
+  200-day MA: $24.36 (BELOW)
+  RSI(14): 49.79
+  Trailing P/E: 11.92
+  Price/Book: 1.41 [exempt]
+  ROE: 11.6%
+  Revenue Growth: 5.3%
+  Debt/Equity: 145%
+  ❌ No signal (missed 2/4): RSI 49.8 >= 30, D/E 145% > 100%
+
+Analyzing VZ...
+  Verizon Communications Inc.
+  Sector: Communication Services
+  Price: $45.93
+  200-day MA: $45.95 (BELOW)
+  RSI(14): 52.99
+  Trailing P/E: 11.72
+  Price/Book: 1.80 [exempt]
+  ROE: 15.8%
+  Revenue Growth: 1.5%
+  Debt/Equity: 182%
+  ❌ No signal (missed 2/4): RSI 53.0 >= 30, D/E 182% > 100%
+
+Analyzing TMUS...
+  T-Mobile US, Inc.
+  Sector: Communication Services
+  Price: $167.90
+  200-day MA: $184.29 (BELOW)
+  RSI(14): 56.71
+  Trailing P/E: 16.19
+  Price/Book: 3.17 [exempt]
+  ROE: 19.4%
+  Revenue Growth: 7.4%
+  Debt/Equity: 211%
+  ❌ No signal (missed 2/4): RSI 56.7 >= 30, D/E 211% > 100%
+
+Analyzing SAP.DE...
+  SAP SE                        I
+  Sector: Technology
+  Price: $198.08
+  200-day MA: $166.33 (ABOVE)
+  RSI(14): 40.18
+  Trailing P/E: 28.67
+  Price/Book: 4.96 [exempt]
+  ROE: 18.2%
+  Revenue Growth: 13.2%
+  Debt/Equity: 23%
+  ❌ No signal (missed 2/4): RSI 40.2 >= 30, P/E 28.7 > 25
+
+Analyzing SIE.DE...
+  SIEMENS AG                    N
+  Sector: Industrials
+  Price: $266.00
+  200-day MA: $260.53 (ABOVE)
+  RSI(14): 45.56
+  Trailing P/E: 24.79
+  Price/Book: 2.96
+  ROE: 13.0%
+  Revenue Growth: 10.5%
+  Debt/Equity: 62%
+  ❌ No signal (missed 1/5): RSI 45.6 >= 30
+
+Analyzing ALV.DE...
+  Allianz SE                    v
+  Sector: Financial Services
+  Price: $465.80
+  200-day MA: $401.89 (ABOVE)
+  RSI(14): 61.38
+  Trailing P/E: 15.26
+  Price/Book: 2.88
+  ROE: 19.4%
+  Revenue Growth: 8.2%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 61.4 >= 30
+
+Analyzing DTE.DE...
+  DEUTSCHE TELEKOM AG           N
+  Sector: Communication Services
+  Price: $26.54
+  200-day MA: $28.18 (BELOW)
+  RSI(14): 52.96
+  Trailing P/E: 14.27
+  Price/Book: 2.04 [exempt]
+  ROE: 15.4%
+  Revenue Growth: 7.5%
+  Debt/Equity: 160%
+  ❌ No signal (missed 2/4): RSI 53.0 >= 30, D/E 160% > 100%
+
+Analyzing MBG.DE...
+  Mercedes-Benz Group AG        N
+  Sector: Consumer Cyclical
+  Price: $38.78
+  200-day MA: $46.93 (BELOW)
+  RSI(14): 36.16
+  Trailing P/E: 6.65
+  Price/Book: 0.38
+  ROE: 5.9%
+  Revenue Growth: -4.5%
+  Debt/Equity: 103%
+  ❌ No signal (missed 3/5): RSI 36.2 >= 30, ROE 5.9% < 10% AND Growth -4.5% < 5%, D/E 103% > 100%
+
+Analyzing BMW.DE...
+  BAYERISCHE MOTOREN WERKE AG   S
+  Sector: Consumer Cyclical
+  Price: $54.92
+  200-day MA: $66.49 (BELOW)
+  RSI(14): 37.92
+  Trailing P/E: 5.43
+  Price/Book: 0.34
+  ROE: 6.3%
+  Revenue Growth: -5.8%
+  Debt/Equity: 121%
+  ❌ No signal (missed 3/5): RSI 37.9 >= 30, ROE 6.3% < 10% AND Growth -5.8% < 5%, D/E 121% > 100%
+
+Analyzing BAS.DE...
+  BASF SE                       N
+  Sector: Basic Materials
+  Price: $51.55
+  200-day MA: $50.31 (ABOVE)
+  RSI(14): 39.19
+  Trailing P/E: 22.91
+  Price/Book: 1.21
+  ROE: 6.1%
+  Revenue Growth: 14.2%
+  Debt/Equity: 60%
+  ❌ No signal (missed 1/5): RSI 39.2 >= 30
+
+Analyzing MUV2.DE...
+  MUENCHENER RUECKVERS.-GES. AG N
+  Sector: Financial Services
+  Price: $584.00
+  200-day MA: $511.95 (ABOVE)
+  RSI(14): 61.96
+  Trailing P/E: 10.96
+  Price/Book: 2.20
+  ROE: 20.1%
+  Revenue Growth: 11.7%
+  Debt/Equity: 22% [exempt]
+  ❌ No signal (missed 1/4): RSI 62.0 >= 30
+
+Analyzing ADS.DE...
+  adidas AG                     N
+  Sector: Consumer Cyclical
+  Price: $172.65
+  200-day MA: $155.76 (ABOVE)
+  RSI(14): 57.61
+  Trailing P/E: 18.62
+  Price/Book: 4.76
+  ROE: 26.3%
+  Revenue Growth: 9.4%
+  Debt/Equity: 90%
+  ❌ No signal (missed 2/5): RSI 57.6 >= 30, P/B 4.8 > 3
+
+Analyzing DB1.DE...
+  DEUTSCHE BOERSE AG            N
+  Sector: Financial Services
+  Price: $324.80
+  200-day MA: $263.58 (ABOVE)
+  RSI(14): 60.16
+  Trailing P/E: 26.82
+  Price/Book: 5.32
+  ROE: 20.3%
+  Revenue Growth: 16.2%
+  Debt/Equity: 72% [exempt]
+  ❌ No signal (missed 3/4): RSI 60.2 >= 30, P/E 26.8 > 25, P/B 5.3 > 3
+
+Analyzing VOW3.DE...
+  VOLKSWAGEN AG                 V
+  Sector: Consumer Cyclical
+  Price: $65.32
+  200-day MA: $78.56 (BELOW)
+  RSI(14): 35.40
+  Trailing P/E: 30.96
+  Price/Book: 0.19
+  ROE: 0.4%
+  Revenue Growth: -6.3%
+  Debt/Equity: 143%
+  ❌ No signal (missed 4/5): RSI 35.4 >= 30, P/E 31.0 > 25, ROE 0.4% < 10% AND Growth -6.3% < 5%, D/E 143% > 100%
+
+Analyzing IFX.DE...
+  INFINEON TECHNOLOGIES AG      N
+  Sector: Technology
+  Price: $49.90
+  200-day MA: $57.65 (BELOW)
+  RSI(14): 45.69
+  Trailing P/E: 43.78
+  Price/Book: 3.61 [exempt]
+  ROE: 8.5%
+  Revenue Growth: 19.3%
+  Debt/Equity: 39%
+  ❌ No signal (missed 2/4): RSI 45.7 >= 30, P/E 43.8 > 25
+
+Analyzing DHL.DE...
+  DHL AG                        N
+  Sector: Industrials
+  Price: $60.10
+  200-day MA: $52.25 (ABOVE)
+  RSI(14): 57.72
+  Trailing P/E: 18.10
+  Price/Book: 2.85
+  ROE: 17.9%
+  Revenue Growth: 12.6%
+  Debt/Equity: 118%
+  ❌ No signal (missed 2/5): RSI 57.7 >= 30, D/E 118% > 100%
+
+Analyzing AIR.DE...
+  Airbus SE                     A
+  Sector: Industrials
+  Price: $200.05
+  200-day MA: $187.66 (ABOVE)
+  RSI(14): 51.02
+  Trailing P/E: 25.65
+  Price/Book: 5.90
+  ROE: 23.5%
+  Revenue Growth: -2.0%
+  Debt/Equity: 52%
+  ❌ No signal (missed 3/5): RSI 51.0 >= 30, P/E 25.6 > 25, P/B 5.9 > 3
+
+Analyzing SHL.DE...
+  Siemens Healthineers AG       N
+  Sector: Healthcare
+  Price: $43.56
+  200-day MA: $37.94 (ABOVE)
+  RSI(14): 59.06
+  Trailing P/E: 22.11
+  Price/Book: 2.44
+  ROE: 11.8%
+  Revenue Growth: 7.3%
+  Debt/Equity: 74%
+  ❌ No signal (missed 1/5): RSI 59.1 >= 30
+
+Analyzing RWE.DE...
+  RWE AG                        I
+  Sector: Utilities
+  Price: $58.12
+  200-day MA: $56.78 (ABOVE)
+  RSI(14): 49.65
+  Trailing P/E: 61.18
+  Price/Book: 1.09
+  ROE: 2.7%
+  Revenue Growth: 45.6%
+  Debt/Equity: 54%
+  ❌ No signal (missed 2/5): RSI 49.7 >= 30, P/E 61.2 > 25
+
+Analyzing BAYN.DE...
+  Bayer AG                      N
+  Sector: Healthcare
+  Price: $56.60
+  200-day MA: $44.24 (ABOVE)
+  RSI(14): 71.36
+  Trailing P/E: N/A
+  Price/Book: 1.91
+  ROE: -4.6%
+  Revenue Growth: 4.1%
+  Debt/Equity: 134%
+  ❌ No signal (missed 4/5): RSI 71.4 >= 30, No P/E data, ROE -4.6% < 10% AND Growth 4.1% < 5%, D/E 134% > 100%
+
+Analyzing HEN3.DE...
+  Henkel AG & Co. KGaA          I
+  Sector: Consumer Defensive
+  Price: $88.12
+  200-day MA: $72.76 (ABOVE)
+  RSI(14): 75.72
+  Trailing P/E: 18.79
+  Price/Book: 1.70
+  ROE: 9.4%
+  Revenue Growth: -0.5%
+  Debt/Equity: 32%
+  ❌ No signal (missed 2/5): RSI 75.7 >= 30, ROE 9.4% < 10% AND Growth -0.5% < 5%
+
+Analyzing CON.DE...
+  CONTINENTAL AG                I
+  Sector: Consumer Cyclical
+  Price: $71.42
+  200-day MA: $68.09 (ABOVE)
+  RSI(14): 53.67
+  Trailing P/E: 18.27
+  Price/Book: 3.07
+  ROE: 18.7%
+  Revenue Growth: -11.4%
+  Debt/Equity: 142%
+  ❌ No signal (missed 3/5): RSI 53.7 >= 30, P/B 3.1 > 3, D/E 142% > 100%
+
+Analyzing HEI.DE...
+  Heidelberg Materials AG       I
+  Sector: Basic Materials
+  Price: $177.45
+  200-day MA: $170.29 (ABOVE)
+  RSI(14): 71.61
+  Trailing P/E: 15.50
+  Price/Book: 1.67
+  ROE: 11.7%
+  Revenue Growth: 1.7%
+  Debt/Equity: 50%
+  ❌ No signal (missed 1/5): RSI 71.6 >= 30
+
+Analyzing FRE.DE...
+  Fresenius SE & Co. KGaA       N
+  Sector: Healthcare
+  Price: $54.08
+  200-day MA: $43.95 (ABOVE)
+  RSI(14): 80.54
+  Trailing P/E: 19.18
+  Price/Book: 1.49
+  ROE: 8.3%
+  Revenue Growth: 5.9%
+  Debt/Equity: 57%
+  ❌ No signal (missed 1/5): RSI 80.5 >= 30
+
+Analyzing MTX.DE...
+  MTU Aero Engines AG           N
+  Sector: Industrials
+  Price: $350.90
+  200-day MA: $339.96 (ABOVE)
+  RSI(14): 51.79
+  Trailing P/E: 20.34
+  Price/Book: 3.97
+  ROE: 21.1%
+  Revenue Growth: 13.6%
+  Debt/Equity: 56%
+  ❌ No signal (missed 2/5): RSI 51.8 >= 30, P/B 4.0 > 3
+
+Analyzing ENR.DE...
+  Siemens Energy AG             N
+  Sector: Industrials
+  Price: $129.56
+  200-day MA: $153.13 (BELOW)
+  RSI(14): 49.80
+  Trailing P/E: 29.65
+  Price/Book: 9.73
+  ROE: 36.9%
+  Revenue Growth: 23.0%
+  Debt/Equity: 25%
+  ❌ No signal (missed 3/5): RSI 49.8 >= 30, P/E 29.6 > 25, P/B 9.7 > 3
+
+Analyzing SY1.DE...
+  Symrise AG                    I
+  Sector: Basic Materials
+  Price: $96.42
+  200-day MA: $83.88 (ABOVE)
+  RSI(14): 52.17
+  Trailing P/E: 54.47
+  Price/Book: 3.54
+  ROE: 6.7%
+  Revenue Growth: -0.6%
+  Debt/Equity: 61%
+  ❌ No signal (missed 4/5): RSI 52.2 >= 30, P/E 54.5 > 25, P/B 3.5 > 3, ROE 6.7% < 10% AND Growth -0.6% < 5%
+
+Analyzing QIA.DE...
+  Qiagen N.V.                   A
+  Sector: Healthcare
+  Price: $45.21
+  200-day MA: $36.61 (ABOVE)
+  RSI(14): 73.40
+  Trailing P/E: 28.43
+  Price/Book: 3.02
+  ROE: 10.8%
+  Revenue Growth: 2.9%
+  Debt/Equity: 47%
+  ❌ No signal (missed 3/5): RSI 73.4 >= 30, P/E 28.4 > 25, P/B 3.0 > 3
+
+Analyzing MRK.DE...
+  MERCK KGAA                    I
+  Sector: Healthcare
+  Price: $151.85
+  200-day MA: $130.42 (ABOVE)
+  RSI(14): 62.60
+  Trailing P/E: 34.36
+  Price/Book: 2.10
+  ROE: 6.4%
+  Revenue Growth: 5.8%
+  Debt/Equity: 38%
+  ❌ No signal (missed 2/5): RSI 62.6 >= 30, P/E 34.4 > 25
+
+Analyzing BEI.DE...
+  BEIERSDORF AG                 I
+  Sector: Consumer Defensive
+  Price: $81.58
+  200-day MA: $78.72 (ABOVE)
+  RSI(14): 46.22
+  Trailing P/E: 18.97
+  Price/Book: 1.98
+  ROE: 10.9%
+  Revenue Growth: -4.5%
+  Debt/Equity: 1%
+  ❌ No signal (missed 1/5): RSI 46.2 >= 30
+
+Analyzing VNA.DE...
+  Vonovia SE                    N
+  Sector: Real Estate
+  Price: $17.10
+  200-day MA: $20.42 (BELOW)
+  RSI(14): 55.64
+  Trailing P/E: 9.30
+  Price/Book: 0.53
+  ROE: 6.6%
+  Revenue Growth: -0.6%
+  Debt/Equity: 133%
+  ❌ No signal (missed 3/5): RSI 55.6 >= 30, ROE 6.6% < 10% AND Growth -0.6% < 5%, D/E 133% > 100%
+
+Analyzing 1COV.DE...
+  Covestro AG                   I
+  Sector: 
+  Price: $60.40
+  200-day MA: $60.28 (ABOVE)
+  RSI(14): 59.15
+  Trailing P/E: N/A
+  Price/Book: 1.71
+  ROE: -4.4%
+  Revenue Growth: -0.4%
+  Debt/Equity: 39%
+  ❌ No signal (missed 3/5): RSI 59.2 >= 30, No P/E data, ROE -4.4% < 10% AND Growth -0.4% < 5%
+
+Analyzing ZAL.DE...
+  Zalando SE                    I
+  Sector: Consumer Cyclical
+  Price: $28.51
+  200-day MA: $23.59 (ABOVE)
+  RSI(14): 62.60
+  Trailing P/E: 123.96
+  Price/Book: 2.85
+  ROE: 2.3%
+  Revenue Growth: 5.1%
+  Debt/Equity: 52%
+  ❌ No signal (missed 2/5): RSI 62.6 >= 30, P/E 124.0 > 25
+
+Analyzing PAH3.DE...
+  Porsche Automobil Holding SE  I
+  Sector: Consumer Cyclical
+  Price: $23.20
+  200-day MA: $28.80 (BELOW)
+  RSI(14): 28.92
+  Trailing P/E: N/A
+  Price/Book: 0.19
+  ROE: -3.9%
+  Revenue Growth: N/A
+  Debt/Equity: 19%
+  ❌ No signal (missed 2/5): No P/E data, ROE -3.9% < 10% AND Growth N/A < 5%
+
+Analyzing P911.DE...
+  Dr. Ing. h.c. F. Porsche AG   I
+  Sector: Consumer Cyclical
+  Price: $43.11
+  200-day MA: $43.07 (ABOVE)
+  RSI(14): 40.14
+  Trailing P/E: 17.96
+  Price/Book: 1.71
+  ROE: 8.7%
+  Revenue Growth: -7.5%
+  Debt/Equity: 49%
+  ❌ No signal (missed 2/5): RSI 40.1 >= 30, ROE 8.7% < 10% AND Growth -7.5% < 5%
+
+Analyzing RHM.DE...
+  RHEINMETALL AG                I
+  Sector: Industrials
+  Price: $766.10
+  200-day MA: $1204.19 (BELOW)
+  RSI(14): 28.14
+  Trailing P/E: 26.96
+  Price/Book: 6.69
+  ROE: 26.7%
+  Revenue Growth: 36.4%
+  Debt/Equity: 57%
+  ❌ No signal (missed 2/5): P/E 27.0 > 25, P/B 6.7 > 3
+
+Analyzing HNR1.DE...
+  HANNOVER RUECK SE NA O.N.
+  Sector: Financial Services
+  Price: $296.60
+  200-day MA: $252.64 (ABOVE)
+  RSI(14): 61.20
+  Trailing P/E: 12.88
+  Price/Book: 2.62
+  ROE: 21.4%
+  Revenue Growth: 2.2%
+  Debt/Equity: 28% [exempt]
+  ❌ No signal (missed 1/4): RSI 61.2 >= 30
+
+Analyzing CBK.DE...
+  Commerzbank AG                I
+  Sector: Financial Services
+  Price: $38.41
+  200-day MA: $36.63 (ABOVE)
+  RSI(14): 46.35
+  Trailing P/E: 13.20
+  Price/Book: 1.56
+  ROE: 10.3%
+  Revenue Growth: 8.5%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 46.4 >= 30
+
+Analyzing DBK.DE...
+  DEUTSCHE BANK AG              N
+  Sector: Financial Services
+  Price: $30.38
+  200-day MA: $29.63 (ABOVE)
+  RSI(14): 44.04
+  Trailing P/E: 9.12
+  Price/Book: 0.71
+  ROE: 9.0%
+  Revenue Growth: 2.8%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 2/4): RSI 44.0 >= 30, ROE 9.0% < 10% AND Growth 2.8% < 5%
+
+Analyzing AFX.DE...
+  Carl Zeiss Meditec AG         I
+  Sector: Healthcare
+  Price: $33.20
+  200-day MA: $28.64 (ABOVE)
+  RSI(14): 43.09
+  Trailing P/E: 23.88
+  Price/Book: 1.38
+  ROE: N/A
+  Revenue Growth: 2.4%
+  Debt/Equity: 28%
+  ❌ No signal (missed 2/5): RSI 43.1 >= 30, ROE N/A < 10% AND Growth 2.4% < 5%
+
+Analyzing PUM.DE...
+  PUMA SE                       I
+  Sector: Consumer Cyclical
+  Price: $25.15
+  200-day MA: $25.11 (ABOVE)
+  RSI(14): 46.14
+  Trailing P/E: N/A
+  Price/Book: 2.08
+  ROE: -22.7%
+  Revenue Growth: -5.0%
+  Debt/Equity: 147%
+  ❌ No signal (missed 4/5): RSI 46.1 >= 30, No P/E data, ROE -22.7% < 10% AND Growth -5.0% < 5%, D/E 147% > 100%
+
+Analyzing LEG.DE...
+  LEG Immobilien SE             N
+  Sector: Real Estate
+  Price: $49.64
+  200-day MA: $53.20 (BELOW)
+  RSI(14): 58.03
+  Trailing P/E: 5.63
+  Price/Book: 0.43
+  ROE: 8.2%
+  Revenue Growth: 0.6%
+  Debt/Equity: 107%
+  ❌ No signal (missed 3/5): RSI 58.0 >= 30, ROE 8.2% < 10% AND Growth 0.6% < 5%, D/E 107% > 100%
+
+Analyzing EVK.DE...
+  Evonik Industries AG          N
+  Sector: Basic Materials
+  Price: $22.10
+  200-day MA: $17.14 (ABOVE)
+  RSI(14): 67.40
+  Trailing P/E: 59.73
+  Price/Book: 1.33
+  ROE: 2.2%
+  Revenue Growth: 12.8%
+  Debt/Equity: 49%
+  ❌ No signal (missed 2/5): RSI 67.4 >= 30, P/E 59.7 > 25
+
+Analyzing FME.DE...
+  Fresenius Medical Care AG     I
+  Sector: Healthcare
+  Price: $39.22
+  200-day MA: $39.26 (BELOW)
+  RSI(14): 44.74
+  Trailing P/E: 13.16
+  Price/Book: 0.80
+  ROE: 7.8%
+  Revenue Growth: 1.1%
+  Debt/Equity: 79%
+  ❌ No signal (missed 2/5): RSI 44.7 >= 30, ROE 7.8% < 10% AND Growth 1.1% < 5%
+
+Analyzing TLX.DE...
+  Talanx AG                     N
+  Sector: Financial Services
+  Price: $133.80
+  200-day MA: $113.01 (ABOVE)
+  RSI(14): 63.78
+  Trailing P/E: 12.76
+  Price/Book: 2.32
+  ROE: 20.1%
+  Revenue Growth: 72.6%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 63.8 >= 30
+
+Analyzing GXI.DE...
+  Gerresheimer AG               I
+  Sector: Healthcare
+  Price: $32.76
+  200-day MA: $25.66 (ABOVE)
+  RSI(14): 61.75
+  Trailing P/E: N/A
+  Price/Book: 1.18
+  ROE: -32.4%
+  Revenue Growth: -0.8%
+  Debt/Equity: 237%
+  ❌ No signal (missed 4/5): RSI 61.7 >= 30, No P/E data, ROE -32.4% < 10% AND Growth -0.8% < 5%, D/E 237% > 100%
+
+Analyzing BOSS.DE...
+  HUGO BOSS AG                  N
+  Sector: Consumer Cyclical
+  Price: $38.19
+  200-day MA: $37.44 (ABOVE)
+  RSI(14): 45.90
+  Trailing P/E: 12.77
+  Price/Book: 1.57
+  ROE: 13.5%
+  Revenue Growth: -4.3%
+  Debt/Equity: 60%
+  ❌ No signal (missed 1/5): RSI 45.9 >= 30
+
+Analyzing RAA.DE...
+  RATIONAL AG                   I
+  Sector: Industrials
+  Price: $613.50
+  200-day MA: $639.59 (BELOW)
+  RSI(14): 46.61
+  Trailing P/E: 25.59
+  Price/Book: 7.62
+  ROE: 30.5%
+  Revenue Growth: 6.5%
+  Debt/Equity: N/A
+  ❌ No signal (missed 4/5): RSI 46.6 >= 30, P/E 25.6 > 25, P/B 7.6 > 3, No D/E data
+
+Analyzing KGX.DE...
+  KION GROUP AG                 I
+  Sector: Industrials
+  Price: $31.68
+  200-day MA: $42.85 (BELOW)
+  RSI(14): 33.66
+  Trailing P/E: 11.23
+  Price/Book: 0.64
+  ROE: 6.1%
+  Revenue Growth: 4.8%
+  Debt/Equity: 118%
+  ❌ No signal (missed 3/5): RSI 33.7 >= 30, ROE 6.1% < 10% AND Growth 4.8% < 5%, D/E 118% > 100%
+
+Analyzing NDA.DE...
+  Aurubis AG                    I
+  Sector: Industrials
+  Price: $129.30
+  200-day MA: $172.23 (BELOW)
+  RSI(14): 31.54
+  Trailing P/E: 5.67
+  Price/Book: 0.96
+  ROE: 18.3%
+  Revenue Growth: 40.3%
+  Debt/Equity: 12%
+  ❌ No signal (missed 1/5): RSI 31.5 >= 30
+
+Analyzing WAF.DE...
+  Siltronic AG                  N
+  Sector: Technology
+  Price: $55.95
+  200-day MA: $73.70 (BELOW)
+  RSI(14): 43.26
+  Trailing P/E: N/A
+  Price/Book: 0.91 [exempt]
+  ROE: -11.1%
+  Revenue Growth: 18.3%
+  Debt/Equity: 67%
+  ❌ No signal (missed 2/4): RSI 43.3 >= 30, No P/E data
+
+Analyzing EVD.DE...
+  CTS Eventim AG & Co. KGaA     I
+  Sector: Communication Services
+  Price: $60.55
+  200-day MA: $58.05 (ABOVE)
+  RSI(14): 47.21
+  Trailing P/E: 19.47
+  Price/Book: 5.20 [exempt]
+  ROE: 27.9%
+  Revenue Growth: -5.3%
+  Debt/Equity: 9%
+  ❌ No signal (missed 1/4): RSI 47.2 >= 30
+
+Analyzing AIXA.DE...
+  AIXTRON SE                    N
+  Sector: Technology
+  Price: $32.20
+  200-day MA: $39.43 (BELOW)
+  RSI(14): 48.64
+  Trailing P/E: 44.72
+  Price/Book: 3.57 [exempt]
+  ROE: 8.5%
+  Revenue Growth: 53.6%
+  Debt/Equity: 35%
+  ❌ No signal (missed 2/4): RSI 48.6 >= 30, P/E 44.7 > 25
+
+Analyzing LXS.DE...
+  LANXESS AG                    I
+  Sector: Basic Materials
+  Price: $12.33
+  200-day MA: $15.54 (BELOW)
+  RSI(14): 44.93
+  Trailing P/E: N/A
+  Price/Book: 0.31
+  ROE: -17.9%
+  Revenue Growth: 9.6%
+  Debt/Equity: 85%
+  ❌ No signal (missed 2/5): RSI 44.9 >= 30, No P/E data
+
+Analyzing TEG.DE...
+  TAG Immobilien AG             I
+  Sector: Real Estate
+  Price: $11.35
+  200-day MA: $13.18 (BELOW)
+  RSI(14): 50.34
+  Trailing P/E: N/A
+  Price/Book: 0.66
+  ROE: -1.7%
+  Revenue Growth: 13.0%
+  Debt/Equity: 105%
+  ❌ No signal (missed 3/5): RSI 50.3 >= 30, No P/E data, D/E 105% > 100%
+
+Analyzing DEQ.DE...
+  Deutsche EuroShop SE          N
+  Sector: Real Estate
+  Price: $16.12
+  200-day MA: $18.21 (BELOW)
+  RSI(14): 45.91
+  Trailing P/E: 5.54
+  Price/Book: 0.63
+  ROE: 11.1%
+  Revenue Growth: 4.9%
+  Debt/Equity: 96%
+  ❌ No signal (missed 1/5): RSI 45.9 >= 30
+
+Analyzing HAG.DE...
+  HENSOLDT AG                   I
+  Sector: Industrials
+  Price: $79.38
+  200-day MA: $79.61 (BELOW)
+  RSI(14): 44.46
+  Trailing P/E: 57.11
+  Price/Book: 7.93
+  ROE: 16.6%
+  Revenue Growth: 17.6%
+  Debt/Equity: 158%
+  ❌ No signal (missed 4/5): RSI 44.5 >= 30, P/E 57.1 > 25, P/B 7.9 > 3, D/E 158% > 100%
+
+Analyzing G1A.DE...
+  GEA Group AG                  I
+  Sector: Industrials
+  Price: $69.80
+  200-day MA: $62.45 (ABOVE)
+  RSI(14): 52.14
+  Trailing P/E: 25.66
+  Price/Book: 4.42
+  ROE: 18.0%
+  Revenue Growth: 7.0%
+  Debt/Equity: 11%
+  ❌ No signal (missed 3/5): RSI 52.1 >= 30, P/E 25.7 > 25, P/B 4.4 > 3
+
+Analyzing DUE.DE...
+  DUERR AG                      I
+  Sector: Industrials
+  Price: $16.00
+  200-day MA: $18.75 (BELOW)
+  RSI(14): 44.46
+  Trailing P/E: N/A
+  Price/Book: 0.90
+  ROE: -3.9%
+  Revenue Growth: 3.4%
+  Debt/Equity: 75%
+  ❌ No signal (missed 3/5): RSI 44.5 >= 30, No P/E data, ROE -3.9% < 10% AND Growth 3.4% < 5%
+
+Analyzing NEM.DE...
+  Nemetschek SE                 I
+  Sector: Technology
+  Price: $59.00
+  200-day MA: $63.18 (BELOW)
+  RSI(14): 31.24
+  Trailing P/E: 27.70
+  Price/Book: 3.18 [exempt]
+  ROE: 13.3%
+  Revenue Growth: 26.6%
+  Debt/Equity: 25%
+  ❌ No signal (missed 2/4): RSI 31.2 >= 30, P/E 27.7 > 25
+
+Analyzing BC8.DE...
+  BECHTLE AG                    I
+  Sector: Technology
+  Price: $32.18
+  200-day MA: $32.40 (BELOW)
+  RSI(14): 36.92
+  Trailing P/E: 16.09
+  Price/Book: 1.90 [exempt]
+  ROE: 12.2%
+  Revenue Growth: 6.1%
+  Debt/Equity: 49%
+  ❌ No signal (missed 1/4): RSI 36.9 >= 30
+
+Analyzing FNTN.DE...
+  freenet AG                    N
+  Sector: Communication Services
+  Price: $24.48
+  200-day MA: $24.68 (BELOW)
+  RSI(14): 68.42
+  Trailing P/E: 13.45
+  Price/Book: 1.99 [exempt]
+  ROE: 15.1%
+  Revenue Growth: 26.3%
+  Debt/Equity: 56%
+  ❌ No signal (missed 1/4): RSI 68.4 >= 30
+
+Analyzing JEN.DE...
+  JENOPTIK AG                   N
+  Sector: Technology
+  Price: $36.60
+  200-day MA: $37.15 (BELOW)
+  RSI(14): 44.93
+  Trailing P/E: 20.91
+  Price/Book: 2.00 [exempt]
+  ROE: 10.0%
+  Revenue Growth: 18.0%
+  Debt/Equity: 41%
+  ❌ No signal (missed 1/4): RSI 44.9 >= 30
+
+Analyzing SFQ.DE...
+  SAF-HOLLAND SE                I
+  Sector: Consumer Cyclical
+  Price: $22.80
+  200-day MA: $19.96 (ABOVE)
+  RSI(14): 58.44
+  Trailing P/E: 13.82
+  Price/Book: 1.95
+  ROE: 14.9%
+  Revenue Growth: 9.4%
+  Debt/Equity: 154%
+  ❌ No signal (missed 2/5): RSI 58.4 >= 30, D/E 154% > 100%
+
+Analyzing HHFA.DE...
+  Hamburger Hafen u. Logistik AGN
+  Sector: Industrials
+  Price: $21.40
+  200-day MA: $21.86 (BELOW)
+  RSI(14): 49.16
+  Trailing P/E: N/A
+  Price/Book: 2.07
+  ROE: 0.4%
+  Revenue Growth: 2.5%
+  Debt/Equity: 199%
+  ❌ No signal (missed 4/5): RSI 49.2 >= 30, No P/E data, ROE 0.4% < 10% AND Growth 2.5% < 5%, D/E 199% > 100%
+
+Analyzing DHER.DE...
+  Delivery Hero SE              N
+  Sector: Consumer Cyclical
+  Price: $36.46
+  200-day MA: $31.01 (ABOVE)
+  RSI(14): 36.15
+  Trailing P/E: N/A
+  Price/Book: 9.14
+  ROE: -37.8%
+  Revenue Growth: 12.7%
+  Debt/Equity: 388%
+  ❌ No signal (missed 4/5): RSI 36.1 >= 30, No P/E data, P/B 9.1 > 3, D/E 388% > 100%
+
+Analyzing S92.DE...
+  SMA Solar Technology AG       I
+  Sector: Technology
+  Price: $46.02
+  200-day MA: $51.95 (BELOW)
+  RSI(14): 40.52
+  Trailing P/E: 25.29
+  Price/Book: 3.41 [exempt]
+  ROE: 14.3%
+  Revenue Growth: 5.4%
+  Debt/Equity: 20%
+  ❌ No signal (missed 2/4): RSI 40.5 >= 30, P/E 25.3 > 25
+
+Analyzing BNR.DE...
+  Brenntag SE                   N
+  Sector: Basic Materials
+  Price: $58.26
+  200-day MA: $57.63 (ABOVE)
+  RSI(14): 37.18
+  Trailing P/E: 22.15
+  Price/Book: 1.83
+  ROE: 8.7%
+  Revenue Growth: 14.7%
+  Debt/Equity: 84%
+  ❌ No signal (missed 1/5): RSI 37.2 >= 30
+
+Analyzing SZG.DE...
+  SALZGITTER AG                 I
+  Sector: Basic Materials
+  Price: $46.94
+  200-day MA: $50.83 (BELOW)
+  RSI(14): 44.44
+  Trailing P/E: 17.71
+  Price/Book: 0.50
+  ROE: 3.1%
+  Revenue Growth: 24.6%
+  Debt/Equity: 42%
+  ❌ No signal (missed 1/5): RSI 44.4 >= 30
+
+Analyzing OHB.DE...
+  OHB SE                        I
+  Sector: Industrials
+  Price: $175.60
+  200-day MA: $266.41 (BELOW)
+  RSI(14): 41.21
+  Trailing P/E: 76.02
+  Price/Book: 3.89
+  ROE: 6.5%
+  Revenue Growth: 10.1%
+  Debt/Equity: 12%
+  ❌ No signal (missed 3/5): RSI 41.2 >= 30, P/E 76.0 > 25, P/B 3.9 > 3
+
+Analyzing MC.PA...
+  LVMH
+  Sector: Consumer Cyclical
+  Price: $384.90
+  200-day MA: $457.43 (BELOW)
+  RSI(14): 39.34
+  Trailing P/E: 17.54
+  Price/Book: 2.79
+  ROE: 16.6%
+  Revenue Growth: -2.9%
+  Debt/Equity: 53%
+  ❌ No signal (missed 1/5): RSI 39.3 >= 30
+
+Analyzing OR.PA...
+  L'OREAL
+  Sector: Consumer Defensive
+  Price: $444.25
+  200-day MA: $380.69 (ABOVE)
+  RSI(14): 62.13
+  Trailing P/E: 37.71
+  Price/Book: 6.99
+  ROE: 19.4%
+  Revenue Growth: 5.8%
+  Debt/Equity: 49%
+  ❌ No signal (missed 3/5): RSI 62.1 >= 30, P/E 37.7 > 25, P/B 7.0 > 3
+
+Analyzing TTE.PA...
+  TOTALENERGIES
+  Sector: Energy
+  Price: $81.55
+  200-day MA: $74.15 (ABOVE)
+  RSI(14): 53.43
+  Trailing P/E: 9.46
+  Price/Book: 1.52
+  ROE: 17.8%
+  Revenue Growth: 41.1%
+  Debt/Equity: 46%
+  ❌ No signal (missed 1/5): RSI 53.4 >= 30
+
+Analyzing SAN.PA...
+  SANOFI
+  Sector: Healthcare
+  Price: $86.56
+  200-day MA: $75.77 (ABOVE)
+  RSI(14): 71.41
+  Trailing P/E: 25.02
+  Price/Book: 1.43
+  ROE: 5.7%
+  Revenue Growth: 15.7%
+  Debt/Equity: 27%
+  ❌ No signal (missed 2/5): RSI 71.4 >= 30, P/E 25.0 > 25
+
+Analyzing AI.PA...
+  AIR LIQUIDE
+  Sector: Basic Materials
+  Price: $191.14
+  200-day MA: $166.91 (ABOVE)
+  RSI(14): 72.16
+  Trailing P/E: 34.44
+  Price/Book: 4.59
+  ROE: 14.0%
+  Revenue Growth: 0.8%
+  Debt/Equity: 63%
+  ❌ No signal (missed 3/5): RSI 72.2 >= 30, P/E 34.4 > 25, P/B 4.6 > 3
+
+Analyzing SU.PA...
+  SCHNEIDER ELECTRIC SE
+  Sector: Industrials
+  Price: $240.40
+  200-day MA: $267.40 (BELOW)
+  RSI(14): 45.16
+  Trailing P/E: 28.89
+  Price/Book: 5.53
+  ROE: 18.6%
+  Revenue Growth: 9.8%
+  Debt/Equity: 84%
+  ❌ No signal (missed 3/5): RSI 45.2 >= 30, P/E 28.9 > 25, P/B 5.5 > 3
+
+Analyzing BN.PA...
+  DANONE
+  Sector: Consumer Defensive
+  Price: $69.44
+  200-day MA: $65.90 (ABOVE)
+  RSI(14): 67.69
+  Trailing P/E: 22.99
+  Price/Book: 2.54
+  ROE: 12.2%
+  Revenue Growth: 1.4%
+  Debt/Equity: 99%
+  ❌ No signal (missed 1/5): RSI 67.7 >= 30
+
+Analyzing KER.PA...
+  KERING
+  Sector: Consumer Cyclical
+  Price: $175.52
+  200-day MA: $243.30 (BELOW)
+  RSI(14): 29.42
+  Trailing P/E: N/A
+  Price/Book: 1.49
+  ROE: -1.6%
+  Revenue Growth: -2.9%
+  Debt/Equity: 117%
+  ❌ No signal (missed 3/5): No P/E data, ROE -1.6% < 10% AND Growth -2.9% < 5%, D/E 117% > 100%
+
+Analyzing RMS.PA...
+  HERMES INTL
+  Sector: Consumer Cyclical
+  Price: $1272.50
+  200-day MA: $1600.05 (BELOW)
+  RSI(14): 39.39
+  Trailing P/E: 29.59
+  Price/Book: 7.01
+  ROE: 25.5%
+  Revenue Growth: 1.6%
+  Debt/Equity: 12%
+  ❌ No signal (missed 3/5): RSI 39.4 >= 30, P/E 29.6 > 25, P/B 7.0 > 3
+
+Analyzing AIR.PA...
+  AIRBUS SE
+  Sector: Industrials
+  Price: $200.05
+  200-day MA: $187.65 (ABOVE)
+  RSI(14): 51.08
+  Trailing P/E: 25.65
+  Price/Book: 5.90
+  ROE: 23.5%
+  Revenue Growth: -2.0%
+  Debt/Equity: 52%
+  ❌ No signal (missed 3/5): RSI 51.1 >= 30, P/E 25.6 > 25, P/B 5.9 > 3
+
+Analyzing CS.PA...
+  AXA
+  Sector: Financial Services
+  Price: $45.87
+  200-day MA: $41.38 (ABOVE)
+  RSI(14): 60.14
+  Trailing P/E: 12.36
+  Price/Book: 2.08
+  ROE: 14.9%
+  Revenue Growth: 4.5%
+  Debt/Equity: 119% [exempt]
+  ❌ No signal (missed 1/4): RSI 60.1 >= 30
+
+Analyzing BNP.PA...
+  BNP PARIBAS ACT.A
+  Sector: Financial Services
+  Price: $92.54
+  200-day MA: $92.22 (ABOVE)
+  RSI(14): 51.51
+  Trailing P/E: 8.10
+  Price/Book: 0.84
+  ROE: 10.9%
+  Revenue Growth: 9.7%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 51.5 >= 30
+
+Analyzing GLE.PA...
+  SOCIETE GENERALE
+  Sector: Financial Services
+  Price: $64.74
+  200-day MA: $69.99 (BELOW)
+  RSI(14): 48.03
+  Trailing P/E: 7.94
+  Price/Book: 0.63
+  ROE: 9.6%
+  Revenue Growth: 7.6%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 48.0 >= 30
+
+Analyzing CA.PA...
+  CARREFOUR
+  Sector: Consumer Defensive
+  Price: $13.83
+  200-day MA: $15.42 (BELOW)
+  RSI(14): 41.36
+  Trailing P/E: 6.43
+  Price/Book: 0.88
+  ROE: 8.4%
+  Revenue Growth: 2.0%
+  Debt/Equity: 185%
+  ❌ No signal (missed 3/5): RSI 41.4 >= 30, ROE 8.4% < 10% AND Growth 2.0% < 5%, D/E 185% > 100%
+
+Analyzing CAP.PA...
+  CAPGEMINI
+  Sector: Technology
+  Price: $120.60
+  200-day MA: $103.95 (ABOVE)
+  RSI(14): 46.63
+  Trailing P/E: 15.32
+  Price/Book: 1.75 [exempt]
+  ROE: 12.2%
+  Revenue Growth: 8.8%
+  Debt/Equity: 88%
+  ❌ No signal (missed 1/4): RSI 46.6 >= 30
+
+Analyzing EN.PA...
+  BOUYGUES
+  Sector: Industrials
+  Price: $43.37
+  200-day MA: $46.88 (BELOW)
+  RSI(14): 56.77
+  Trailing P/E: 21.26
+  Price/Book: 1.33
+  ROE: 6.0%
+  Revenue Growth: 2.4%
+  Debt/Equity: 104%
+  ❌ No signal (missed 3/5): RSI 56.8 >= 30, ROE 6.0% < 10% AND Growth 2.4% < 5%, D/E 104% > 100%
+
+Analyzing RI.PA...
+  PERNOD RICARD
+  Sector: Consumer Defensive
+  Price: $71.50
+  200-day MA: $65.09 (ABOVE)
+  RSI(14): 60.94
+  Trailing P/E: 14.99
+  Price/Book: 1.16
+  ROE: 7.6%
+  Revenue Growth: -13.2%
+  Debt/Equity: 77%
+  ❌ No signal (missed 2/5): RSI 60.9 >= 30, ROE 7.6% < 10% AND Growth -13.2% < 5%
+
+Analyzing VIV.PA...
+  VIVENDI SE
+  Sector: Communication Services
+  Price: $1.62
+  200-day MA: $1.87 (BELOW)
+  RSI(14): 51.70
+  Trailing P/E: 81.05
+  Price/Book: 0.35 [exempt]
+  ROE: 0.3%
+  Revenue Growth: -3.4%
+  Debt/Equity: 39%
+  ❌ No signal (missed 3/4): RSI 51.7 >= 30, P/E 81.0 > 25, ROE 0.3% < 10% AND Growth -3.4% < 5%
+
+Analyzing ORA.PA...
+  ORANGE
+  Sector: Communication Services
+  Price: $15.32
+  200-day MA: $16.29 (BELOW)
+  RSI(14): 59.96
+  Trailing P/E: 3.77
+  Price/Book: 1.28 [exempt]
+  ROE: 14.2%
+  Revenue Growth: 5.5%
+  Debt/Equity: 161%
+  ❌ No signal (missed 2/4): RSI 60.0 >= 30, D/E 161% > 100%
+
+Analyzing PUB.PA...
+  PUBLICIS GROUPE SA
+  Sector: Communication Services
+  Price: $102.15
+  200-day MA: $86.42 (ABOVE)
+  RSI(14): 51.00
+  Trailing P/E: 15.45
+  Price/Book: 2.43 [exempt]
+  ROE: 16.2%
+  Revenue Growth: 3.0%
+  Debt/Equity: 52%
+  ❌ No signal (missed 1/4): RSI 51.0 >= 30
+
+Analyzing DSY.PA...
+  DASSAULT SYSTEMES
+  Sector: Technology
+  Price: $24.14
+  200-day MA: $20.01 (ABOVE)$STM.PA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+  RSI(14): 46.99
+  Trailing P/E: 24.38
+  Price/Book: 3.31 [exempt]
+  ROE: 14.9%
+  Revenue Growth: 6.3%
+  Debt/Equity: 29%
+  ❌ No signal (missed 1/4): RSI 47.0 >= 30
+
+Analyzing STM.PA...
+  ⚠️  Insufficient price data for STM.PA
+
+Analyzing SGO.PA...
+  SAINT GOBAIN
+  Sector: Industrials
+  Price: $73.86
+  200-day MA: $74.93 (BELOW)
+  RSI(14): 59.42
+  Trailing P/E: 13.70
+  Price/Book: 1.42
+  ROE: 11.0%
+  Revenue Growth: -1.1%
+  Debt/Equity: 66%
+  ❌ No signal (missed 1/5): RSI 59.4 >= 30
+
+Analyzing SHEL.L...
+  SHELL PLC ORD EUR0.07
+  Sector: Energy
+  Price: $3652.50
+  200-day MA: $3346.65 (ABOVE)
+  RSI(14): 39.84
+  Trailing P/E: 8.44
+  Price/Book: 1.41
+  ROE: 17.4%
+  Revenue Growth: 36.2%
+  Debt/Equity: 38%
+  ❌ No signal (missed 1/5): RSI 39.8 >= 30
+
+Analyzing AZN.L...
+  ASTRAZENECA PLC ORD SHS $0.25
+  Sector: Healthcare
+  Price: $13708.00
+  200-day MA: $13438.28 (ABOVE)
+  RSI(14): 57.89
+  Trailing P/E: 25.57
+  Price/Book: 5.51
+  ROE: 22.6%
+  Revenue Growth: 6.7%
+  Debt/Equity: 66%
+  ❌ No signal (missed 3/5): RSI 57.9 >= 30, P/E 25.6 > 25, P/B 5.5 > 3
+
+Analyzing HSBA.L...
+  HSBC HOLDINGS PLC ORD $0.50 (UK
+  Sector: Financial Services
+  Price: $1307.00
+  200-day MA: $1392.20 (BELOW)
+  RSI(14): 39.25
+  Trailing P/E: 11.46
+  Price/Book: 1.73
+  ROE: 14.2%
+  Revenue Growth: 6.0%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 39.3 >= 30
+
+Analyzing ULVR.L...
+  UNILEVER PLC ORD 3.5P
+  Sector: Consumer Defensive
+  Price: $4893.00
+  200-day MA: $4650.51 (ABOVE)
+  RSI(14): 50.50
+  Trailing P/E: 13.26
+  Price/Book: 7.76
+  ROE: 31.9%
+  Revenue Growth: 0.5%
+  Debt/Equity: 175%
+  ❌ No signal (missed 3/5): RSI 50.5 >= 30, P/B 7.8 > 3, D/E 175% > 100%
+
+Analyzing BP.L...
+  BP PLC $0.25
+  Sector: Energy
+  Price: $564.00
+  200-day MA: $540.61 (ABOVE)
+  RSI(14): 41.95
+  Trailing P/E: 22.56
+  Price/Book: 1.89
+  ROE: 13.4%
+  Revenue Growth: 41.4%
+  Debt/Equity: 87%
+  ❌ No signal (missed 1/5): RSI 42.0 >= 30
+
+Analyzing GSK.L...
+  GSK PLC ORD 31 1/4P
+  Sector: Healthcare
+  Price: $1871.00
+  200-day MA: $1952.91 (BELOW)
+  RSI(14): 49.59
+  Trailing P/E: 17.49
+  Price/Book: 4.00
+  ROE: 28.3%
+  Revenue Growth: 4.0%
+  Debt/Equity: 130%
+  ❌ No signal (missed 3/5): RSI 49.6 >= 30, P/B 4.0 > 3, D/E 130% > 100%
+
+Analyzing RIO.L...
+  RIO TINTO PLC ORD 10P
+  Sector: Basic Materials
+  Price: $5872.00
+  200-day MA: $7136.96 (BELOW)
+  RSI(14): 28.98
+  Trailing P/E: 10.68
+  Price/Book: 1.95
+  ROE: 19.3%
+  Revenue Growth: 15.5%
+  Debt/Equity: 32%
+  ✅ SIGNAL TRIGGERED! Missed: 0/5
+
+Analyzing DGE.L...
+  DIAGEO PLC ORD 28 101/108P
+  Sector: Consumer Defensive
+  Price: $1890.00
+  200-day MA: $1611.27 (ABOVE)
+  RSI(14): 61.15
+  Trailing P/E: 32.03
+  Price/Book: 5.18
+  ROE: 15.0%
+  Revenue Growth: -1.7%
+  Debt/Equity: 171%
+  ❌ No signal (missed 4/5): RSI 61.2 >= 30, P/E 32.0 > 25, P/B 5.2 > 3, D/E 171% > 100%
+
+Analyzing BATS.L...
+  BRITISH AMERICAN TOBACCO PLC OR
+  Sector: Consumer Defensive
+  Price: $4499.00
+  200-day MA: $4410.86 (ABOVE)
+  RSI(14): 50.41
+  Trailing P/E: 15.46
+  Price/Book: 2.10
+  ROE: 13.4%
+  Revenue Growth: 1.4%
+  Debt/Equity: 72%
+  ❌ No signal (missed 1/5): RSI 50.4 >= 30
+
+Analyzing REL.L...
+  RELX PLC ORD 14 51/116P
+  Sector: Industrials
+  Price: $2984.00
+  200-day MA: $2570.53 (ABOVE)
+  RSI(14): 55.06
+  Trailing P/E: 23.87
+  Price/Book: 42.15
+  ROE: 131.9%
+  Revenue Growth: 2.7%
+  Debt/Equity: 710%
+  ❌ No signal (missed 3/5): RSI 55.1 >= 30, P/B 42.1 > 3, D/E 710% > 100%
+
+Analyzing LSEG.L...
+  LONDON STOCK EXCHANGE GROUP PLC
+  Sector: Financial Services
+  Price: $9670.00
+  200-day MA: $8779.95 (ABOVE)
+  RSI(14): 59.75
+  Trailing P/E: 34.78
+  Price/Book: 2.57
+  ROE: 7.7%
+  Revenue Growth: 6.7%
+  Debt/Equity: 64% [exempt]
+  ❌ No signal (missed 2/4): RSI 59.8 >= 30, P/E 34.8 > 25
+
+Analyzing LLOY.L...
+  LLOYDS BANKING GROUP PLC ORD 10
+  Sector: Financial Services
+  Price: $97.76
+  200-day MA: $103.96 (BELOW)
+  RSI(14): 45.39
+  Trailing P/E: 9.78
+  Price/Book: 1.22
+  ROE: 13.7%
+  Revenue Growth: 9.8%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 45.4 >= 30
+
+Analyzing BARC.L...
+  BARCLAYS PLC ORD 25P
+  Sector: Financial Services
+  Price: $414.80
+  200-day MA: $458.89 (BELOW)
+  RSI(14): 40.31
+  Trailing P/E: 8.30
+  Price/Book: 0.87
+  ROE: 10.5%
+  Revenue Growth: 4.9%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 40.3 >= 30
+
+Analyzing VOD.L...
+  VODAFONE GROUP PLC ORD USD0.20 
+  Sector: Communication Services
+  Price: $114.50
+  200-day MA: $115.61 (BELOW)
+  RSI(14): 39.82
+  Trailing P/E: N/A
+  Price/Book: 0.74 [exempt]
+  ROE: -8.9%
+  Revenue Growth: 11.4%
+  Debt/Equity: 126%
+  ❌ No signal (missed 3/4): RSI 39.8 >= 30, No P/E data, D/E 126% > 100%
+
+Analyzing NG.L...
+  NATIONAL GRID PLC ORD 12 204/47
+  Sector: Utilities
+  Price: $1248.50
+  200-day MA: $1240.30 (ABOVE)
+  RSI(14): 54.20
+  Trailing P/E: 15.61
+  Price/Book: 1.57
+  ROE: 10.3%
+  Revenue Growth: 15.2%
+  Debt/Equity: 132%
+  ❌ No signal (missed 2/5): RSI 54.2 >= 30, D/E 132% > 100%
+
+Analyzing RKT.L...
+  RECKITT BENCKISER GROUP PLC ORD
+  Sector: Consumer Defensive
+  Price: $5700.00
+  200-day MA: $5191.23 (ABOVE)
+  RSI(14): 61.36
+  Trailing P/E: 12.84
+  Price/Book: 6.38
+  ROE: 48.0%
+  Revenue Growth: -8.2%
+  Debt/Equity: 180%
+  ❌ No signal (missed 3/5): RSI 61.4 >= 30, P/B 6.4 > 3, D/E 180% > 100%
+
+Analyzing PRU.L...
+  PRUDENTIAL PLC ORD 5P
+  Sector: Financial Services
+  Price: $946.80
+  200-day MA: $1036.85 (BELOW)
+  RSI(14): 53.16
+  Trailing P/E: 8.77
+  Price/Book: 1.61
+  ROE: 18.7%
+  Revenue Growth: -1.8%
+  Debt/Equity: 29% [exempt]
+  ❌ No signal (missed 1/4): RSI 53.2 >= 30
+
+Analyzing AAL.L...
+  ANGLO AMERICAN PLC ORD USD0.623
+  Sector: Basic Materials
+  Price: $3394.00
+  200-day MA: $3745.95 (BELOW)
+  RSI(14): 33.28
+  Trailing P/E: N/A
+  Price/Book: 2.84
+  ROE: -3.1%
+  Revenue Growth: 10.9%
+  Debt/Equity: 74%
+  ❌ No signal (missed 2/5): RSI 33.3 >= 30, No P/E data
+
+Analyzing BT-A.L...
+  BT GROUP PLC ORD 5P
+  Sector: Communication Services
+  Price: $213.80
+  200-day MA: $206.80 (ABOVE)
+  RSI(14): 50.31
+  Trailing P/E: 16.45
+  Price/Book: 1.65 [exempt]
+  ROE: 9.3%
+  Revenue Growth: 0.6%
+  Debt/Equity: 180%
+  ❌ No signal (missed 3/4): RSI 50.3 >= 30, ROE 9.3% < 10% AND Growth 0.6% < 5%, D/E 180% > 100%
+
+Analyzing BA.L...
+  BAE SYSTEMS PLC ORD 2.5P
+  Sector: Industrials
+  Price: $1857.00
+  200-day MA: $2022.85 (BELOW)
+  RSI(14): 39.44
+  Trailing P/E: 26.53
+  Price/Book: 4.49
+  ROE: 18.6%
+  Revenue Growth: 7.7%
+  Debt/Equity: 73%
+  ❌ No signal (missed 3/5): RSI 39.4 >= 30, P/E 26.5 > 25, P/B 4.5 > 3
+
+Analyzing RR.L...
+  ROLLS-ROYCE HOLDINGS PLC ORD SH
+  Sector: Industrials
+  Price: $1351.00
+  200-day MA: $1340.53 (ABOVE)
+  RSI(14): 53.93
+  Trailing P/E: 37.53
+  Price/Book: 39.39
+  ROE: 114.5%
+  Revenue Growth: 20.6%
+  Debt/Equity: 152%
+  ❌ No signal (missed 4/5): RSI 53.9 >= 30, P/E 37.5 > 25, P/B 39.4 > 3, D/E 152% > 100%
+
+Analyzing IMB.L...
+  IMPERIAL BRANDS PLC ORD 10P
+  Sector: Consumer Defensive
+  Price: $2883.00
+  200-day MA: $2829.12 (ABOVE)
+  RSI(14): 52.23
+  Trailing P/E: 11.96
+  Price/Book: 5.53
+  ROE: 40.9%
+  Revenue Growth: 2.5%
+  Debt/Equity: 242%
+  ❌ No signal (missed 3/5): RSI 52.2 >= 30, P/B 5.5 > 3, D/E 242% > 100%
+
+Analyzing ANTO.L...
+  ANTOFAGASTA PLC ORD 5P
+  Sector: Basic Materials
+  Price: $2880.00
+  200-day MA: $3719.19 (BELOW)
+  RSI(14): 34.22
+  Trailing P/E: 23.04
+  Price/Book: 3.54
+  ROE: 17.8%
+  Revenue Growth: 17.9%
+  Debt/Equity: 54%
+  ❌ No signal (missed 2/5): RSI 34.2 >= 30, P/B 3.5 > 3
+
+Analyzing CPG.L...
+  COMPASS GROUP PLC ORD 11 1/20P
+  Sector: Consumer Cyclical
+  Price: $33.49
+  200-day MA: $30.87 (ABOVE)
+  RSI(14): 54.73
+  Trailing P/E: 37.63
+  Price/Book: 7.16
+  ROE: 26.9%
+  Revenue Growth: 10.7%
+  Debt/Equity: 113%
+  ❌ No signal (missed 4/5): RSI 54.7 >= 30, P/E 37.6 > 25, P/B 7.2 > 3, D/E 113% > 100%
+
+Analyzing EXPN.L...
+  EXPERIAN PLC ORD USD0.10
+  Sector: Industrials$DSM.AS: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$ROG.SW: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$CSGN.SW: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+  Price: $2905.00
+  200-day MA: $2715.93 (ABOVE)
+  RSI(14): 49.07
+  Trailing P/E: 23.81
+  Price/Book: 6.31
+  ROE: 28.3%
+  Revenue Growth: 12.3%
+  Debt/Equity: 100%
+  ❌ No signal (missed 3/5): RSI 49.1 >= 30, P/B 6.3 > 3, D/E 100% > 100%
+
+Analyzing ASML.AS...
+  ASML HOLDING
+  Sector: Technology
+  Price: $1278.40
+  200-day MA: $1397.36 (BELOW)
+  RSI(14): 38.91
+  Trailing P/E: 36.55
+  Price/Book: 22.20 [exempt]
+  ROE: 65.6%
+  Revenue Growth: 55.2%
+  Debt/Equity: 9%
+  ❌ No signal (missed 2/4): RSI 38.9 >= 30, P/E 36.5 > 25
+
+Analyzing SHELL.AS...
+  SHELL PLC
+  Sector: Energy
+  Price: $44.01
+  200-day MA: $38.42 (ABOVE)
+  RSI(14): 44.40
+  Trailing P/E: 8.82
+  Price/Book: 1.43
+  ROE: 17.4%
+  Revenue Growth: 36.2%
+  Debt/Equity: 38%
+  ❌ No signal (missed 1/5): RSI 44.4 >= 30
+
+Analyzing UNA.AS...
+  UNILEVER PLC
+  Sector: Consumer Defensive
+  Price: $58.91
+  200-day MA: $53.34 (ABOVE)
+  RSI(14): 54.61
+  Trailing P/E: 13.89
+  Price/Book: 7.83
+  ROE: 31.9%
+  Revenue Growth: 0.5%
+  Debt/Equity: 175%
+  ❌ No signal (missed 3/5): RSI 54.6 >= 30, P/B 7.8 > 3, D/E 175% > 100%
+
+Analyzing PRX.AS...
+  PROSUS
+  Sector: Consumer Cyclical
+  Price: $32.38
+  200-day MA: $38.87 (BELOW)
+  RSI(14): 30.77
+  Trailing P/E: 6.95
+  Price/Book: 1.45
+  ROE: 22.2%
+  Revenue Growth: N/A
+  Debt/Equity: 33%
+  ❌ No signal (missed 1/5): RSI 30.8 >= 30
+
+Analyzing HEIA.AS...
+  HEINEKEN
+  Sector: Consumer Defensive
+  Price: $84.12
+  200-day MA: $72.24 (ABOVE)
+  RSI(14): 69.73
+  Trailing P/E: 20.52
+  Price/Book: 2.41
+  ROE: 12.1%
+  Revenue Growth: 4.7%
+  Debt/Equity: 95%
+  ❌ No signal (missed 1/5): RSI 69.7 >= 30
+
+Analyzing INGA.AS...
+  ING GROEP N.V.
+  Sector: Financial Services
+  Price: $28.90
+  200-day MA: $27.09 (ABOVE)
+  RSI(14): 43.94
+  Trailing P/E: 12.35
+  Price/Book: 1.64
+  ROE: 17.8%
+  Revenue Growth: 4.5%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 43.9 >= 30
+
+Analyzing AD.AS...
+  KONINKLIJKE AHOLD DELHAIZE N.V.
+  Sector: Consumer Defensive
+  Price: $34.84
+  200-day MA: $35.41 (BELOW)
+  RSI(14): 59.51
+  Trailing P/E: 13.50
+  Price/Book: 2.10
+  ROE: 16.1%
+  Revenue Growth: 2.6%
+  Debt/Equity: 137%
+  ❌ No signal (missed 2/5): RSI 59.5 >= 30, D/E 137% > 100%
+
+Analyzing DSM.AS...
+  ⚠️  Insufficient price data for DSM.AS
+
+Analyzing PHIA.AS...
+  KON.PHILIPS N.V.
+  Sector: Healthcare
+  Price: $27.19
+  200-day MA: $23.40 (ABOVE)
+  RSI(14): 74.39
+  Trailing P/E: 27.19
+  Price/Book: 2.30
+  ROE: 8.6%
+  Revenue Growth: 2.1%
+  Debt/Equity: 70%
+  ❌ No signal (missed 3/5): RSI 74.4 >= 30, P/E 27.2 > 25, ROE 8.6% < 10% AND Growth 2.1% < 5%
+
+Analyzing WKL.AS...
+  WOLTERS KLUWER
+  Sector: Industrials
+  Price: $86.52
+  200-day MA: $66.78 (ABOVE)
+  RSI(14): 53.07
+  Trailing P/E: 14.79
+  Price/Book: 20.55
+  ROE: 146.1%
+  Revenue Growth: -0.6%
+  Debt/Equity: 590%
+  ❌ No signal (missed 3/5): RSI 53.1 >= 30, P/B 20.5 > 3, D/E 590% > 100%
+
+Analyzing ASM.AS...
+  ASM International N.V.
+  Sector: Technology
+  Price: $679.40
+  200-day MA: $811.85 (BELOW)
+  RSI(14): 42.40
+  Trailing P/E: 33.45
+  Price/Book: 7.09 [exempt]
+  ROE: 23.5%
+  Revenue Growth: 44.9%
+  Debt/Equity: 2%
+  ❌ No signal (missed 2/4): RSI 42.4 >= 30, P/E 33.5 > 25
+
+Analyzing RAND.AS...
+  Randstad N.V.
+  Sector: Industrials
+  Price: $41.62
+  200-day MA: $31.04 (ABOVE)
+  RSI(14): 57.86
+  Trailing P/E: 21.56
+  Price/Book: 1.81
+  ROE: 8.8%
+  Revenue Growth: 5.3%
+  Debt/Equity: 46%
+  ❌ No signal (missed 1/5): RSI 57.9 >= 30
+
+Analyzing ABN.AS...
+  ABN AMRO BANK N.V.
+  Sector: Financial Services
+  Price: $41.01
+  200-day MA: $35.18 (ABOVE)
+  RSI(14): 47.71
+  Trailing P/E: 12.82
+  Price/Book: 1.21
+  ROE: 10.4%
+  Revenue Growth: 19.6%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 47.7 >= 30
+
+Analyzing KPN.AS...
+  KPN KON
+  Sector: Communication Services
+  Price: $4.39
+  200-day MA: $4.30 (ABOVE)
+  RSI(14): 58.82
+  Trailing P/E: 19.95
+  Price/Book: 5.12 [exempt]
+  ROE: 27.3%
+  Revenue Growth: 3.0%
+  Debt/Equity: 223%
+  ❌ No signal (missed 2/4): RSI 58.8 >= 30, D/E 223% > 100%
+
+Analyzing AKZA.AS...
+  AKZO NOBEL
+  Sector: Basic Materials
+  Price: $62.42
+  200-day MA: $56.40 (ABOVE)
+  RSI(14): 58.41
+  Trailing P/E: 16.47
+  Price/Book: 2.20
+  ROE: 14.9%
+  Revenue Growth: -0.4%
+  Debt/Equity: 130%
+  ❌ No signal (missed 2/5): RSI 58.4 >= 30, D/E 130% > 100%
+
+Analyzing NESN.SW...
+  NESTLE N
+  Sector: Consumer Defensive
+  Price: $86.11
+  200-day MA: $79.34 (ABOVE)
+  RSI(14): 59.57
+  Trailing P/E: 29.80
+  Price/Book: 7.58
+  ROE: 26.2%
+  Revenue Growth: -2.5%
+  Debt/Equity: 213%
+  ❌ No signal (missed 4/5): RSI 59.6 >= 30, P/E 29.8 > 25, P/B 7.6 > 3, D/E 213% > 100%
+
+Analyzing NOVN.SW...
+  NOVARTIS N
+  Sector: Healthcare
+  Price: $132.70
+  200-day MA: $122.16 (ABOVE)
+  RSI(14): 57.14
+  Trailing P/E: 31.82
+  Price/Book: 8.17
+  ROE: 24.3%
+  Revenue Growth: 4.7%
+  Debt/Equity: 129%
+  ❌ No signal (missed 4/5): RSI 57.1 >= 30, P/E 31.8 > 25, P/B 8.2 > 3, D/E 129% > 100%
+
+Analyzing ROG.SW...
+  ⚠️  Insufficient price data for ROG.SW
+
+Analyzing UBSG.SW...
+  UBS GROUP N
+  Sector: Financial Services
+  Price: $38.96
+  200-day MA: $37.70 (ABOVE)
+  RSI(14): 43.20
+  Trailing P/E: 16.17
+  Price/Book: 1.62
+  ROE: 10.9%
+  Revenue Growth: 11.9%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 43.2 >= 30
+
+Analyzing CSGN.SW...
+  ⚠️  Insufficient price data for CSGN.SW
+
+Analyzing ABBN.SW...
+  ABB LTD N
+  Sector: Industrials
+  Price: $68.30
+  200-day MA: $76.53 (BELOW)
+  RSI(14): 39.20
+  Trailing P/E: 31.05
+  Price/Book: 9.03
+  ROE: 31.3%
+  Revenue Growth: 14.3%
+  Debt/Equity: 51%
+  ❌ No signal (missed 3/5): RSI 39.2 >= 30, P/E 31.0 > 25, P/B 9.0 > 3
+
+Analyzing ZURN.SW...
+  ZURICH INSURANCE N
+  Sector: Financial Services
+  Price: $647.60
+  200-day MA: $575.59 (ABOVE)
+  RSI(14): 64.34
+  Trailing P/E: 16.52
+  Price/Book: 3.69
+  ROE: 25.7%
+  Revenue Growth: 11.3%
+  Debt/Equity: 46% [exempt]
+  ❌ No signal (missed 2/4): RSI 64.3 >= 30, P/B 3.7 > 3
+
+Analyzing SREN.SW...
+  SWISS RE N
+  Sector: Financial Services
+  Price: $151.05
+  200-day MA: $132.40 (ABOVE)
+  RSI(14): 50.88
+  Trailing P/E: 11.59
+  Price/Book: 2.20
+  ROE: 19.8%
+  Revenue Growth: -2.4%
+  Debt/Equity: 36% [exempt]
+  ❌ No signal (missed 1/4): RSI 50.9 >= 30
+
+Analyzing LONN.SW...
+  LONZA N
+  Sector: Healthcare
+  Price: $671.20
+  200-day MA: $543.67 (ABOVE)
+  RSI(14): 70.75
+  Trailing P/E: 44.48
+  Price/Book: 5.77
+  ROE: 12.9%
+  Revenue Growth: 11.2%
+  Debt/Equity: 51%
+  ❌ No signal (missed 3/5): RSI 70.7 >= 30, P/E 44.5 > 25, P/B 5.8 > 3
+
+Analyzing GIVN.SW...
+  GIVAUDAN N
+  Sector: Basic Materials
+  Price: $4101.00
+  200-day MA: $3205.40 (ABOVE)
+  RSI(14): 69.55
+  Trailing P/E: 39.93
+  Price/Book: 8.60
+  ROE: 22.3%
+  Revenue Growth: -1.7%
+  Debt/Equity: 111%
+  ❌ No signal (missed 4/5): RSI 69.6 >= 30, P/E 39.9 > 25, P/B 8.6 > 3, D/E 111% > 100%
+
+Analyzing SIKA.SW...
+  SIKA N
+  Sector: Basic Materials
+  Price: $189.15
+  200-day MA: $163.68 (ABOVE)
+  RSI(14): 55.54
+  Trailing P/E: 29.19
+  Price/Book: 4.45
+  ROE: N/A
+  Revenue Growth: 7.6%
+  Debt/Equity: 89%
+  ❌ No signal (missed 3/5): RSI 55.5 >= 30, P/E 29.2 > 25, P/B 4.5 > 3
+
+Analyzing CFR.SW...
+  RICHEMONT N
+  Sector: Consumer Cyclical
+  Price: $173.35
+  200-day MA: $165.52 (ABOVE)
+  RSI(14): 53.03
+  Trailing P/E: 26.31
+  Price/Book: 4.71
+  ROE: 18.4%
+  Revenue Growth: 15.7%
+  Debt/Equity: 55%
+  ❌ No signal (missed 3/5): RSI 53.0 >= 30, P/E 26.3 > 25, P/B 4.7 > 3
+
+Analyzing GEBN.SW...
+  GEBERIT N
+  Sector: Industrials
+  Price: $579.60
+  200-day MA: $547.79 (ABOVE)
+  RSI(14): 52.88
+  Trailing P/E: 30.73
+  Price/Book: 16.92
+  ROE: N/A
+  Revenue Growth: 5.3%
+  Debt/Equity: 134%
+  ❌ No signal (missed 4/5): RSI 52.9 >= 30, P/E 30.7 > 25, P/B 16.9 > 3, D/E 134% > 100%
+
+Analyzing SLHN.SW...
+  SWISS LIFE HOLDING AG N
+  Sector: Financial Services
+  Price: $968.40
+  200-day MA: $889.51 (ABOVE)
+  RSI(14): 54.21
+  Trailing P/E: 21.09
+  Price/Book: 4.29
+  ROE: 19.4%
+  Revenue Growth: 3.4%
+  Debt/Equity: 258% [exempt]
+  ❌ No signal (missed 2/4): RSI 54.2 >= 30, P/B 4.3 > 3
+
+Analyzing SCMN.SW...
+  SWISSCOM N
+  Sector: Communication Services
+  Price: $720.50
+  200-day MA: $657.90 (ABOVE)
+  RSI(14): 65.10
+  Trailing P/E: 28.84
+  Price/Book: 3.09 [exempt]
+  ROE: 10.6%
+  Revenue Growth: -0.4%
+  Debt/Equity: 128%
+  ❌ No signal (missed 3/4): RSI 65.1 >= 30, P/E 28.8 > 25, D/E 128% > 100%
+
+Analyzing 7203.T...
+  TOYOTA MOTOR CORP
+  Sector: Consumer Cyclical
+  Price: $3391.00
+  200-day MA: $3090.04 (ABOVE)
+  RSI(14): 61.01
+  Trailing P/E: 9.82
+  Price/Book: 1.07
+  ROE: 11.6%
+  Revenue Growth: 8.6%
+  Debt/Equity: 113%
+  ❌ No signal (missed 2/5): RSI 61.0 >= 30, D/E 113% > 100%
+
+Analyzing 6758.T...
+  SONY GROUP CORPORATION
+  Sector: Technology
+  Price: $4241.00
+  200-day MA: $3556.63 (ABOVE)
+  RSI(14): 59.61
+  Trailing P/E: 20.09
+  Price/Book: 2.90 [exempt]
+  ROE: 15.0%
+  Revenue Growth: 10.3%
+  Debt/Equity: 23%
+  ❌ No signal (missed 1/4): RSI 59.6 >= 30
+
+Analyzing 9984.T...
+  SOFTBANK GROUP CORP
+  Sector: Communication Services
+  Price: $3383.00
+  200-day MA: $5236.43 (BELOW)
+  RSI(14): 31.64
+  Trailing P/E: 15.01
+  Price/Book: 1.18 [exempt]
+  ROE: 9.8%
+  Revenue Growth: 15.6%
+  Debt/Equity: 174%
+  ❌ No signal (missed 2/4): RSI 31.6 >= 30, D/E 174% > 100%
+
+Analyzing 6861.T...
+  KEYENCE CORP
+  Sector: Technology
+  Price: $73610.00
+  200-day MA: $72002.59 (ABOVE)
+  RSI(14): 43.21
+  Trailing P/E: 32.82
+  Price/Book: 4.82 [exempt]
+  ROE: 15.6%
+  Revenue Growth: 36.8%
+  Debt/Equity: N/A
+  ❌ No signal (missed 3/4): RSI 43.2 >= 30, P/E 32.8 > 25, No D/E data
+
+Analyzing 8306.T...
+  MITSUBISHI UFJ FINANCIAL GROUP 
+  Sector: Financial Services
+  Price: $3251.00
+  200-day MA: $3164.61 (ABOVE)
+  RSI(14): 40.30
+  Trailing P/E: 13.33
+  Price/Book: 1.61
+  ROE: 9.6%
+  Revenue Growth: 21.0%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 40.3 >= 30
+
+Analyzing 6501.T...
+  HITACHI
+  Sector: Industrials
+  Price: $4874.00
+  200-day MA: $5063.23 (BELOW)
+  RSI(14): 39.59
+  Trailing P/E: 29.33
+  Price/Book: 3.32
+  ROE: 12.3%
+  Revenue Growth: 14.8%
+  Debt/Equity: 15%
+  ❌ No signal (missed 3/5): RSI 39.6 >= 30, P/E 29.3 > 25, P/B 3.3 > 3
+
+Analyzing 7267.T...
+  HONDA MOTOR CO
+  Sector: Consumer Cyclical
+  Price: $1809.50
+  200-day MA: $1508.94 (ABOVE)
+  RSI(14): 51.96
+  Trailing P/E: N/A
+  Price/Book: 0.59
+  ROE: -1.2%
+  Revenue Growth: 12.9%
+  Debt/Equity: 117%
+  ❌ No signal (missed 3/5): RSI 52.0 >= 30, No P/E data, D/E 117% > 100%
+
+Analyzing 4502.T...
+  TAKEDA PHARMACEUTICAL CO LTD
+  Sector: Healthcare
+  Price: $6869.00
+  200-day MA: $5533.10 (ABOVE)
+  RSI(14): 65.19
+  Trailing P/E: 307.75
+  Price/Book: 1.48
+  ROE: 0.6%
+  Revenue Growth: 6.7%
+  Debt/Equity: 72%
+  ❌ No signal (missed 2/5): RSI 65.2 >= 30, P/E 307.8 > 25
+
+Analyzing 9433.T...
+  KDDI CORPORATION
+  Sector: Communication Services
+  Price: $2952.50
+  200-day MA: $2735.09 (ABOVE)
+  RSI(14): 58.12
+  Trailing P/E: 15.70
+  Price/Book: 2.18 [exempt]
+  ROE: 14.5%
+  Revenue Growth: 5.8%
+  Debt/Equity: 90%
+  ❌ No signal (missed 1/4): RSI 58.1 >= 30
+
+Analyzing 6902.T...
+  DENSO CORP
+  Sector: Consumer Cyclical
+  Price: $1935.50
+  200-day MA: $1910.01 (ABOVE)
+  RSI(14): 57.80
+  Trailing P/E: 12.31
+  Price/Book: 0.94
+  ROE: 8.9%
+  Revenue Growth: 5.1%
+  Debt/Equity: 23%
+  ❌ No signal (missed 1/5): RSI 57.8 >= 30
+
+Analyzing 6098.T...
+  RECRUIT HOLDINGS CO LTD
+  Sector: Communication Services
+  Price: $17585.00
+  200-day MA: $11770.68 (ABOVE)
+  RSI(14): 48.51
+  Trailing P/E: 37.50
+  Price/Book: 13.33 [exempt]
+  ROE: 39.7%
+  Revenue Growth: 19.7%
+  Debt/Equity: 9%
+  ❌ No signal (missed 2/4): RSI 48.5 >= 30, P/E 37.5 > 25
+
+Analyzing 4063.T...
+  SHIN-ETSU CHEMICAL CO
+  Sector: Basic Materials
+  Price: $5535.00
+  200-day MA: $6331.02 (BELOW)
+  RSI(14): 40.10
+  Trailing P/E: 20.40
+  Price/Book: 2.23
+  ROE: 11.7%
+  Revenue Growth: 15.6%
+  Debt/Equity: 9%
+  ❌ No signal (missed 1/5): RSI 40.1 >= 30
+
+Analyzing 8035.T...
+  TOKYO ELECTRON
+  Sector: Technology
+  Price: $8699.00
+  200-day MA: $10380.27 (BELOW)
+  RSI(14): 39.37
+  Trailing P/E: 48.82
+  Price/Book: 8.97 [exempt]
+  ROE: 33.8%
+  Revenue Growth: 48.4%
+  Debt/Equity: N/A
+  ❌ No signal (missed 3/4): RSI 39.4 >= 30, P/E 48.8 > 25, No D/E data
+
+Analyzing 6367.T...
+  DAIKIN INDUSTRIES
+  Sector: Industrials
+  Price: $23040.00
+  200-day MA: $21523.70 (ABOVE)
+  RSI(14): 66.38
+  Trailing P/E: 23.00
+  Price/Book: 2.15
+  ROE: 9.8%
+  Revenue Growth: 17.3%
+  Debt/Equity: 37%
+  ❌ No signal (missed 1/5): RSI 66.4 >= 30
+
+Analyzing 6954.T...
+  FANUC CORPORATION
+  Sector: Industrials
+  Price: $5206.00
+  200-day MA: $6399.87 (BELOW)
+  RSI(14): 34.80
+  Trailing P/E: 24.38
+  Price/Book: 2.54
+  ROE: 11.0%
+  Revenue Growth: 14.9%
+  Debt/Equity: N/A
+  ❌ No signal (missed 2/5): RSI 34.8 >= 30, No D/E data
+
+Analyzing 7741.T...
+  HOYA CORP
+  Sector: Healthcare
+  Price: $23480.00
+  200-day MA: $25979.24 (BELOW)
+  RSI(14): 41.11
+  Trailing P/E: 27.98
+  Price/Book: 7.71
+  ROE: 27.7%
+  Revenue Growth: 10.7%
+  Debt/Equity: 4%
+  ❌ No signal (missed 3/5): RSI 41.1 >= 30, P/E 28.0 > 25, P/B 7.7 > 3
+
+Analyzing 4519.T...
+  CHUGAI PHARMACEUTICAL CO
+  Sector: Healthcare
+  Price: $7206.00
+  200-day MA: $7680.85 (BELOW)
+  RSI(14): 60.28
+  Trailing P/E: 23.54
+  Price/Book: 5.68
+  ROE: 25.3%
+  Revenue Growth: 21.5%
+  Debt/Equity: N/A
+  ❌ No signal (missed 3/5): RSI 60.3 >= 30, P/B 5.7 > 3, No D/E data
+
+Analyzing 6273.T...
+  SMC CORP
+  Sector: Industrials
+  Price: $58500.00
+  200-day MA: $68375.77 (BELOW)
+  RSI(14): 39.29
+  Trailing P/E: 17.06
+  Price/Book: 1.70
+  ROE: 10.5%
+  Revenue Growth: 41.3%
+  Debt/Equity: N/A
+  ❌ No signal (missed 2/5): RSI 39.3 >= 30, No D/E data
+
+Analyzing 7751.T...
+  CANON INC
+  Sector: Technology
+  Price: $4782.00
+  200-day MA: $4454.57 (ABOVE)
+  RSI(14): 51.83
+  Trailing P/E: 12.09
+  Price/Book: 1.20 [exempt]
+  ROE: 11.0%
+  Revenue Growth: 4.9%
+  Debt/Equity: 41%
+  ❌ No signal (missed 1/4): RSI 51.8 >= 30
+
+Analyzing 4661.T...
+  ORIENTAL LAND CO
+  Sector: Consumer Cyclical
+  Price: $3902.00
+  200-day MA: $2765.16 (ABOVE)
+  RSI(14): 73.66
+  Trailing P/E: 47.24
+  Price/Book: 5.57
+  ROE: 12.4%
+  Revenue Growth: 10.2%
+  Debt/Equity: 27%
+  ❌ No signal (missed 3/5): RSI 73.7 >= 30, P/E 47.2 > 25, P/B 5.6 > 3
+
+Analyzing 9432.T...
+  NTT INC
+  Sector: Communication Services
+  Price: $170.20
+  200-day MA: $155.63 (ABOVE)
+  RSI(14): 51.60
+  Trailing P/E: 14.83
+  Price/Book: 1.39 [exempt]
+  ROE: 9.8%
+  Revenue Growth: 6.7%
+  Debt/Equity: 180%
+  ❌ No signal (missed 2/4): RSI 51.6 >= 30, D/E 180% > 100%
+
+Analyzing 6594.T...
+  NIDEC CORPORATION
+  Sector: Industrials
+  Price: $1700.00
+  200-day MA: $2397.43 (BELOW)
+  RSI(14): 39.26
+  Trailing P/E: N/A
+  Price/Book: 2.45
+  ROE: -61.3%
+  Revenue Growth: 8.5%
+  Debt/Equity: 146%
+  ❌ No signal (missed 3/5): RSI 39.3 >= 30, No P/E data, D/E 146% > 100%
+
+Analyzing 8001.T...
+  ITOCHU CORP
+  Sector: Industrials
+  Price: $2318.00
+  200-day MA: $2050.73 (ABOVE)
+  RSI(14): 50.38
+  Trailing P/E: 16.59
+  Price/Book: 2.35
+  ROE: 14.7%
+  Revenue Growth: 9.9%
+  Debt/Equity: 73%
+  ❌ No signal (missed 1/5): RSI 50.4 >= 30
+
+Analyzing 8058.T...
+  MITSUBISHI CORP
+  Sector: Industrials
+  Price: $5100.00
+  200-day MA: $4852.97 (ABOVE)
+  RSI(14): 52.51
+  Trailing P/E: 17.79
+  Price/Book: 1.91
+  ROE: 11.7%
+  Revenue Growth: 18.3%
+  Debt/Equity: 65%
+  ❌ No signal (missed 1/5): RSI 52.5 >= 30
+
+Analyzing 8031.T...
+  MITSUI & CO
+  Sector: Industrials
+  Price: $4790.00
+  200-day MA: $5190.13 (BELOW)
+  RSI(14): 43.20
+  Trailing P/E: 13.83
+  Price/Book: 1.51
+  ROE: 11.7%
+  Revenue Growth: 14.9%
+  Debt/Equity: 62%
+  ❌ No signal (missed 1/5): RSI 43.2 >= 30
+
+Analyzing 6981.T...
+  MURATA MANUFACTURING CO
+  Sector: Technology
+  Price: $5050.00
+  200-day MA: $6491.94 (BELOW)
+  RSI(14): 34.59
+  Trailing P/E: 31.91
+  Price/Book: 3.31 [exempt]
+  ROE: 10.7%
+  Revenue Growth: 20.9%
+  Debt/Equity: 2%
+  ❌ No signal (missed 2/4): RSI 34.6 >= 30, P/E 31.9 > 25
+
+Analyzing 7974.T...
+  NINTENDO CO LTD
+  Sector: Communication Services
+  Price: $9002.00
+  200-day MA: $8104.81 (ABOVE)
+  RSI(14): 61.08
+  Trailing P/E: 23.38
+  Price/Book: 3.48 [exempt]
+  ROE: 15.4%
+  Revenue Growth: -15.0%
+  Debt/Equity: N/A
+  ❌ No signal (missed 2/4): RSI 61.1 >= 30, No D/E data
+
+Analyzing 6762.T...
+  TDK CORP
+  Sector: Technology
+  Price: $2264.00
+  200-day MA: $2810.58 (BELOW)
+  RSI(14): 37.88
+  Trailing P/E: 11.56
+  Price/Book: 1.85 [exempt]
+  ROE: 12.4%
+  Revenue Growth: 26.6%
+  Debt/Equity: 31%
+  ❌ No signal (missed 1/4): RSI 37.9 >= 30
+
+Analyzing 4543.T...
+  TERUMO CORP
+  Sector: Healthcare
+  Price: $2534.00
+  200-day MA: $2225.86 (ABOVE)
+  RSI(14): 56.98
+  Trailing P/E: 32.90
+  Price/Book: 2.34
+  ROE: 7.5%
+  Revenue Growth: 13.7%
+  Debt/Equity: 23%
+  ❌ No signal (missed 2/5): RSI 57.0 >= 30, P/E 32.9 > 25
+
+Analyzing 6971.T...
+  KYOCERA CORP
+  Sector: Industrials
+  Price: $2877.00
+  200-day MA: $3167.20 (BELOW)
+  RSI(14): 31.72
+  Trailing P/E: 24.01
+  Price/Book: 1.12
+  ROE: 5.0%
+  Revenue Growth: 7.7%
+  Debt/Equity: 10%
+  ❌ No signal (missed 1/5): RSI 31.7 >= 30
+
+Analyzing 005930.KS...
+  SamsungElec
+  Sector: Technology
+  Price: $194700.00
+  200-day MA: $237599.08 (BELOW)
+  RSI(14): 38.86
+  Trailing P/E: N/A
+  Price/Book: N/A [exempt]
+  ROE: 41.6%
+  Revenue Growth: 126.8%
+  Debt/Equity: 3%
+  ❌ No signal (missed 2/4): RSI 38.9 >= 30, No P/E data
+
+Analyzing 000660.KS...
+  SK hynix
+  Sector: Technology
+  Price: $1144000.00
+  200-day MA: $1524542.09 (BELOW)
+  RSI(14): 38.41
+  Trailing P/E: N/A
+  Price/Book: N/A [exempt]
+  ROE: 92.5%
+  Revenue Growth: 327.9%
+  Debt/Equity: 6%
+  ❌ No signal (missed 2/4): RSI 38.4 >= 30, No P/E data
+
+Analyzing 207940.KS...
+  SAMSUNG BIOLOGICS
+  Sector: Healthcare
+  Price: $1366000.00
+  200-day MA: $1488318.06 (BELOW)
+  RSI(14): 43.99
+  Trailing P/E: N/A
+  Price/Book: N/A
+  ROE: 18.5%
+  Revenue Growth: 30.2%
+  Debt/Equity: 15%
+  ❌ No signal (missed 3/5): RSI 44.0 >= 30, No P/E data, No P/B data
+
+Analyzing 005380.KS...
+  HyundaiMtr
+  Sector: Consumer Cyclical
+  Price: $267000.00
+  200-day MA: $461859.60 (BELOW)
+  RSI(14): 36.12
+  Trailing P/E: N/A
+  Price/Book: N/A
+  ROE: N/A
+  Revenue Growth: -3.4%
+  Debt/Equity: 134%
+  ❌ No signal (missed 5/5): RSI 36.1 >= 30, No P/E data, No P/B data, ROE N/A < 10% AND Growth -3.4% < 5%, D/E 134% > 100%
+
+Analyzing 051910.KS...
+  LGCHEM
+  Sector: Basic Materials
+  Price: $208000.00
+  200-day MA: $301817.57 (BELOW)
+  RSI(14): 35.64
+  Trailing P/E: N/A
+  Price/Book: N/A
+  ROE: -8.3%
+  Revenue Growth: 38.4%
+  Debt/Equity: 82%
+  ❌ No signal (missed 3/5): RSI 35.6 >= 30, No P/E data, No P/B data
+
+Analyzing 006400.KS...
+  SAMSUNG SDI CO.,LTD.
+  Sector: Industrials
+  Price: $434500.00
+  200-day MA: $495265.00 (BELOW)
+  RSI(14): 39.64
+  Trailing P/E: N/A
+  Price/Book: N/A
+  ROE: N/A
+  Revenue Growth: 53.5%
+  Debt/Equity: 34%
+  ❌ No signal (missed 3/5): RSI 39.6 >= 30, No P/E data, No P/B data
+
+Analyzing 035420.KS...
+  NAVER
+  Sector: Communication Services
+  Price: $170300.00
+  200-day MA: $212549.24 (BELOW)
+  RSI(14): 40.10
+  Trailing P/E: N/A
+  Price/Book: N/A [exempt]
+  ROE: 6.4%
+  Revenue Growth: 16.2%
+  Debt/Equity: 18%
+  ❌ No signal (missed 2/4): RSI 40.1 >= 30, No P/E data
+
+Analyzing 035720.KS...
+  Kakao
+  Sector: Communication Services
+  Price: $31800.00
+  200-day MA: $41568.50 (BELOW)
+  RSI(14): 51.61
+  Trailing P/E: N/A
+  Price/Book: N/A [exempt]
+  ROE: 3.7%
+  Revenue Growth: 9.4%
+  Debt/Equity: 21%
+  ❌ No signal (missed 2/4): RSI 51.6 >= 30, No P/E data
+
+Analyzing 068270.KS...
+  Celltrion
+  Sector: Healthcare
+  Price: $207500.00
+  200-day MA: $190262.83 (ABOVE)
+  RSI(14): 58.13
+  Trailing P/E: N/A
+  Price/Book: N/A
+  ROE: 9.1%
+  Revenue Growth: 45.0%
+  Debt/Equity: 21%
+  ❌ No signal (missed 3/5): RSI 58.1 >= 30, No P/E data, No P/B data
+
+Analyzing 003670.KS...
+  POSCO FUTURE M
+  Sector: Industrials
+  Price: $166100.00
+  200-day MA: $195627.01 (BELOW)
+  RSI(14): 47.21
+  Trailing P/E: N/A
+  Price/Book: N/A
+  ROE: 1.4%
+  Revenue Growth: 2.8%
+  Debt/Equity: 88%
+  ❌ No signal (missed 4/5): RSI 47.2 >= 30, No P/E data, No P/B data, ROE 1.4% < 10% AND Growth 2.8% < 5%
+
+Analyzing 105560.KS...
+  KBFinancialGroup
+  Sector: Financial Services
+  Price: $156400.00
+  200-day MA: $157734.26 (BELOW)
+  RSI(14): 49.86
+  Trailing P/E: N/A
+  Price/Book: N/A
+  ROE: 10.4%
+  Revenue Growth: 2.2%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 3/4): RSI 49.9 >= 30, No P/E data, No P/B data
+
+Analyzing 055550.KS...
+  ShinhanGroup
+  Sector: Financial Services
+  Price: $87000.00
+  200-day MA: $97007.13 (BELOW)
+  RSI(14): 41.76
+  Trailing P/E: N/A
+  Price/Book: N/A
+  ROE: 8.9%
+  Revenue Growth: 5.7%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 3/4): RSI 41.8 >= 30, No P/E data, No P/B data
+
+Analyzing 012330.KS...
+  Mobis
+  Sector: Consumer Cyclical
+  Price: $356000.00
+  200-day MA: $455844.36 (BELOW)
+  RSI(14): 50.12
+  Trailing P/E: N/A
+  Price/Book: N/A
+  ROE: 7.4%
+  Revenue Growth: 2.4%
+  Debt/Equity: 7%
+  ❌ No signal (missed 4/5): RSI 50.1 >= 30, No P/E data, No P/B data, ROE 7.4% < 10% AND Growth 2.4% < 5%
+
+Analyzing 028260.KS...
+  SAMSUNG C&T
+  Sector: Industrials
+  Price: $271000.00
+  200-day MA: $346377.50 (BELOW)
+  RSI(14): 37.83
+  Trailing P/E: N/A
+  Price/Book: N/A
+  ROE: 5.7%
+  Revenue Growth: 19.7%
+  Debt/Equity: 3%
+  ❌ No signal (missed 3/5): RSI 37.8 >= 30, No P/E data, No P/B data
+
+Analyzing 000270.KS...
+  KIA CORP.
+  Sector: Consumer Cyclical
+  Price: $92200.00
+  200-day MA: $140990.39 (BELOW)
+  RSI(14): 31.35
+  Trailing P/E: N/A
+  Price/Book: N/A
+  ROE: 11.6%
+  Revenue Growth: 12.6%
+  Debt/Equity: 3%
+  ❌ No signal (missed 3/5): RSI 31.4 >= 30, No P/E data, No P/B data
+
+Analyzing BABA...
+  Alibaba Group Holding Limited
+  Sector: Consumer Cyclical
+  Price: $86.65
+  200-day MA: $121.44 (BELOW)
+  RSI(14): 26.29
+  Trailing P/E: 20.98
+  Price/Book: 1.29
+  ROE: 6.4%
+  Revenue Growth: 8.6%
+  Debt/Equity: 24%
+  ✅ SIGNAL TRIGGERED! Missed: 0/5
+
+Analyzing JD...
+  JD.com, Inc.
+  Sector: Consumer Cyclical
+  Price: $25.43
+  200-day MA: $28.28 (BELOW)
+  RSI(14): 37.77
+  Trailing P/E: 15.60
+  Price/Book: 1.03
+  ROE: 6.9%
+  Revenue Growth: 3.5%
+  Debt/Equity: 38%
+  ❌ No signal (missed 2/5): RSI 37.8 >= 30, ROE 6.9% < 10% AND Growth 3.5% < 5%
+
+Analyzing PDD...
+  PDD Holdings Inc.
+  Sector: Consumer Cyclical
+  Price: $77.39
+  200-day MA: $89.57 (BELOW)
+  RSI(14): 42.69
+  Trailing P/E: 8.71
+  Price/Book: 1.62
+  ROE: 22.7%
+  Revenue Growth: 8.1%
+  Debt/Equity: 1%
+  ❌ No signal (missed 1/5): RSI 42.7 >= 30
+
+Analyzing BIDU...
+  Baidu, Inc.
+  Sector: Communication Services
+  Price: $71.15
+  200-day MA: $109.81 (BELOW)
+  RSI(14): 28.27
+  Trailing P/E: 21.83
+  Price/Book: 0.59 [exempt]
+  ROE: 2.9%
+  Revenue Growth: -1.2%
+  Debt/Equity: 39%
+  ❌ No signal (missed 1/4): ROE 2.9% < 10% AND Growth -1.2% < 5%
+
+Analyzing NIO...
+  NIO Inc.
+  Sector: Consumer Cyclical
+  Price: $2.81
+  200-day MA: $4.81 (BELOW)
+  RSI(14): 31.37
+  Trailing P/E: N/A
+  Price/Book: 11.53
+  ROE: -45.3%
+  Revenue Growth: 69.1%
+  Debt/Equity: 203%
+  ❌ No signal (missed 4/5): RSI 31.4 >= 30, No P/E data, P/B 11.5 > 3, D/E 203% > 100%
+
+Analyzing XPEV...
+  XPeng Inc.
+  Sector: Consumer Cyclical
+  Price: $9.99
+  200-day MA: $13.91 (BELOW)
+  RSI(14): 54.39
+  Trailing P/E: N/A
+  Price/Book: 2.40
+  ROE: -12.2%
+  Revenue Growth: 19.1%
+  Debt/Equity: 95%
+  ❌ No signal (missed 2/5): RSI 54.4 >= 30, No P/E data
+
+Analyzing LI...
+  Li Auto Inc.
+  Sector: Consumer Cyclical
+  Price: $11.57
+  200-day MA: $14.54 (BELOW)
+  RSI(14): 48.37
+  Trailing P/E: N/A
+  Price/Book: 1.17
+  ROE: -6.6%
+  Revenue Growth: -15.1%
+  Debt/Equity: 22%
+  ❌ No signal (missed 3/5): RSI 48.4 >= 30, No P/E data, ROE -6.6% < 10% AND Growth -15.1% < 5%$0011.HK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+
+Analyzing NTES...
+  NetEase, Inc.
+  Sector: Communication Services
+  Price: $119.62
+  200-day MA: $119.66 (BELOW)
+  RSI(14): 46.30
+  Trailing P/E: 16.61
+  Price/Book: 15.31 [exempt]
+  ROE: 20.4%
+  Revenue Growth: 7.9%
+  Debt/Equity: 7%
+  ❌ No signal (missed 1/4): RSI 46.3 >= 30
+
+Analyzing TME...
+  Tencent Music Entertainment Gro
+  Sector: Communication Services
+  Price: $9.47
+  200-day MA: $9.73 (BELOW)
+  RSI(14): 63.91
+  Trailing P/E: 11.41
+  Price/Book: 1.24 [exempt]
+  ROE: 11.0%
+  Revenue Growth: 5.8%
+  Debt/Equity: 21%
+  ❌ No signal (missed 1/4): RSI 63.9 >= 30
+
+Analyzing BILI...
+  Bilibili Inc.
+  Sector: Communication Services
+  Price: $11.94
+  200-day MA: $19.53 (BELOW)
+  RSI(14): 30.16
+  Trailing P/E: 23.41
+  Price/Book: 2.09 [exempt]
+  ROE: 10.1%
+  Revenue Growth: 8.2%
+  Debt/Equity: 60%
+  ❌ No signal (missed 1/4): RSI 30.2 >= 30
+
+Analyzing TAL...
+  TAL Education Group
+  Sector: Consumer Defensive
+  Price: $10.22
+  200-day MA: $11.02 (BELOW)
+  RSI(14): 41.93
+  Trailing P/E: 7.80
+  Price/Book: 1.35
+  ROE: 19.3%
+  Revenue Growth: 15.5%
+  Debt/Equity: 10%
+  ❌ No signal (missed 1/5): RSI 41.9 >= 30
+
+Analyzing ZTO...
+  ZTO Express (Cayman) Inc.
+  Sector: Industrials
+  Price: $20.53
+  200-day MA: $22.69 (BELOW)
+  RSI(14): 54.26
+  Trailing P/E: 11.22
+  Price/Book: 1.63
+  ROE: 16.3%
+  Revenue Growth: 23.0%
+  Debt/Equity: 35%
+  ❌ No signal (missed 1/5): RSI 54.3 >= 30
+
+Analyzing YUMC...
+  Yum China Holdings, Inc.
+  Sector: Consumer Cyclical
+  Price: $51.38
+  200-day MA: $46.50 (ABOVE)
+  RSI(14): 77.24
+  Trailing P/E: 17.84
+  Price/Book: 3.25
+  ROE: 17.4%
+  Revenue Growth: 8.5%
+  Debt/Equity: 61%
+  ❌ No signal (missed 2/5): RSI 77.2 >= 30, P/B 3.2 > 3
+
+Analyzing MNSO...
+  MINISO Group Holding Limited
+  Sector: Consumer Cyclical
+  Price: $12.18
+  200-day MA: $13.05 (BELOW)
+  RSI(14): 76.84
+  Trailing P/E: 20.64
+  Price/Book: 2.38
+  ROE: 10.5%
+  Revenue Growth: 14.3%
+  Debt/Equity: 139%
+  ❌ No signal (missed 2/5): RSI 76.8 >= 30, D/E 139% > 100%
+
+Analyzing FUTU...
+  Futu Holdings Limited
+  Sector: Financial Services
+  Price: $86.89
+  200-day MA: $120.68 (BELOW)
+  RSI(14): 32.04
+  Trailing P/E: 8.62
+  Price/Book: 2.43
+  ROE: 30.5%
+  Revenue Growth: 35.6%
+  Debt/Equity: 72% [exempt]
+  ❌ No signal (missed 1/4): RSI 32.0 >= 30
+
+Analyzing 0700.HK...
+  TENCENT
+  Sector: Communication Services
+  Price: $372.80
+  200-day MA: $463.77 (BELOW)
+  RSI(14): 34.87
+  Trailing P/E: 13.12
+  Price/Book: 2.51 [exempt]
+  ROE: 19.9%
+  Revenue Growth: 11.0%
+  Debt/Equity: 39%
+  ❌ No signal (missed 1/4): RSI 34.9 >= 30
+
+Analyzing 9988.HK...
+  BABA-W
+  Sector: Consumer Cyclical
+  Price: $85.25
+  200-day MA: $120.25 (BELOW)
+  RSI(14): 28.92
+  Trailing P/E: 21.15
+  Price/Book: 1.29
+  ROE: 6.4%
+  Revenue Growth: 8.6%
+  Debt/Equity: 24%
+  ✅ SIGNAL TRIGGERED! Missed: 0/5
+
+Analyzing 3690.HK...
+  MEITUAN-W
+  Sector: Consumer Cyclical
+  Price: $70.15
+  200-day MA: $80.32 (BELOW)
+  RSI(14): 42.56
+  Trailing P/E: N/A
+  Price/Book: 2.18
+  ROE: -21.8%
+  Revenue Growth: 14.4%
+  Debt/Equity: 57%
+  ❌ No signal (missed 2/5): RSI 42.6 >= 30, No P/E data
+
+Analyzing 1211.HK...
+  BYD COMPANY
+  Sector: Consumer Cyclical
+  Price: $64.05
+  200-day MA: $88.89 (BELOW)
+  RSI(14): 31.04
+  Trailing P/E: 16.26
+  Price/Book: 1.99
+  ROE: 11.9%
+  Revenue Growth: 13.6%
+  Debt/Equity: 38%
+  ❌ No signal (missed 1/5): RSI 31.0 >= 30
+
+Analyzing 2318.HK...
+  PING AN
+  Sector: Financial Services
+  Price: $50.70
+  200-day MA: $56.52 (BELOW)
+  RSI(14): 43.35
+  Trailing P/E: 8.96
+  Price/Book: 0.75
+  ROE: 8.6%
+  Revenue Growth: -30.7%
+  Debt/Equity: 168% [exempt]
+  ❌ No signal (missed 2/4): RSI 43.4 >= 30, ROE 8.6% < 10% AND Growth -30.7% < 5%
+
+Analyzing 0941.HK...
+  CHINA MOBILE
+  Sector: Communication Services
+  Price: $80.55
+  200-day MA: $77.71 (ABOVE)
+  RSI(14): 56.11
+  Trailing P/E: 11.93
+  Price/Book: 1.06 [exempt]
+  ROE: 9.3%
+  Revenue Growth: -3.4%
+  Debt/Equity: 7%
+  ❌ No signal (missed 2/4): RSI 56.1 >= 30, ROE 9.3% < 10% AND Growth -3.4% < 5%
+
+Analyzing 1398.HK...
+  ICBC
+  Sector: Financial Services
+  Price: $7.93
+  200-day MA: $6.88 (ABOVE)
+  RSI(14): 57.62
+  Trailing P/E: 6.67
+  Price/Book: 0.60
+  ROE: 9.0%
+  Revenue Growth: 9.6%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 57.6 >= 30
+
+Analyzing 3988.HK...
+  BANK OF CHINA
+  Sector: Financial Services
+  Price: $6.28
+  200-day MA: $5.27 (ABOVE)
+  RSI(14): 58.63
+  Trailing P/E: 7.48
+  Price/Book: 0.62
+  ROE: 8.2%
+  Revenue Growth: 1.6%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 2/4): RSI 58.6 >= 30, ROE 8.2% < 10% AND Growth 1.6% < 5%
+
+Analyzing 0939.HK...
+  CCB
+  Sector: Financial Services
+  Price: $10.51
+  200-day MA: $8.76 (ABOVE)
+  RSI(14): 60.83
+  Trailing P/E: 6.96
+  Price/Book: 0.64
+  ROE: 9.4%
+  Revenue Growth: 11.6%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 60.8 >= 30
+
+Analyzing 2628.HK...
+  CHINA LIFE
+  Sector: Financial Services
+  Price: $22.58
+  200-day MA: $27.63 (BELOW)
+  RSI(14): 31.07
+  Trailing P/E: 7.45
+  Price/Book: 0.83
+  ROE: 12.0%
+  Revenue Growth: N/A
+  Debt/Equity: 34% [exempt]
+  ❌ No signal (missed 1/4): RSI 31.1 >= 30
+
+Analyzing 0883.HK...
+  CNOOC
+  Sector: Energy
+  Price: $22.28
+  200-day MA: $24.08 (BELOW)
+  RSI(14): 35.37
+  Trailing P/E: 6.83
+  Price/Book: 1.06
+  ROE: 17.0%
+  Revenue Growth: 7.6%
+  Debt/Equity: 8%
+  ❌ No signal (missed 1/5): RSI 35.4 >= 30
+
+Analyzing 1810.HK...
+  XIAOMI-W
+  Sector: Technology
+  Price: $29.66
+  200-day MA: $29.15 (ABOVE)
+  RSI(14): 58.50
+  Trailing P/E: 21.81
+  Price/Book: 2.41 [exempt]
+  ROE: 12.6%
+  Revenue Growth: -6.1%
+  Debt/Equity: 16%
+  ❌ No signal (missed 1/4): RSI 58.5 >= 30
+
+Analyzing 9618.HK...
+  JD-SW
+  Sector: Consumer Cyclical
+  Price: $97.65
+  200-day MA: $111.43 (BELOW)
+  RSI(14): 35.66
+  Trailing P/E: 15.33
+  Price/Book: 1.01
+  ROE: 6.9%
+  Revenue Growth: 3.5%
+  Debt/Equity: 38%
+  ❌ No signal (missed 2/5): RSI 35.7 >= 30, ROE 6.9% < 10% AND Growth 3.5% < 5%
+
+Analyzing 9999.HK...
+  NTES
+  Sector: Communication Services
+  Price: $188.30
+  200-day MA: $189.21 (BELOW)
+  RSI(14): 47.71
+  Trailing P/E: 16.75
+  Price/Book: 3.07 [exempt]
+  ROE: 20.4%
+  Revenue Growth: 7.9%
+  Debt/Equity: 7%
+  ❌ No signal (missed 1/4): RSI 47.7 >= 30
+
+Analyzing 2020.HK...
+  ANTA SPORTS
+  Sector: Consumer Cyclical
+  Price: $82.10
+  200-day MA: $75.21 (ABOVE)
+  RSI(14): 68.68
+  Trailing P/E: 12.99
+  Price/Book: 2.73
+  ROE: 24.8%
+  Revenue Growth: 12.9%
+  Debt/Equity: 39%
+  ❌ No signal (missed 1/5): RSI 68.7 >= 30
+
+Analyzing 9888.HK...
+  BIDU-W
+  Sector: Communication Services
+  Price: $70.20
+  200-day MA: $108.39 (BELOW)
+  RSI(14): 32.05
+  Trailing P/E: 22.01
+  Price/Book: 0.60 [exempt]
+  ROE: 2.9%
+  Revenue Growth: -1.2%
+  Debt/Equity: 39%
+  ❌ No signal (missed 2/4): RSI 32.0 >= 30, ROE 2.9% < 10% AND Growth -1.2% < 5%
+
+Analyzing 1024.HK...
+  KUAISHOU-W
+  Sector: Communication Services
+  Price: $24.04
+  200-day MA: $43.73 (BELOW)
+  RSI(14): 28.69
+  Trailing P/E: 6.03
+  Price/Book: 1.07 [exempt]
+  ROE: 20.6%
+  Revenue Growth: 1.4%
+  Debt/Equity: 47%
+  ✅ SIGNAL TRIGGERED! Missed: 0/4
+
+Analyzing 0388.HK...
+  HKEX
+  Sector: Financial Services
+  Price: $375.60
+  200-day MA: $392.84 (BELOW)
+  RSI(14): 45.47
+  Trailing P/E: 24.09
+  Price/Book: 8.51
+  ROE: 35.8%
+  Revenue Growth: 1.0%
+  Debt/Equity: 2% [exempt]
+  ❌ No signal (missed 2/4): RSI 45.5 >= 30, P/B 8.5 > 3
+
+Analyzing 0005.HK...
+  HSBC HOLDINGS
+  Sector: Financial Services
+  Price: $136.00
+  200-day MA: $144.84 (BELOW)
+  RSI(14): 39.33
+  Trailing P/E: 11.37
+  Price/Book: 1.71
+  ROE: 14.2%
+  Revenue Growth: 6.0%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 39.3 >= 30
+
+Analyzing 0011.HK...
+  ⚠️  Insufficient price data for 0011.HK
+
+Analyzing BHP.AX...
+  BHP GROUP FPO [BHP]
+  Sector: Basic Materials
+  Price: $54.34
+  200-day MA: $57.45 (BELOW)
+  RSI(14): 36.68
+  Trailing P/E: 19.07$TTM: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$VEDL: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$WNS: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+  Price/Book: 3.81
+  ROE: 24.0%
+  Revenue Growth: 18.3%
+  Debt/Equity: 50%
+  ❌ No signal (missed 2/5): RSI 36.7 >= 30, P/B 3.8 > 3
+
+Analyzing CBA.AX...
+  CWLTH BANK FPO [CBA]
+  Sector: Financial Services
+  Price: $170.88
+  200-day MA: $164.67 (ABOVE)
+  RSI(14): 65.11
+  Trailing P/E: 26.21
+  Price/Book: 3.63
+  ROE: 13.9%
+  Revenue Growth: 6.5%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 3/4): RSI 65.1 >= 30, P/E 26.2 > 25, P/B 3.6 > 3
+
+Analyzing CSL.AX...
+  CSL FPO [CSL]
+  Sector: Healthcare
+  Price: $199.38
+  200-day MA: $144.48 (ABOVE)
+  RSI(14): 57.82
+  Trailing P/E: N/A
+  Price/Book: 4.54
+  ROE: -15.8%
+  Revenue Growth: 5.5%
+  Debt/Equity: 67%
+  ❌ No signal (missed 3/5): RSI 57.8 >= 30, No P/E data, P/B 4.5 > 3
+
+Analyzing NAB.AX...
+  NAT. BANK FPO [NAB]
+  Sector: Financial Services
+  Price: $37.04
+  200-day MA: $39.44 (BELOW)
+  RSI(14): 38.27
+  Trailing P/E: 18.71
+  Price/Book: 1.84
+  ROE: 9.7%
+  Revenue Growth: -3.1%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 2/4): RSI 38.3 >= 30, ROE 9.7% < 10% AND Growth -3.1% < 5%
+
+Analyzing WBC.AX...
+  WESTPAC FPO [WBC]
+  Sector: Financial Services
+  Price: $36.82
+  200-day MA: $36.25 (ABOVE)
+  RSI(14): 56.00
+  Trailing P/E: 18.50
+  Price/Book: 1.77
+  ROE: 9.5%
+  Revenue Growth: -6.4%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 2/4): RSI 56.0 >= 30, ROE 9.5% < 10% AND Growth -6.4% < 5%
+
+Analyzing ANZ.AX...
+  ANZ GROUP FPO [ANZ]
+  Sector: Financial Services
+  Price: $39.02
+  200-day MA: $36.23 (ABOVE)
+  RSI(14): 51.71
+  Trailing P/E: 16.33
+  Price/Book: 1.65
+  ROE: 10.2%
+  Revenue Growth: 0.2%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 51.7 >= 30
+
+Analyzing WES.AX...
+  WESFARMER FPO [WES]
+  Sector: Consumer Cyclical
+  Price: $78.18
+  200-day MA: $79.05 (BELOW)
+  RSI(14): 46.87
+  Trailing P/E: 30.90
+  Price/Book: 11.13
+  ROE: 33.5%
+  Revenue Growth: 3.8%
+  Debt/Equity: 159%
+  ❌ No signal (missed 4/5): RSI 46.9 >= 30, P/E 30.9 > 25, P/B 11.1 > 3, D/E 159% > 100%
+
+Analyzing MQG.AX...
+  MACQ GROUP FPO [MQG]
+  Sector: Financial Services
+  Price: $230.52
+  200-day MA: $233.88 (BELOW)
+  RSI(14): 32.57
+  Trailing P/E: 23.74
+  Price/Book: 2.44
+  ROE: 11.2%
+  Revenue Growth: 5.8%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 32.6 >= 30
+
+Analyzing WDS.AX...
+  WOODSIDE FPO [WDS]
+  Sector: Energy
+  Price: $30.79
+  200-day MA: $30.76 (ABOVE)
+  RSI(14): 40.58
+  Trailing P/E: 12.99
+  Price/Book: 1.14
+  ROE: 7.7%
+  Revenue Growth: 13.0%
+  Debt/Equity: 33%
+  ❌ No signal (missed 1/5): RSI 40.6 >= 30
+
+Analyzing TLS.AX...
+  TELSTRA FPO [TLS]
+  Sector: Communication Services
+  Price: $5.15
+  200-day MA: $4.97 (ABOVE)
+  RSI(14): 69.49
+  Trailing P/E: 25.75
+  Price/Book: 4.56 [exempt]
+  ROE: 15.4%
+  Revenue Growth: -2.0%
+  Debt/Equity: 126%
+  ❌ No signal (missed 3/4): RSI 69.5 >= 30, P/E 25.8 > 25, D/E 126% > 100%
+
+Analyzing RIO.AX...
+  RIO TINTO FPO [RIO]
+  Sector: Basic Materials
+  Price: $140.72
+  200-day MA: $165.44 (BELOW)
+  RSI(14): 33.14
+  Trailing P/E: 12.91
+  Price/Book: 2.46
+  ROE: 19.3%
+  Revenue Growth: 15.5%
+  Debt/Equity: 32%
+  ❌ No signal (missed 1/5): RSI 33.1 >= 30
+
+Analyzing FMG.AX...
+  FORTESCUE FPO [FMG]
+  Sector: Basic Materials
+  Price: $13.49
+  200-day MA: $18.27 (BELOW)
+  RSI(14): 30.70
+  Trailing P/E: 9.85
+  Price/Book: 1.44
+  ROE: 14.2%
+  Revenue Growth: 7.9%
+  Debt/Equity: 29%
+  ❌ No signal (missed 1/5): RSI 30.7 >= 30
+
+Analyzing WOW.AX...
+  WOOLWORTHS FPO [WOW]
+  Sector: Consumer Defensive
+  Price: $41.99
+  200-day MA: $37.41 (ABOVE)
+  RSI(14): 59.38
+  Trailing P/E: 45.15
+  Price/Book: 10.68
+  ROE: 23.3%
+  Revenue Growth: 3.8%
+  Debt/Equity: 336%
+  ❌ No signal (missed 4/5): RSI 59.4 >= 30, P/E 45.2 > 25, P/B 10.7 > 3, D/E 336% > 100%
+
+Analyzing ALL.AX...
+  ARISTOCRAT FPO [ALL]
+  Sector: Consumer Cyclical
+  Price: $64.32
+  200-day MA: $55.77 (ABOVE)
+  RSI(14): 50.03
+  Trailing P/E: 28.71
+  Price/Book: 6.70
+  ROE: 22.3%
+  Revenue Growth: -6.1%
+  Debt/Equity: 32%
+  ❌ No signal (missed 3/5): RSI 50.0 >= 30, P/E 28.7 > 25, P/B 6.7 > 3
+
+Analyzing TCL.AX...
+  TRANSURBAN STAPLED [TCL]
+  Sector: Industrials
+  Price: $15.26
+  200-day MA: $14.04 (ABOVE)
+  RSI(14): 76.97
+  Trailing P/E: 127.17
+  Price/Book: 6.17
+  ROE: 5.0%
+  Revenue Growth: -9.8%
+  Debt/Equity: 271%
+  ❌ No signal (missed 5/5): RSI 77.0 >= 30, P/E 127.2 > 25, P/B 6.2 > 3, ROE 5.0% < 10% AND Growth -9.8% < 5%, D/E 271% > 100%
+
+Analyzing INFY...
+  Infosys Limited
+  Sector: Technology
+  Price: $12.07
+  200-day MA: $12.35 (BELOW)
+  RSI(14): 48.84
+  Trailing P/E: 14.90
+  Price/Book: 9.46 [exempt]
+  ROE: 30.0%
+  Revenue Growth: 1.4%
+  Debt/Equity: 9%
+  ❌ No signal (missed 1/4): RSI 48.8 >= 30
+
+Analyzing WIT...
+  Wipro Limited
+  Sector: Technology
+  Price: $2.05
+  200-day MA: $2.02 (ABOVE)
+  RSI(14): 50.07
+  Trailing P/E: 14.64
+  Price/Book: 2.41 [exempt]
+  ROE: 15.9%
+  Revenue Growth: 9.1%
+  Debt/Equity: 28%
+  ❌ No signal (missed 1/4): RSI 50.1 >= 30
+
+Analyzing HDB...
+  HDFC Bank Limited
+  Sector: Financial Services
+  Price: $26.26
+  200-day MA: $25.37 (ABOVE)
+  RSI(14): 73.05
+  Trailing P/E: 16.94
+  Price/Book: 10.45
+  ROE: 11.0%
+  Revenue Growth: 80.8%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 2/4): RSI 73.0 >= 30, P/B 10.5 > 3
+
+Analyzing IBN...
+  ICICI Bank Limited
+  Sector: Financial Services
+  Price: $34.80
+  200-day MA: $28.58 (ABOVE)
+  RSI(14): 77.75
+  Trailing P/E: 19.77
+  Price/Book: 3.02
+  ROE: 16.5%
+  Revenue Growth: 15.8%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 2/4): RSI 77.8 >= 30, P/B 3.0 > 3
+
+Analyzing SIFY...
+  Sify Technologies Limited - Ame
+  Sector: Communication Services
+  Price: $12.67
+  200-day MA: $14.45 (BELOW)
+  RSI(14): 49.07
+  Trailing P/E: N/A
+  Price/Book: 4.57 [exempt]
+  ROE: N/A
+  Revenue Growth: 31.0%
+  Debt/Equity: N/A
+  ❌ No signal (missed 3/4): RSI 49.1 >= 30, No P/E data, No D/E data
+
+Analyzing TTM...
+  ⚠️  Insufficient price data for TTM
+
+Analyzing RDY...
+  Dr. Reddy's Laboratories Ltd
+  Sector: Healthcare
+  Price: $14.79
+  200-day MA: $13.24 (ABOVE)
+  RSI(14): 69.59
+  Trailing P/E: 41.08
+  Price/Book: 18.02
+  ROE: 7.3%
+  Revenue Growth: -1.5%
+  Debt/Equity: 19%
+  ❌ No signal (missed 4/5): RSI 69.6 >= 30, P/E 41.1 > 25, P/B 18.0 > 3, ROE 7.3% < 10% AND Growth -1.5% < 5%
+
+Analyzing VEDL...
+  ⚠️  Insufficient price data for VEDL
+
+Analyzing WNS...
+  ⚠️  Insufficient price data for WNS
+
+Analyzing ERIC-B.ST...
+  Ericsson, Telefonab. L M ser. B
+  Sector: Technology
+  Price: $105.20
+  200-day MA: $102.84 (ABOVE)
+  RSI(14): 53.44
+  Trailing P/E: 18.11
+  Price/Book: 3.10 [exempt]
+  ROE: 18.1%
+  Revenue Growth: 5.8%
+  Debt/Equity: 41%
+  ❌ No signal (missed 1/4): RSI 53.4 >= 30
+
+Analyzing VOLV-B.ST...
+  Volvo, AB ser. B
+  Sector: Industrials
+  Price: $316.50
+  200-day MA: $326.12 (BELOW)
+  RSI(14): 47.37
+  Trailing P/E: 16.32
+  Price/Book: 3.36
+  ROE: 21.5%
+  Revenue Growth: 8.0%
+  Debt/Equity: 141%
+  ❌ No signal (missed 3/5): RSI 47.4 >= 30, P/B 3.4 > 3, D/E 141% > 100%
+
+Analyzing ATCO-B.ST...
+  Atlas Copco AB ser. B
+  Sector: Industrials
+  Price: $165.95
+  200-day MA: $164.55 (ABOVE)
+  RSI(14): 47.93
+  Trailing P/E: 29.27
+  Price/Book: 6.82
+  ROE: 24.5%
+  Revenue Growth: 15.1%
+  Debt/Equity: 32%
+  ❌ No signal (missed 3/5): RSI 47.9 >= 30, P/E 29.3 > 25, P/B 6.8 > 3
+
+Analyzing INVE-B.ST...
+  Investor AB ser. B
+  Sector: Financial Services
+  Price: $425.05
+  200-day MA: $388.61 (ABOVE)
+  RSI(14): 50.64
+  Trailing P/E: 6.07
+  Price/Book: 1.18
+  ROE: 21.5%
+  Revenue Growth: -60.8%
+  Debt/Equity: 12% [exempt]
+  ❌ No signal (missed 1/4): RSI 50.6 >= 30
+
+Analyzing SEB-A.ST...
+  Skandinaviska Enskilda Banken s
+  Sector: Financial Services
+  Price: $217.90
+  200-day MA: $200.42 (ABOVE)
+  RSI(14): 49.52
+  Trailing P/E: 13.92
+  Price/Book: 1.81
+  ROE: 13.5%
+  Revenue Growth: -0.1%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 49.5 >= 30
+
+Analyzing SAND.ST...
+  Sandvik AB
+  Sector: Industrials
+  Price: $339.20
+  200-day MA: $371.70 (BELOW)
+  RSI(14): 36.32
+  Trailing P/E: 22.30
+  Price/Book: 3.88
+  ROE: 19.0%
+  Revenue Growth: 29.1%
+  Debt/Equity: 40%
+  ❌ No signal (missed 2/5): RSI 36.3 >= 30, P/B 3.9 > 3
+
+Analyzing HM-B.ST...
+  Hennes & Mauritz AB, H & M ser.
+  Sector: Consumer Cyclical
+  Price: $177.90
+  200-day MA: $167.64 (ABOVE)
+  RSI(14): 59.11
+  Trailing P/E: 21.56
+  Price/Book: 7.19
+  ROE: 33.3%
+  Revenue Growth: 0.3%
+  Debt/Equity: 201%
+  ❌ No signal (missed 3/5): RSI 59.1 >= 30, P/B 7.2 > 3, D/E 201% > 100%
+
+Analyzing ABB.ST...
+  ABB Ltd
+  Sector: Industrials
+  Price: $824.00
+  200-day MA: $910.10 (BELOW)
+  RSI(14): 39.26
+  Trailing P/E: 31.78
+  Price/Book: 89.81
+  ROE: 31.3%
+  Revenue Growth: 14.3%
+  Debt/Equity: 51%
+  ❌ No signal (missed 3/5): RSI 39.3 >= 30, P/E 31.8 > 25, P/B 89.8 > 3
+
+Analyzing SWED-A.ST...
+  Swedbank AB ser A
+  Sector: Financial Services
+  Price: $415.30
+  200-day MA: $357.19 (ABOVE)
+  RSI(14): 59.09
+  Trailing P/E: 15.05
+  Price/Book: 2.16
+  ROE: 14.3%
+  Revenue Growth: 6.8%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 59.1 >= 30
+
+Analyzing ALFA.ST...
+  Alfa Laval AB
+  Sector: Industrials
+  Price: $534.40
+  200-day MA: $544.52 (BELOW)
+  RSI(14): 39.04
+  Trailing P/E: 27.13
+  Price/Book: 4.46
+  ROE: 17.7%
+  Revenue Growth: 7.8%
+  Debt/Equity: 42%
+  ❌ No signal (missed 3/5): RSI 39.0 >= 30, P/E 27.1 > 25, P/B 4.5 > 3
+
+Analyzing NOVO-B.CO...
+  Novo Nordisk B A/S
+  Sector: Healthcare
+  Price: $274.75
+  200-day MA: $276.73 (BELOW)
+  RSI(14): 54.18
+  Trailing P/E: 10.41
+  Price/Book: 5.56
+  ROE: 58.4%
+  Revenue Growth: 5.6%
+  Debt/Equity: 62%
+  ❌ No signal (missed 2/5): RSI 54.2 >= 30, P/B 5.6 > 3
+
+Analyzing MAERSK-B.CO...
+  A.P. Møller - Mærsk B A/S
+  Sector: Industrials
+  Price: $20330.00
+  200-day MA: $18252.72 (ABOVE)
+  RSI(14): 35.32
+  Trailing P/E: 10.83
+  Price/Book: 0.82
+  ROE: 7.6%
+  Revenue Growth: 27.4%
+  Debt/Equity: 30%
+  ❌ No signal (missed 1/5): RSI 35.3 >= 30
+
+Analyzing DSV.CO...
+  DSV A/S
+  Sector: Industrials
+  Price: $1464.00
+  200-day MA: $1496.40 (BELOW)
+  RSI(14): 65.14
+  Trailing P/E: 43.66
+  Price/Book: 2.70
+  ROE: 6.9%
+  Revenue Growth: 12.1%
+  Debt/Equity: 73%
+  ❌ No signal (missed 2/5): RSI 65.1 >= 30, P/E 43.7 > 25
+
+Analyzing CARL-B.CO...
+  Carlsberg B A/S
+  Sector: Consumer Defensive
+  Price: $1003.50
+  200-day MA: $892.59 (ABOVE)
+  RSI(14): 58.20
+  Trailing P/E: 20.82
+  Price/Book: 4.66
+  ROE: 20.4%
+  Revenue Growth: 2.6%
+  Debt/Equity: 134%
+  ❌ No signal (missed 3/5): RSI 58.2 >= 30, P/B 4.7 > 3, D/E 134% > 100%
+
+Analyzing VWS.CO...
+  Vestas Wind Systems A/S
+  Sector: Industrials
+  Price: $183.20
+  200-day MA: $185.18 (BELOW)
+  RSI(14): 39.56
+  Trailing P/E: 21.06
+  Price/Book: 5.92
+  ROE: 29.6%
+  Revenue Growth: 6.3%
+  Debt/Equity: 86%
+  ❌ No signal (missed 2/5): RSI 39.6 >= 30, P/B 5.9 > 3
+
+Analyzing ORSTED.CO...
+  Ørsted A/S
+  Sector: Utilities
+  Price: $138.05
+  200-day MA: $147.19 (BELOW)
+  RSI(14): 49.25
+  Trailing P/E: N/A
+  Price/Book: 1.52
+  ROE: -0.7%
+  Revenue Growth: 72.6%
+  Debt/Equity: 77%
+  ❌ No signal (missed 2/5): RSI 49.2 >= 30, No P/E data
+
+Analyzing COLO-B.CO...
+  Coloplast B A/S
+  Sector: Healthcare
+  Price: $508.20
+  200-day MA: $434.65 (ABOVE)
+  RSI(14): 63.39
+  Trailing P/E: 37.26
+  Price/Book: 8.01
+  ROE: 20.2%
+  Revenue Growth: 7.2%
+  Debt/Equity: 151%
+  ❌ No signal (missed 4/5): RSI 63.4 >= 30, P/E 37.3 > 25, P/B 8.0 > 3, D/E 151% > 100%
+
+Analyzing DEMANT.CO...
+  Demant A/S
+  Sector: Healthcare
+  Price: $347.40
+  200-day MA: $262.55 (ABOVE)
+  RSI(14): 45.21
+  Trailing P/E: 30.26
+  Price/Book: 6.52
+  ROE: 23.3%
+  Revenue Growth: 14.8%
+  Debt/Equity: 179%
+  ❌ No signal (missed 4/5): RSI 45.2 >= 30, P/E 30.3 > 25, P/B 6.5 > 3, D/E 179% > 100%
+
+Analyzing EQNR.OL...
+  EQUINOR
+  Sector: Energy
+  Price: $398.70
+  200-day MA: $361.98 (ABOVE)
+  RSI(14): 43.80
+  Trailing P/E: 8.53
+  Price/Book: 2.25
+  ROE: 27.6%
+  Revenue Growth: 26.6%
+  Debt/Equity: 66%
+  ❌ No signal (missed 1/5): RSI 43.8 >= 30
+
+Analyzing DNB.OL...
+  DNB BANK ASA
+  Sector: Financial Services
+  Price: $327.10
+  200-day MA: $297.37 (ABOVE)
+  RSI(14): 59.98
+  Trailing P/E: 12.06
+  Price/Book: 1.80
+  ROE: 14.4%
+  Revenue Growth: -3.1%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 60.0 >= 30
+
+Analyzing TEL.OL...
+  TELENOR
+  Sector: Communication Services
+  Price: $133.70
+  200-day MA: $140.69 (BELOW)
+  RSI(14): 57.06
+  Trailing P/E: 7.91
+  Price/Book: 2.55 [exempt]
+  ROE: 32.9%
+  Revenue Growth: -2.9%
+  Debt/Equity: 110%
+  ❌ No signal (missed 2/4): RSI 57.1 >= 30, D/E 110% > 100%
+
+Analyzing MOWI.OL...
+  MOWI
+  Sector: Consumer Defensive
+  Price: $228.40
+  200-day MA: $202.56 (ABOVE)
+  RSI(14): 75.57
+  Trailing P/E: 14.93
+  Price/Book: 2.61
+  ROE: 16.9%
+  Revenue Growth: 24.5%
+  Debt/Equity: 82%
+  ❌ No signal (missed 1/5): RSI 75.6 >= 30
+
+Analyzing YAR.OL...
+  YARA INTERNATIONAL
+  Sector: Basic Materials
+  Price: $390.00
+  200-day MA: $459.44 (BELOW)
+  RSI(14): 38.12
+  Trailing P/E: 7.27
+  Price/Book: 1.14
+  ROE: 15.9%
+  Revenue Growth: 8.4%
+  Debt/Equity: 41%
+  ❌ No signal (missed 1/5): RSI 38.1 >= 30
+
+Analyzing NOKIA.HE...
+  Nokia Corporation
+  Sector: Technology
+  Price: $7.01
+  200-day MA: $8.97 (BELOW)
+  RSI(14): 37.98
+  Trailing P/E: 50.10
+  Price/Book: 1.87 [exempt]
+  ROE: 3.9%
+  Revenue Growth: 9.7%
+  Debt/Equity: 16%
+  ❌ No signal (missed 2/4): RSI 38.0 >= 30, P/E 50.1 > 25
+
+Analyzing FORTUM.HE...
+  Fortum Corporation
+  Sector: Utilities
+  Price: $23.09
+  200-day MA: $21.10 (ABOVE)
+  RSI(14): 48.22
+  Trailing P/E: 25.66
+  Price/Book: 2.62
+  ROE: 10.0%
+  Revenue Growth: 19.9%
+  Debt/Equity: 53%
+  ❌ No signal (missed 2/5): RSI 48.2 >= 30, P/E 25.7 > 25
+
+Analyzing NESTE.HE...
+  Neste Corporation
+  Sector: Energy
+  Price: $27.09
+  200-day MA: $28.54 (BELOW)
+  RSI(14): 33.65
+  Trailing P/E: 8.47
+  Price/Book: 2.19
+  ROE: 29.3%
+  Revenue Growth: 44.5%
+  Debt/Equity: 49%
+  ❌ No signal (missed 1/5): RSI 33.7 >= 30
+
+Analyzing UPM.HE...
+  UPM-Kymmene Corporation
+  Sector: Basic Materials
+  Price: $21.80
+  200-day MA: $23.84 (BELOW)
+  RSI(14): 38.60
+  Trailing P/E: 17.03
+  Price/Book: 1.13
+  ROE: 6.8%
+  Revenue Growth: -1.1%
+  Debt/Equity: 36%
+  ❌ No signal (missed 2/5): RSI 38.6 >= 30, ROE 6.8% < 10% AND Growth -1.1% < 5%
+
+Analyzing STERV.HE...
+  Stora Enso Oyj R
+  Sector: Consumer Cyclical
+  Price: $9.21
+  200-day MA: $9.90 (BELOW)
+  RSI(14): 34.92
+  Trailing P/E: 19.19
+  Price/Book: 0.68
+  ROE: 3.7%
+  Revenue Growth: -1.9%
+  Debt/Equity: 30%
+  ❌ No signal (missed 2/5): RSI 34.9 >= 30, ROE 3.7% < 10% AND Growth -1.9% < 5%
+
+Analyzing SAN.MC...
+  BANCO SANTANDER S.A.
+  Sector: Financial Services
+  Price: $10.73
+  200-day MA: $11.14 (BELOW)
+  RSI(14): 41.07
+  Trailing P/E: 11.79
+  Price/Book: 1.36
+  ROE: 13.1%
+  Revenue Growth: 8.8%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 41.1 >= 30
+
+Analyzing BBVA.MC...
+  BANCO BILBAO VIZCAYA ARGENTARIA
+  Sector: Financial Services
+  Price: $22.99
+  200-day MA: $21.19 (ABOVE)
+  RSI(14): 49.34
+  Trailing P/E: 11.73
+  Price/Book: 2.18
+  ROE: 19.8%
+  Revenue Growth: 18.4%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 49.3 >= 30
+
+Analyzing ITX.MC...
+  INDUSTRIA DE DISE...O TEXTIL S.
+  Sector: Consumer Cyclical
+  Price: $59.38
+  200-day MA: $53.68 (ABOVE)
+  RSI(14): 61.28
+  Trailing P/E: 28.55
+  Price/Book: 10.36
+  ROE: 36.8%
+  Revenue Growth: 9.1%
+  Debt/Equity: 35%
+  ❌ No signal (missed 3/5): RSI 61.3 >= 30, P/E 28.5 > 25, P/B 10.4 > 3
+
+Analyzing IBE.MC...
+  ACCIONES IBERDROLA
+  Sector: Utilities
+  Price: $22.79
+  200-day MA: $20.28 (ABOVE)
+  RSI(14): 58.46
+  Trailing P/E: 30.80
+  Price/Book: 2.95
+  ROE: 9.5%
+  Revenue Growth: 15.9%
+  Debt/Equity: 102%
+  ❌ No signal (missed 3/5): RSI 58.5 >= 30, P/E 30.8 > 25, D/E 102% > 100%
+
+Analyzing TEF.MC...
+  TELEFONICA,S.A.$STM.MI: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$LUX.MI: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+  Sector: Communication Services
+  Price: $3.40
+  200-day MA: $3.59 (BELOW)
+  RSI(14): 48.34
+  Trailing P/E: N/A
+  Price/Book: 1.24 [exempt]
+  ROE: -7.3%
+  Revenue Growth: -5.9%
+  Debt/Equity: 222%
+  ❌ No signal (missed 4/4): RSI 48.3 >= 30, No P/E data, ROE -7.3% < 10% AND Growth -5.9% < 5%, D/E 222% > 100%
+
+Analyzing REP.MC...
+  REPSOL,  S.A.
+  Sector: Energy
+  Price: $29.79
+  200-day MA: $24.40 (ABOVE)
+  RSI(14): 50.41
+  Trailing P/E: 5.29
+  Price/Book: 1.29
+  ROE: 21.1%
+  Revenue Growth: 51.8%
+  Debt/Equity: 43%
+  ❌ No signal (missed 1/5): RSI 50.4 >= 30
+
+Analyzing CABK.MC...
+  CAIXABANK, S.A.
+  Sector: Financial Services
+  Price: $11.85
+  200-day MA: $11.48 (ABOVE)
+  RSI(14): 48.80
+  Trailing P/E: 12.47
+  Price/Book: 2.07
+  ROE: 16.5%
+  Revenue Growth: 7.7%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 48.8 >= 30
+
+Analyzing FER.MC...
+  FERROVIAL N.V.
+  Sector: Industrials
+  Price: $54.96
+  200-day MA: $54.26 (ABOVE)
+  RSI(14): 70.98
+  Trailing P/E: 35.23
+  Price/Book: 6.93
+  ROE: 11.6%
+  Revenue Growth: 5.2%
+  Debt/Equity: 144%
+  ❌ No signal (missed 4/5): RSI 71.0 >= 30, P/E 35.2 > 25, P/B 6.9 > 3, D/E 144% > 100%
+
+Analyzing ENI.MI...
+  ENI
+  Sector: Energy
+  Price: $25.41
+  200-day MA: $22.74 (ABOVE)
+  RSI(14): 47.92
+  Trailing P/E: 17.40
+  Price/Book: 1.35
+  ROE: 13.1%
+  Revenue Growth: 26.7%
+  Debt/Equity: 69%
+  ❌ No signal (missed 1/5): RSI 47.9 >= 30
+
+Analyzing ENEL.MI...
+  ENEL
+  Sector: Utilities
+  Price: $9.59
+  200-day MA: $9.42 (ABOVE)
+  RSI(14): 54.41
+  Trailing P/E: 21.80
+  Price/Book: 4.20
+  ROE: 12.4%
+  Revenue Growth: 27.6%
+  Debt/Equity: 154%
+  ❌ No signal (missed 3/5): RSI 54.4 >= 30, P/B 4.2 > 3, D/E 154% > 100%
+
+Analyzing ISP.MI...
+  INTESA SANPAOLO
+  Sector: Financial Services
+  Price: $6.14
+  200-day MA: $5.99 (ABOVE)
+  RSI(14): 46.50
+  Trailing P/E: 10.59
+  Price/Book: 1.56
+  ROE: 14.7%
+  Revenue Growth: 5.5%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 46.5 >= 30
+
+Analyzing UCG.MI...
+  UNICREDIT
+  Sector: Financial Services
+  Price: $81.31
+  200-day MA: $75.30 (ABOVE)
+  RSI(14): 56.32
+  Trailing P/E: 10.81
+  Price/Book: 1.64
+  ROE: 16.1%
+  Revenue Growth: 11.6%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 56.3 >= 30
+
+Analyzing G.MI...
+  GENERALI
+  Sector: Financial Services
+  Price: $44.18
+  200-day MA: $39.90 (ABOVE)
+  RSI(14): 54.86
+  Trailing P/E: 14.93
+  Price/Book: 2.08
+  ROE: 15.1%
+  Revenue Growth: 5.4%
+  Debt/Equity: 119% [exempt]
+  ❌ No signal (missed 1/4): RSI 54.9 >= 30
+
+Analyzing STM.MI...
+  ⚠️  Insufficient price data for STM.MI
+
+Analyzing RACE.MI...
+  FERRARI
+  Sector: Consumer Cyclical
+  Price: $369.75
+  200-day MA: $325.07 (ABOVE)
+  RSI(14): 55.45
+  Trailing P/E: 38.32
+  Price/Book: 16.58
+  ROE: 43.8%
+  Revenue Growth: 7.4%
+  Debt/Equity: 80%
+  ❌ No signal (missed 3/5): RSI 55.5 >= 30, P/E 38.3 > 25, P/B 16.6 > 3
+
+Analyzing LUX.MI...
+  ⚠️  Insufficient price data for LUX.MI
+
+Analyzing RY.TO...
+  ROYAL BANK OF CANADA
+  Sector: Financial Services
+  Price: $280.99
+  200-day MA: $263.30 (ABOVE)
+  RSI(14): 44.81
+  Trailing P/E: 17.72
+  Price/Book: 2.91
+  ROE: 16.2%
+  Revenue Growth: 8.9%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 44.8 >= 30
+
+Analyzing TD.TO...
+  TORONTO-DOMINION BANK
+  Sector: Financial Services
+  Price: $171.08
+  200-day MA: $154.62 (ABOVE)
+  RSI(14): 44.68
+  Trailing P/E: 18.32
+  Price/Book: 2.26
+  ROE: 12.8%
+  Revenue Growth: 11.5%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 44.7 >= 30
+
+Analyzing BNS.TO...
+  BANK OF NOVA SCOTIA
+  Sector: Financial Services
+  Price: $127.43
+  200-day MA: $114.49 (ABOVE)
+  RSI(14): 42.40
+  Trailing P/E: 16.66
+  Price/Book: 1.74
+  ROE: 11.5%
+  Revenue Growth: 11.7%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 42.4 >= 30
+
+Analyzing ENB.TO...
+  ENBRIDGE INC
+  Sector: Energy
+  Price: $67.39
+  200-day MA: $70.61 (BELOW)
+  RSI(14): 53.45
+  Trailing P/E: 23.40
+  Price/Book: 2.47
+  ROE: 9.8%
+  Revenue Growth: 44.0%
+  Debt/Equity: 161%
+  ❌ No signal (missed 2/5): RSI 53.5 >= 30, D/E 161% > 100%
+
+Analyzing CNR.TO...
+  CANADIAN NATIONAL RAILWAY CO.
+  Sector: Industrials
+  Price: $180.54
+  200-day MA: $161.73 (ABOVE)
+  RSI(14): 58.72
+  Trailing P/E: 22.68
+  Price/Book: 4.94
+  ROE: 22.4%
+  Revenue Growth: 14.6%
+  Debt/Equity: 109%
+  ❌ No signal (missed 3/5): RSI 58.7 >= 30, P/B 4.9 > 3, D/E 109% > 100%
+
+Analyzing CP.TO...
+  CANADIAN PACIFIC KANSAS CITY LI
+  Sector: Industrials
+  Price: $133.30
+  200-day MA: $120.94 (ABOVE)
+  RSI(14): 61.89
+  Trailing P/E: 30.79
+  Price/Book: 2.54
+  ROE: 8.3%
+  Revenue Growth: 15.2%
+  Debt/Equity: 55%
+  ❌ No signal (missed 2/5): RSI 61.9 >= 30, P/E 30.8 > 25
+
+Analyzing BMO.TO...
+  BANK OF MONTREAL
+  Sector: Financial Services
+  Price: $237.98
+  200-day MA: $222.72 (ABOVE)
+  RSI(14): 45.32
+  Trailing P/E: 19.40
+  Price/Book: 1.95
+  ROE: 10.6%
+  Revenue Growth: 12.0%
+  Debt/Equity: N/A [exempt]
+  ❌ No signal (missed 1/4): RSI 45.3 >= 30
+
+Analyzing SU.TO...
+  SUNCOR ENERGY INC.
+  Sector: Energy
+  Price: $97.66
+  200-day MA: $88.94 (ABOVE)
+  RSI(14): 42.03
+  Trailing P/E: 10.38
+  Price/Book: 2.28
+  ROE: 23.5%
+  Revenue Growth: 50.4%
+  Debt/Equity: 29%
+  ❌ No signal (missed 1/5): RSI 42.0 >= 30
+
+Analyzing TRP.TO...
+  TC ENERGY CORP.
+  Sector: Energy
+  Price: $92.16
+  200-day MA: $87.94 (ABOVE)
+  RSI(14): 66.34
+  Trailing P/E: 24.84
+  Price/Book: 3.75
+  ROE: 12.1%
+  Revenue Growth: 8.8%
+  Debt/Equity: 168%
+  ❌ No signal (missed 3/5): RSI 66.3 >= 30, P/B 3.8 > 3, D/E 168% > 100%
+
+Analyzing BCE.TO...
+  BCE INC.
+  Sector: Communication Services
+  Price: $31.48
+  200-day MA: $31.74 (BELOW)
+  RSI(14): 66.56
+  Trailing P/E: 12.25
+  Price/Book: 1.40 [exempt]
+  ROE: 11.1%
+  Revenue Growth: 2.2%
+  Debt/Equity: 170%
+  ❌ No signal (missed 2/4): RSI 66.6 >= 30, D/E 170% > 100%
+
+Analyzing CNQ.TO...
+  CDN NATURAL RES
+  Sector: Energy
+  Price: $68.29
+  200-day MA: $64.14 (ABOVE)
+  RSI(14): 39.20
+  Trailing P/E: 10.07
+  Price/Book: 2.98
+  ROE: 32.4%
+  Revenue Growth: 34.4%
+  Debt/Equity: 42%
+  ❌ No signal (missed 1/5): RSI 39.2 >= 30
+
+Analyzing SHOP.TO...
+  SHOPIFY INC
+  Sector: Technology
+  Price: $202.83
+  200-day MA: $181.04 (ABOVE)
+  RSI(14): 40.62
+  Trailing P/E: 89.75
+  Price/Book: 14.57 [exempt]
+  ROE: 16.8%
+  Revenue Growth: 31.6%
+  Debt/Equity: 1%
+  ❌ No signal (missed 2/4): RSI 40.6 >= 30, P/E 89.7 > 25
+
+Analyzing MFC.TO...
+  MANULIFE FIN
+  Sector: Financial Services
+  Price: $62.67
+  200-day MA: $55.65 (ABOVE)
+  RSI(14): 51.66
+  Trailing P/E: 17.96
+  Price/Book: 2.01
+  ROE: 12.2%
+  Revenue Growth: 7.3%
+  Debt/Equity: 51% [exempt]
+  ❌ No signal (missed 1/4): RSI 51.7 >= 30
+
+Analyzing ATD.TO...
+  ALIMENTATION COUCHE-TARD INC
+  Sector: Consumer Cyclical
+  Price: $83.65
+  200-day MA: $82.38 (ABOVE)
+  RSI(14): 56.35
+  Trailing P/E: 17.50
+  Price/Book: 3.28
+  ROE: 19.6%
+  Revenue Growth: 25.1%
+  Debt/Equity: 92%
+  ❌ No signal (missed 2/5): RSI 56.3 >= 30, P/B 3.3 > 3
+
+Analyzing NTR.TO...
+  NUTRIEN LTD
+  Sector: Basic Materials
+  Price: $99.02
+  200-day MA: $97.76 (ABOVE)
+  RSI(14): 47.29
+  Trailing P/E: 15.57
+  Price/Book: 1.30
+  ROE: 8.8%
+  Revenue Growth: 1.2%
+  Debt/Equity: 55%
+  ❌ No signal (missed 2/5): RSI 47.3 >= 30, ROE 8.8% < 10% AND Growth 1.2% < 5%
+
+============================================================
+SUMMARY: 5 signal(s) out of 421 stocks
+============================================================
+
+🚨 SIGNALS TRIGGERED (missed 0):
+   • NVDA @ $155.46 [missed 0/4]
+     200d MA: BELOW | RSI: 22.5 | P/E: 19.7 | P/B: 24.0
+     ROE: 117.2% | Growth: 105.9% | D/E: 17%
+   • RIO.L @ $5872.00 [missed 0/5]
+     200d MA: BELOW | RSI: 29.0 | P/E: 10.7 | P/B: 2.0
+     ROE: 19.3% | Growth: 15.5% | D/E: 32%
+   • BABA @ $86.65 [missed 0/5]
+     200d MA: BELOW | RSI: 26.3 | P/E: 21.0 | P/B: 1.3
+     ROE: 6.4% | Growth: 8.6% | D/E: 24%
+   • 9988.HK @ $85.25 [missed 0/5]
+     200d MA: BELOW | RSI: 28.9 | P/E: 21.2 | P/B: 1.3
+     ROE: 6.4% | Growth: 8.6% | D/E: 24%
+   • 1024.HK @ $24.04 [missed 0/4]
+     200d MA: BELOW | RSI: 28.7 | P/E: 6.0 | P/B: 1.1
+     ROE: 20.6% | Growth: 1.4% | D/E: 47%
+⚠️  Email credentials not configured. Skipping email notification.
+   Set EMAIL_SENDER, EMAIL_PASSWORD, and EMAIL_RECEIVER environment variables.
+
+👀 NEAR MISSES (139 stocks missed 1 criterion):
+   • GOOGL @ $280.20 [missed 1/4]
+     Failed: RSI 32.9 >= 30
+   • META @ $618.87 [missed 1/4]
+     Failed: RSI 42.0 >= 30
+   • CRM @ $194.52 [missed 1/4]
+     Failed: D/E 110% > 100%
+   • ADBE @ $235.55 [missed 1/4]
+     Failed: RSI 41.5 >= 30
+   • INTC @ $55.17 [missed 1/4]
+     Failed: No P/E data
+   • QCOM @ $166.67 [missed 1/4]
+     Failed: RSI 44.7 >= 30
+   • NOW @ $92.90 [missed 1/4]
+     Failed: P/E 66.8 > 25
+   • INTU @ $320.79 [missed 1/4]
+     Failed: RSI 43.3 >= 30
+   • BRK-B @ $586.76 [missed 1/4]
+     Failed: RSI 73.1 >= 30
+   • JPM @ $329.96 [missed 1/4]
+     Failed: RSI 42.1 >= 30
+   • BAC @ $49.44 [missed 1/4]
+     Failed: RSI 37.6 >= 30
+   • WFC @ $82.69 [missed 1/4]
+     Failed: RSI 44.6 >= 30
+   • GS @ $877.52 [missed 1/4]
+     Failed: RSI 43.3 >= 30
+   • MS @ $183.53 [missed 1/4]
+     Failed: RSI 45.1 >= 30
+   • C @ $119.94 [missed 1/4]
+     Failed: RSI 41.8 >= 30
+   • USB @ $59.18 [missed 1/4]
+     Failed: RSI 46.5 >= 30
+   • PNC @ $224.33 [missed 1/4]
+     Failed: RSI 44.9 >= 30
+   • REGN @ $957.76 [missed 1/5]
+     Failed: RSI 68.3 >= 30
+   • CI @ $294.06 [missed 1/5]
+     Failed: RSI 48.5 >= 30
+   • ELV @ $433.93 [missed 1/5]
+     Failed: RSI 55.1 >= 30
+   • FDX @ $319.94 [missed 1/5]
+     Failed: RSI 56.2 >= 30
+   • XOM @ $167.21 [missed 1/5]
+     Failed: RSI 45.0 >= 30
+   • CVX @ $216.13 [missed 1/5]
+     Failed: RSI 47.1 >= 30
+   • COP @ $139.48 [missed 1/5]
+     Failed: RSI 50.2 >= 30
+   • SLB @ $48.95 [missed 1/5]
+     Failed: RSI 40.4 >= 30
+   • EOG @ $154.91 [missed 1/5]
+     Failed: RSI 52.4 >= 30
+   • PSX @ $256.93 [missed 1/5]
+     Failed: RSI 43.5 >= 30
+   • OXY @ $56.52 [missed 1/5]
+     Failed: RSI 38.8 >= 30
+   • HAL @ $31.97 [missed 1/5]
+     Failed: RSI 41.5 >= 30
+   • DIS @ $116.94 [missed 1/4]
+     Failed: RSI 59.0 >= 30
+   • NFLX @ $59.68 [missed 1/4]
+     Failed: RSI 33.0 >= 30
+   • CMCSA @ $25.31 [missed 1/4]
+     Failed: RSI 66.0 >= 30
+   • SIE.DE @ $266.00 [missed 1/5]
+     Failed: RSI 45.6 >= 30
+   • ALV.DE @ $465.80 [missed 1/4]
+     Failed: RSI 61.4 >= 30
+   • BAS.DE @ $51.55 [missed 1/5]
+     Failed: RSI 39.2 >= 30
+   • MUV2.DE @ $584.00 [missed 1/4]
+     Failed: RSI 62.0 >= 30
+   • SHL.DE @ $43.56 [missed 1/5]
+     Failed: RSI 59.1 >= 30
+   • HEI.DE @ $177.45 [missed 1/5]
+     Failed: RSI 71.6 >= 30
+   • FRE.DE @ $54.08 [missed 1/5]
+     Failed: RSI 80.5 >= 30
+   • BEI.DE @ $81.58 [missed 1/5]
+     Failed: RSI 46.2 >= 30
+   • HNR1.DE @ $296.60 [missed 1/4]
+     Failed: RSI 61.2 >= 30
+   • CBK.DE @ $38.41 [missed 1/4]
+     Failed: RSI 46.4 >= 30
+   • TLX.DE @ $133.80 [missed 1/4]
+     Failed: RSI 63.8 >= 30
+   • BOSS.DE @ $38.19 [missed 1/5]
+     Failed: RSI 45.9 >= 30
+   • NDA.DE @ $129.30 [missed 1/5]
+     Failed: RSI 31.5 >= 30
+   • EVD.DE @ $60.55 [missed 1/4]
+     Failed: RSI 47.2 >= 30
+   • DEQ.DE @ $16.12 [missed 1/5]
+     Failed: RSI 45.9 >= 30
+   • BC8.DE @ $32.18 [missed 1/4]
+     Failed: RSI 36.9 >= 30
+   • FNTN.DE @ $24.48 [missed 1/4]
+     Failed: RSI 68.4 >= 30
+   • JEN.DE @ $36.60 [missed 1/4]
+     Failed: RSI 44.9 >= 30
+   • BNR.DE @ $58.26 [missed 1/5]
+     Failed: RSI 37.2 >= 30
+   • SZG.DE @ $46.94 [missed 1/5]
+     Failed: RSI 44.4 >= 30
+   • MC.PA @ $384.90 [missed 1/5]
+     Failed: RSI 39.3 >= 30
+   • TTE.PA @ $81.55 [missed 1/5]
+     Failed: RSI 53.4 >= 30
+   • BN.PA @ $69.44 [missed 1/5]
+     Failed: RSI 67.7 >= 30
+   • CS.PA @ $45.87 [missed 1/4]
+     Failed: RSI 60.1 >= 30
+   • BNP.PA @ $92.54 [missed 1/4]
+     Failed: RSI 51.5 >= 30
+   • GLE.PA @ $64.74 [missed 1/4]
+     Failed: RSI 48.0 >= 30
+   • CAP.PA @ $120.60 [missed 1/4]
+     Failed: RSI 46.6 >= 30
+   • PUB.PA @ $102.15 [missed 1/4]
+     Failed: RSI 51.0 >= 30
+   • DSY.PA @ $24.14 [missed 1/4]
+     Failed: RSI 47.0 >= 30
+   • SGO.PA @ $73.86 [missed 1/5]
+     Failed: RSI 59.4 >= 30
+   • SHEL.L @ $3652.50 [missed 1/5]
+     Failed: RSI 39.8 >= 30
+   • HSBA.L @ $1307.00 [missed 1/4]
+     Failed: RSI 39.3 >= 30
+   • BP.L @ $564.00 [missed 1/5]
+     Failed: RSI 42.0 >= 30
+   • BATS.L @ $4499.00 [missed 1/5]
+     Failed: RSI 50.4 >= 30
+   • LLOY.L @ $97.76 [missed 1/4]
+     Failed: RSI 45.4 >= 30
+   • BARC.L @ $414.80 [missed 1/4]
+     Failed: RSI 40.3 >= 30
+   • PRU.L @ $946.80 [missed 1/4]
+     Failed: RSI 53.2 >= 30
+   • SHELL.AS @ $44.01 [missed 1/5]
+     Failed: RSI 44.4 >= 30
+   • PRX.AS @ $32.38 [missed 1/5]
+     Failed: RSI 30.8 >= 30
+   • HEIA.AS @ $84.12 [missed 1/5]
+     Failed: RSI 69.7 >= 30
+   • INGA.AS @ $28.90 [missed 1/4]
+     Failed: RSI 43.9 >= 30
+   • RAND.AS @ $41.62 [missed 1/5]
+     Failed: RSI 57.9 >= 30
+   • ABN.AS @ $41.01 [missed 1/4]
+     Failed: RSI 47.7 >= 30
+   • UBSG.SW @ $38.96 [missed 1/4]
+     Failed: RSI 43.2 >= 30
+   • SREN.SW @ $151.05 [missed 1/4]
+     Failed: RSI 50.9 >= 30
+   • 6758.T @ $4241.00 [missed 1/4]
+     Failed: RSI 59.6 >= 30
+   • 8306.T @ $3251.00 [missed 1/4]
+     Failed: RSI 40.3 >= 30
+   • 9433.T @ $2952.50 [missed 1/4]
+     Failed: RSI 58.1 >= 30
+   • 6902.T @ $1935.50 [missed 1/5]
+     Failed: RSI 57.8 >= 30
+   • 4063.T @ $5535.00 [missed 1/5]
+     Failed: RSI 40.1 >= 30
+   • 6367.T @ $23040.00 [missed 1/5]
+     Failed: RSI 66.4 >= 30
+   • 7751.T @ $4782.00 [missed 1/4]
+     Failed: RSI 51.8 >= 30
+   • 8001.T @ $2318.00 [missed 1/5]
+     Failed: RSI 50.4 >= 30
+   • 8058.T @ $5100.00 [missed 1/5]
+     Failed: RSI 52.5 >= 30
+   • 8031.T @ $4790.00 [missed 1/5]
+     Failed: RSI 43.2 >= 30
+   • 6762.T @ $2264.00 [missed 1/4]
+     Failed: RSI 37.9 >= 30
+   • 6971.T @ $2877.00 [missed 1/5]
+     Failed: RSI 31.7 >= 30
+   • PDD @ $77.39 [missed 1/5]
+     Failed: RSI 42.7 >= 30
+   • BIDU @ $71.15 [missed 1/4]
+     Failed: ROE 2.9% < 10% AND Growth -1.2% < 5%
+   • NTES @ $119.62 [missed 1/4]
+     Failed: RSI 46.3 >= 30
+   • TME @ $9.47 [missed 1/4]
+     Failed: RSI 63.9 >= 30
+   • BILI @ $11.94 [missed 1/4]
+     Failed: RSI 30.2 >= 30
+   • TAL @ $10.22 [missed 1/5]
+     Failed: RSI 41.9 >= 30
+   • ZTO @ $20.53 [missed 1/5]
+     Failed: RSI 54.3 >= 30
+   • FUTU @ $86.89 [missed 1/4]
+     Failed: RSI 32.0 >= 30
+   • 0700.HK @ $372.80 [missed 1/4]
+     Failed: RSI 34.9 >= 30
+   • 1211.HK @ $64.05 [missed 1/5]
+     Failed: RSI 31.0 >= 30
+   • 1398.HK @ $7.93 [missed 1/4]
+     Failed: RSI 57.6 >= 30
+   • 0939.HK @ $10.51 [missed 1/4]
+     Failed: RSI 60.8 >= 30
+   • 2628.HK @ $22.58 [missed 1/4]
+     Failed: RSI 31.1 >= 30
+   • 0883.HK @ $22.28 [missed 1/5]
+     Failed: RSI 35.4 >= 30
+   • 1810.HK @ $29.66 [missed 1/4]
+     Failed: RSI 58.5 >= 30
+   • 9999.HK @ $188.30 [missed 1/4]
+     Failed: RSI 47.7 >= 30
+   • 2020.HK @ $82.10 [missed 1/5]
+     Failed: RSI 68.7 >= 30
+   • 0005.HK @ $136.00 [missed 1/4]
+     Failed: RSI 39.3 >= 30
+   • ANZ.AX @ $39.02 [missed 1/4]
+     Failed: RSI 51.7 >= 30
+   • MQG.AX @ $230.52 [missed 1/4]
+     Failed: RSI 32.6 >= 30
+   • WDS.AX @ $30.79 [missed 1/5]
+     Failed: RSI 40.6 >= 30
+   • RIO.AX @ $140.72 [missed 1/5]
+     Failed: RSI 33.1 >= 30
+   • FMG.AX @ $13.49 [missed 1/5]
+     Failed: RSI 30.7 >= 30
+   • INFY @ $12.07 [missed 1/4]
+     Failed: RSI 48.8 >= 30
+   • WIT @ $2.05 [missed 1/4]
+     Failed: RSI 50.1 >= 30
+   • ERIC-B.ST @ $105.20 [missed 1/4]
+     Failed: RSI 53.4 >= 30
+   • INVE-B.ST @ $425.05 [missed 1/4]
+     Failed: RSI 50.6 >= 30
+   • SEB-A.ST @ $217.90 [missed 1/4]
+     Failed: RSI 49.5 >= 30
+   • SWED-A.ST @ $415.30 [missed 1/4]
+     Failed: RSI 59.1 >= 30
+   • MAERSK-B.CO @ $20330.00 [missed 1/5]
+     Failed: RSI 35.3 >= 30
+   • EQNR.OL @ $398.70 [missed 1/5]
+     Failed: RSI 43.8 >= 30
+   • DNB.OL @ $327.10 [missed 1/4]
+     Failed: RSI 60.0 >= 30
+   • MOWI.OL @ $228.40 [missed 1/5]
+     Failed: RSI 75.6 >= 30
+   • YAR.OL @ $390.00 [missed 1/5]
+     Failed: RSI 38.1 >= 30
+   • NESTE.HE @ $27.09 [missed 1/5]
+     Failed: RSI 33.7 >= 30
+   • SAN.MC @ $10.73 [missed 1/4]
+     Failed: RSI 41.1 >= 30
+   • BBVA.MC @ $22.99 [missed 1/4]
+     Failed: RSI 49.3 >= 30
+   • REP.MC @ $29.79 [missed 1/5]
+     Failed: RSI 50.4 >= 30
+   • CABK.MC @ $11.85 [missed 1/4]
+     Failed: RSI 48.8 >= 30
+   • ENI.MI @ $25.41 [missed 1/5]
+     Failed: RSI 47.9 >= 30
+   • ISP.MI @ $6.14 [missed 1/4]
+     Failed: RSI 46.5 >= 30
+   • UCG.MI @ $81.31 [missed 1/4]
+     Failed: RSI 56.3 >= 30
+   • G.MI @ $44.18 [missed 1/4]
+     Failed: RSI 54.9 >= 30
+   • RY.TO @ $280.99 [missed 1/4]
+     Failed: RSI 44.8 >= 30
+   • TD.TO @ $171.08 [missed 1/4]
+     Failed: RSI 44.7 >= 30
+   • BNS.TO @ $127.43 [missed 1/4]
+     Failed: RSI 42.4 >= 30
+   • BMO.TO @ $237.98 [missed 1/4]
+     Failed: RSI 45.3 >= 30
+   • SU.TO @ $97.66 [missed 1/5]
+     Failed: RSI 42.0 >= 30
+   • CNQ.TO @ $68.29 [missed 1/5]
+     Failed: RSI 39.2 >= 30
+   • MFC.TO @ $62.67 [missed 1/4]
+     Failed: RSI 51.7 >= 30
+Analyzing NBIS...
+  Nebius Group N.V.
+  Sector: Communication Services
+  Price: $106.04
+  200-day MA: $179.55 (BELOW)
+  RSI(14): 33.70
+  Trailing P/E: N/A
+  Price/Book: 2.53 [exempt]
+  ROE: 1.5%
+  Revenue Growth: 571.3%
+  Debt/Equity: 131%
+  ❌ No signal (missed 3/4): RSI 33.7 >= 30, No P/E data, D/E 131% > 100%
+{'symbol': 'NBIS', 'name': 'Nebius Group N.V.', 'sector': 'Communication Services', 'price': np.float64(106.03500366210938), 'rsi': np.float64(33.69665638076084), 'ma_200': np.float64(179.55257545471193), 'above_200d_ma': np.False_, 'trailing_pe': None, 'price_to_book': 2.5266883, 'roe': 0.01455, 'revenue_growth': 5.713, 'debt_to_equity': 130.875, 'fcf_yield': -65.65449349996446, 'criteria_missed': 3, 'criteria_total': 4, 'signal': False, 'failed_reasons': ['RSI 33.7 >= 30', 'No P/E data', 'D/E 131% > 100%']}
